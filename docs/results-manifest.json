@@ -1,0 +1,147 @@
+{
+  "schema_version": 1,
+  "recorded_at_utc": "2026-11-13T10:06:38.319950+00:00",
+  "paper_results_reproduced": false,
+  "smoke_run": {
+    "code_commit": "35ca03d4f65e246a1e7157bc6d7ae2e750546477",
+    "dirty_state": "M GameFormer_from_Scratch/docs/evidence/cpu-benchmark.json\n M GameFormer_from_Scratch/docs/evidence/cpu-smoke.json\n M GameFormer_from_Scratch/docs/evidence/cpu-tuning.json\n M GameFormer_from_Scratch/docs/evidence/tiny-learning.json",
+    "source_sha256": "193cf2d9e96c5c0e9e097156d78b980af1a7f910d90b613b2a03499388a1d142",
+    "source_hash_protocol": "SHA256 of ordered path:SHA256 lines; gameformer/*.py then configs/*.json",
+    "config_sha256": "62532ec2d1831cdad75218be761c8e1c92a6682f8f64dfb503262c3014f40305",
+    "checkpoint_sha256": "ac048aba25cc02d41dadbdac57c83f1452b9ac846f5edd9d02bc1cabc82a8bc9",
+    "checkpoint_path": "outputs/review-evidence-35ca03d/smoke/latest.pt",
+    "seed": 3407,
+    "dataset": "seeded constant-velocity synthetic scenes",
+    "split": {
+      "train": {
+        "size": 8,
+        "seed": 3407
+      },
+      "validation": {
+        "size": 4,
+        "seed": 103407
+      }
+    },
+    "metric_protocol": "Inference-selected shared final-level mode; ADE per valid timestep, FDE per valid agent at last valid label; meters",
+    "metrics": {
+      "diagnostic/validation_loss": 311.99774169921875,
+      "diagnostic/valid_steps": 640.0,
+      "diagnostic/valid_agents": 8.0,
+      "diagnostic/validation_ADE_m": 8.291232681274414,
+      "diagnostic/validation_FDE_m": 16.631648063659668
+    },
+    "config": {
+      "recipe": "smoke",
+      "model": {
+        "width": 32,
+        "heads": 4,
+        "encoder_layers": 1,
+        "levels": 1,
+        "modes": 6,
+        "actors": 4,
+        "predicted": 2,
+        "history": 11,
+        "future": 80,
+        "lanes": 2,
+        "lane_points": 20,
+        "crosswalks": 1,
+        "crosswalk_points": 10,
+        "lane_stride": 10,
+        "crosswalk_stride": 10,
+        "dropout": 0,
+        "partial_segments": false,
+        "legacy_lane_columns": true,
+        "legacy_heading": true,
+        "normalized_future_pool": false
+      },
+      "task": "joint",
+      "seed": 3407,
+      "epochs": 2,
+      "microbatch": 2,
+      "accumulation": 1,
+      "learning_rate": 0.001,
+      "weight_decay": 0.01,
+      "milestones": [
+        1
+      ],
+      "gamma": 0.5,
+      "clip_norm": 5,
+      "device": "cpu",
+      "precision": "fp32",
+      "workers": 0,
+      "loader_timeout": 30.0,
+      "prefetch": 2,
+      "pin_memory": false,
+      "persistent_workers": false,
+      "fused": false,
+      "compile_model": false,
+      "synthetic": true,
+      "train_size": 8,
+      "validation_size": 4,
+      "train_data": "",
+      "validation_data": "",
+      "tracking_uri": "",
+      "timezone": "Asia/Tokyo",
+      "upload_checkpoint": false
+    },
+    "environment": {
+      "python": "3.11.14",
+      "platform": "Linux-6.8.0-85-generic-x86_64-with-glibc2.35",
+      "torch": "2.15.0+cpu",
+      "numpy": "2.4.6",
+      "cuda": null,
+      "device": "cpu",
+      "gpu": null,
+      "cpu_count": 32,
+      "code_commit": "35ca03d4f65e246a1e7157bc6d7ae2e750546477",
+      "dirty_state": "M GameFormer_from_Scratch/docs/evidence/cpu-benchmark.json\n M GameFormer_from_Scratch/docs/evidence/cpu-smoke.json\n M GameFormer_from_Scratch/docs/evidence/cpu-tuning.json\n M GameFormer_from_Scratch/docs/evidence/tiny-learning.json",
+      "data_manifests": {},
+      "dataset_identity": {
+        "kind": "synthetic",
+        "seed": 3407,
+        "train_size": 8,
+        "validation_size": 4
+      },
+      "playbook_commit": "707c64b138d5e6c534af3d197fd4f278aab03d45",
+      "official_commit": "fcb0d4a0f5cbbcecf69f9b9796366d6f5f2ce128",
+      "initialization": "random; no pretrained weights",
+      "distributed_workers": 1
+    }
+  },
+  "artifacts": [
+    {
+      "path": "docs/evidence/cpu-benchmark.json",
+      "sha256": "37ad619a674dd193aaf875e59f44e5b60a295d536bbb8d0278e3dd19b5f8f4bf"
+    },
+    {
+      "path": "docs/evidence/cpu-smoke.json",
+      "sha256": "039f37debd93c607294a004ecb3cb1979c8cc0381c449579f343c339034bd1c8"
+    },
+    {
+      "path": "docs/evidence/cpu-tuning.json",
+      "sha256": "2fc2ecada80a45e38ca519c6f8b3ad76517cd93c99fe46abb5225a7ee34d5139"
+    },
+    {
+      "path": "docs/evidence/tiny-learning.json",
+      "sha256": "8c4fac041c414b4df72258f014000063070b522c063c333fb5106a1f274af75e"
+    },
+    {
+      "path": "docs/upstream-parity.json",
+      "sha256": "590bdb555c130d7a727787ec625ee6e5ed198a3c9a43535c70a994b0a98a295a"
+    },
+    {
+      "path": "docs/dependency-audit.json",
+      "sha256": "d01522dc31075c42c7a8b5dc284e72ca3d6f527440f8ce26546f42fb4d42794d"
+    },
+    {
+      "path": "notebooks/assets/architecture/manifest.json",
+      "sha256": "a7e3da66a49d1bbaa4494b579e37c9e3a738afde87ce7e4935e13cd50a1daf89"
+    }
+  ],
+  "unmet_scientific_gates": [
+    "real Waymo cache validation",
+    "actual official SDK evaluation",
+    "CUDA precision/gradient/memory checks",
+    "budgeted full training and official split results"
+  ]
+}
