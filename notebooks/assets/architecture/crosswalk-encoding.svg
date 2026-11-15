@@ -1,29 +1,91 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="620" viewBox="0 0 1100 620">
-<rect width="1100" height="620" fill="#f5f7fb"/>
-<g font-family="DejaVu Sans" fill="#172336">
-<text x="32" y="43" font-size="25" font-weight="bold" fill="#172336">A point MLP for crosswalks</text>
-<text x="33" y="74" font-size="14" font-weight="normal" fill="#172336">Full: [B,P,4,50,3] -&gt; [B,P,4,50,256]. No lane positional embedding.</text>
-<rect x="32" y="128" width="336" height="362" rx="12" fill="#e7eefb" stroke="#2c518c" stroke-width="1.5"/>
-<text x="49" y="164" font-size="17" font-weight="bold" fill="#2c518c">Toy input point</text>
-<text x="49" y="207" font-size="15" font-weight="normal" fill="#172336">(x,y,heading) = (2,-1,0)</text>
-<text x="49" y="244" font-size="15" font-weight="normal" fill="#172336">Illustrative 2-channel layer</text>
-<text x="49" y="281" font-size="15" font-weight="normal" fill="#172336">W rows: (1,0,0), (0,-1,0)</text>
-<text x="49" y="318" font-size="15" font-weight="normal" fill="#172336">Biases = 0</text>
-<rect x="397" y="128" width="336" height="362" rx="12" fill="#fff0d8" stroke="#805100" stroke-width="1.5"/>
-<text x="414" y="164" font-size="17" font-weight="bold" fill="#805100">Apply linear and ReLU</text>
-<text x="414" y="207" font-size="15" font-weight="normal" fill="#172336">W * point = (2,1)</text>
-<text x="414" y="244" font-size="15" font-weight="normal" fill="#172336">ReLU(2,1) = (2,1)</text>
-<text x="414" y="281" font-size="15" font-weight="normal" fill="#172336">Actual MLP widths:</text>
-<text x="414" y="318" font-size="15" font-weight="normal" fill="#172336">3 -&gt; 64 -&gt; 128 -&gt; 256</text>
-<rect x="762" y="128" width="336" height="362" rx="12" fill="#e1f4e9" stroke="#24633e" stroke-width="1.5"/>
-<text x="779" y="164" font-size="17" font-weight="bold" fill="#24633e">Preserve the point axis</text>
-<text x="779" y="207" font-size="15" font-weight="normal" fill="#172336">No temporal pooling here</text>
-<text x="779" y="244" font-size="15" font-weight="normal" fill="#172336">Each point retains a token</text>
-<text x="779" y="281" font-size="15" font-weight="normal" fill="#172336">Padding is masked explicitly</text>
-<text x="779" y="318" font-size="15" font-weight="normal" fill="#172336">Segment pooling comes next</text>
-<path d="M371 310 H388 M381 304 L389 310 L381 316" stroke="#536783" stroke-width="2.5" fill="none"/>
-<path d="M736 310 H753 M746 304 L754 310 L746 316" stroke="#536783" stroke-width="2.5" fill="none"/>
-<text x="33" y="528" font-size="14" font-weight="normal" fill="#172336">Blue: inputs   |   Amber: operation   |   Green: result / interpretation</text>
-<text x="33" y="558" font-size="14" font-weight="normal" fill="#172336">Worked toy values explain the computation; they are not trained-model measurements.</text>
-<text x="33" y="588" font-size="12" font-weight="normal" fill="#172336">Source: gameformer/model.py  |  Figure: crosswalk-encoding</text>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="760" viewBox="0 0 1200 760">
+<rect width="1200" height="760" fill="#f8fafc"/>
+<g font-family="DejaVu Sans">
+<text x="43" y="49" font-size="29" font-weight="bold" text-anchor="start" fill="#172b45">A point MLP for crosswalks</text>
+<text x="44" y="82" font-size="16" font-weight="normal" text-anchor="start" fill="#586b80">Full: [B,P,4,50,3] -&gt; [B,P,4,50,256]. No lane positional embedding.</text>
+<polyline points="44,103 1155,103" fill="none" stroke="#d4dee8" stroke-width="1" stroke-linejoin="round"/>
+<ellipse cx="56" cy="135" rx="13" ry="13" fill="#2976c9" stroke="#2976c9" stroke-width="2"/>
+<text x="56" y="141" font-size="15" font-weight="bold" text-anchor="middle" fill="#ffffff">1</text>
+<text x="79" y="142" font-size="20" font-weight="bold" text-anchor="start" fill="#172b45">Polygon point inputs</text>
+<rect x="46" y="174" width="315" height="280" rx="10" fill="#e5eceb" stroke="#d4dee8" stroke-width="1.5"/>
+<polygon points="65,420 83,420 112,205 97,205" fill="#ffffff" stroke="#ffffff" stroke-width="1.5"/>
+<polygon points="103,420 121,420 143,205 128,205" fill="#ffffff" stroke="#ffffff" stroke-width="1.5"/>
+<polygon points="141,420 159,420 174,205 159,205" fill="#ffffff" stroke="#ffffff" stroke-width="1.5"/>
+<polygon points="179,420 197,420 205,205 190,205" fill="#ffffff" stroke="#ffffff" stroke-width="1.5"/>
+<polygon points="217,420 235,420 236,205 221,205" fill="#ffffff" stroke="#ffffff" stroke-width="1.5"/>
+<polygon points="255,420 273,420 267,205 252,205" fill="#ffffff" stroke="#ffffff" stroke-width="1.5"/>
+<polygon points="293,420 311,420 298,205 283,205" fill="#ffffff" stroke="#ffffff" stroke-width="1.5"/>
+<ellipse cx="89" cy="407" rx="6" ry="6" fill="#008b87" stroke="#008b87" stroke-width="2"/>
+<ellipse cx="295" cy="399" rx="6" ry="6" fill="#008b87" stroke="#008b87" stroke-width="2"/>
+<ellipse cx="309" cy="219" rx="6" ry="6" fill="#008b87" stroke="#008b87" stroke-width="2"/>
+<ellipse cx="116" cy="215" rx="6" ry="6" fill="#008b87" stroke="#008b87" stroke-width="2"/>
+<ellipse cx="295" cy="399" rx="10" ry="10" fill="#d98524" stroke="#d98524" stroke-width="2"/>
+<text x="64" y="489" font-size="20" font-weight="bold" text-anchor="start" fill="#d98524">Toy point: (2, −1, 0)</text>
+<text x="64" y="524" font-size="16" font-weight="normal" text-anchor="start" fill="#586b80">x, y in meters; heading in radians</text>
+<ellipse cx="423" cy="135" rx="13" ry="13" fill="#2976c9" stroke="#2976c9" stroke-width="2"/>
+<text x="423" y="141" font-size="15" font-weight="bold" text-anchor="middle" fill="#ffffff">2</text>
+<text x="446" y="142" font-size="20" font-weight="bold" text-anchor="start" fill="#172b45">A shared point-wise MLP</text>
+<text x="441" y="259.75" font-size="18" font-weight="normal" text-anchor="end" fill="#586b80">out 0</text>
+<rect x="454" y="224" width="63" height="55" rx="0" fill="#e6f2f1" stroke="#d4dee8" stroke-width="1"/>
+<text x="485.5" y="260.3" font-size="18" font-weight="normal" text-anchor="middle" fill="#172b45">1</text>
+<rect x="517" y="224" width="63" height="55" rx="0" fill="#ffffff" stroke="#d4dee8" stroke-width="1"/>
+<text x="548.5" y="260.3" font-size="18" font-weight="normal" text-anchor="middle" fill="#172b45">0</text>
+<rect x="580" y="224" width="63" height="55" rx="0" fill="#ffffff" stroke="#d4dee8" stroke-width="1"/>
+<text x="611.5" y="260.3" font-size="18" font-weight="normal" text-anchor="middle" fill="#172b45">0</text>
+<text x="441" y="314.75" font-size="18" font-weight="normal" text-anchor="end" fill="#586b80">out 1</text>
+<rect x="454" y="279" width="63" height="55" rx="0" fill="#ffffff" stroke="#d4dee8" stroke-width="1"/>
+<text x="485.5" y="315.3" font-size="18" font-weight="normal" text-anchor="middle" fill="#172b45">0</text>
+<rect x="517" y="279" width="63" height="55" rx="0" fill="#f9efdf" stroke="#d4dee8" stroke-width="1"/>
+<text x="548.5" y="315.3" font-size="18" font-weight="normal" text-anchor="middle" fill="#172b45">−1</text>
+<rect x="580" y="279" width="63" height="55" rx="0" fill="#ffffff" stroke="#d4dee8" stroke-width="1"/>
+<text x="611.5" y="315.3" font-size="18" font-weight="normal" text-anchor="middle" fill="#172b45">0</text>
+<text x="485.5" y="212" font-size="17" font-weight="normal" text-anchor="middle" fill="#586b80">x</text>
+<text x="548.5" y="212" font-size="17" font-weight="normal" text-anchor="middle" fill="#586b80">y</text>
+<text x="611.5" y="212" font-size="17" font-weight="normal" text-anchor="middle" fill="#586b80">θ</text>
+<text x="548" y="373" font-size="19" font-weight="bold" text-anchor="middle" fill="#008b87">Toy W · point</text>
+<polyline points="667,278 716,278" fill="none" stroke="#172b45" stroke-width="2.3" stroke-linejoin="round"/>
+<polygon points="716,278 706.996,282.35 706.996,273.65" fill="#172b45" stroke="#172b45" stroke-width="1.5"/>
+<rect x="727" y="224" width="72" height="55" rx="0" fill="#ffffff" stroke="#d4dee8" stroke-width="1"/>
+<text x="763" y="260.3" font-size="18" font-weight="normal" text-anchor="middle" fill="#172b45">2</text>
+<rect x="727" y="279" width="72" height="55" rx="0" fill="#ffffff" stroke="#d4dee8" stroke-width="1"/>
+<text x="763" y="315.3" font-size="18" font-weight="normal" text-anchor="middle" fill="#172b45">1</text>
+<polyline points="799,278 846,278" fill="none" stroke="#008b87" stroke-width="2.3" stroke-linejoin="round"/>
+<polygon points="846,278 836.996,282.35 836.996,273.65" fill="#008b87" stroke="#008b87" stroke-width="1.5"/>
+<rect x="846" y="252" width="105" height="52" rx="10" fill="#ffffff" stroke="#008b87" stroke-width="1.5"/>
+<text x="898.5" y="284.12" font-size="18" font-weight="bold" text-anchor="middle" fill="#008b87">ReLU</text>
+<polyline points="951,278 998,278" fill="none" stroke="#008b87" stroke-width="2.3" stroke-linejoin="round"/>
+<polygon points="998,278 988.996,282.35 988.996,273.65" fill="#008b87" stroke="#008b87" stroke-width="1.5"/>
+<rect x="1010" y="224" width="72" height="55" rx="0" fill="#e6f2f1" stroke="#d4dee8" stroke-width="1"/>
+<text x="1046" y="260.3" font-size="18" font-weight="normal" text-anchor="middle" fill="#172b45">2</text>
+<rect x="1010" y="279" width="72" height="55" rx="0" fill="#e6f2f1" stroke="#d4dee8" stroke-width="1"/>
+<text x="1046" y="315.3" font-size="18" font-weight="normal" text-anchor="middle" fill="#172b45">1</text>
+<text x="999" y="373" font-size="16" font-weight="normal" text-anchor="middle" fill="#586b80">Negatives clipped to 0</text>
+<polyline points="411,412 1148,412" fill="none" stroke="#d4dee8" stroke-width="2" stroke-linejoin="round"/>
+<text x="428" y="453" font-size="19" font-weight="bold" text-anchor="start" fill="#172b45">Actual widths</text>
+<rect x="432" y="479" width="105" height="62" rx="10" fill="#ffffff" stroke="#2976c9" stroke-width="1.5"/>
+<text x="484.5" y="518.16" font-size="24" font-weight="bold" text-anchor="middle" fill="#2976c9">3</text>
+<polyline points="537,510 600,510" fill="none" stroke="#008b87" stroke-width="2.3" stroke-linejoin="round"/>
+<polygon points="600,510 590.996,514.35 590.996,505.65" fill="#008b87" stroke="#008b87" stroke-width="1.5"/>
+<text x="568" y="569" font-size="15" font-weight="normal" text-anchor="middle" fill="#586b80">ReLU</text>
+<rect x="600" y="479" width="105" height="62" rx="10" fill="#ffffff" stroke="#008b87" stroke-width="1.5"/>
+<text x="652.5" y="518.16" font-size="24" font-weight="bold" text-anchor="middle" fill="#008b87">64</text>
+<polyline points="705,510 768,510" fill="none" stroke="#008b87" stroke-width="2.3" stroke-linejoin="round"/>
+<polygon points="768,510 758.996,514.35 758.996,505.65" fill="#008b87" stroke="#008b87" stroke-width="1.5"/>
+<text x="736" y="569" font-size="15" font-weight="normal" text-anchor="middle" fill="#586b80">ReLU</text>
+<rect x="768" y="479" width="105" height="62" rx="10" fill="#ffffff" stroke="#008b87" stroke-width="1.5"/>
+<text x="820.5" y="518.16" font-size="24" font-weight="bold" text-anchor="middle" fill="#008b87">128</text>
+<polyline points="873,510 936,510" fill="none" stroke="#008b87" stroke-width="2.3" stroke-linejoin="round"/>
+<polygon points="936,510 926.996,514.35 926.996,505.65" fill="#008b87" stroke="#008b87" stroke-width="1.5"/>
+<rect x="936" y="479" width="105" height="62" rx="10" fill="#ffffff" stroke="#8057ad" stroke-width="1.5"/>
+<text x="988.5" y="518.16" font-size="24" font-weight="bold" text-anchor="middle" fill="#8057ad">256</text>
+<text x="53" y="605" font-size="18" font-weight="normal" text-anchor="start" fill="#586b80">Full input</text>
+<text x="53" y="638" font-size="22" font-weight="bold" text-anchor="start" fill="#008b87">[B, P, 4, 50, 3]</text>
+<polyline points="314,625 425,625" fill="none" stroke="#008b87" stroke-width="2.3" stroke-linejoin="round"/>
+<polygon points="425,625 415.996,629.35 415.996,620.65" fill="#008b87" stroke="#008b87" stroke-width="1.5"/>
+<text x="446" y="637" font-size="22" font-weight="bold" text-anchor="start" fill="#8057ad">[B, P, 4, 50, 256]</text>
+<text x="780" y="622" font-size="18" font-weight="bold" text-anchor="start" fill="#172b45">The point axis is preserved.</text>
+<text x="780" y="653" font-size="17" font-weight="normal" text-anchor="start" fill="#586b80">No lane positional embedding.</text>
+<polyline points="44,720 1155,720" fill="none" stroke="#d4dee8" stroke-width="1" stroke-linejoin="round"/>
+<text x="44" y="743" font-size="13" font-weight="normal" text-anchor="start" fill="#586b80">Illustrative values · untrained</text>
+<text x="1154" y="743" font-size="13" font-weight="normal" text-anchor="end" fill="#586b80">Local source: model.py   ·   crosswalk-encoding</text>
 </g></svg>

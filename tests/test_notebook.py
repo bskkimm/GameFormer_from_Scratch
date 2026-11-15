@@ -5,6 +5,15 @@ import sys
 from gameformer.teaching import verify_assets
 
 
+def test_dashed_paths_keep_their_pattern_across_curve_segments():
+    from gameformer.illustrations import Canvas
+
+    single, segmented = Canvas(), Canvas()
+    single.line([(100, 100), (300, 100)], dash=True)
+    segmented.line([(x, 100) for x in range(100, 301, 10)], dash=True)
+    assert single.picture.tobytes() == segmented.picture.tobytes()
+
+
 def test_figure_rendering_does_not_depend_on_host_fontconfig(tmp_path):
     from pathlib import Path
 
@@ -30,6 +39,32 @@ def test_figure_rendering_does_not_depend_on_host_fontconfig(tmp_path):
 def test_notebook_inventory_freshness_and_deterministic_assets(tmp_path):
     report = verify_assets(regenerate=tmp_path)
     assert report["figures"] == 18 and report["definitions"] >= 20
+
+
+def test_notebook_rejects_explanations_that_drift_from_the_builder(monkeypatch):
+    import nbformat
+    import pytest
+
+    from gameformer.teaching import NOTEBOOK, ROOT
+
+    notebook = nbformat.read(ROOT / NOTEBOOK, as_version=4)
+    notebook.cells[0].source += "\nAn unreviewed change to the pipeline explanation."
+    monkeypatch.setattr(nbformat, "read", lambda *args, **kwargs: notebook)
+    with pytest.raises(AssertionError, match="Stale notebook explanation"):
+        verify_assets()
+
+
+def test_notebook_rejects_executable_probes_that_drift_from_the_builder(monkeypatch):
+    import nbformat
+    import pytest
+
+    from gameformer.teaching import NOTEBOOK, ROOT
+
+    notebook = nbformat.read(ROOT / NOTEBOOK, as_version=4)
+    next(cell for cell in notebook.cells if cell.id == "sample-probe").source += "\npass"
+    monkeypatch.setattr(nbformat, "read", lambda *args, **kwargs: notebook)
+    with pytest.raises(AssertionError, match="Stale notebook executable"):
+        verify_assets()
 
 
 def test_walkthrough_executes_offline_in_fresh_cpu_process():

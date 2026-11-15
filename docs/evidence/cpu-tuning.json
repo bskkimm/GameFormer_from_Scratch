@@ -117,11 +117,11 @@
           "optimizer_updates": 3,
           "measured_groups": 3,
           "warmup_groups": 1,
-          "seconds": 0.025613497011363506,
-          "startup_seconds": 0.012319469009526074,
-          "samples_per_second": 234.25149628487205,
-          "group_seconds": 0.008537832337121168,
-          "loader_wait_seconds": 0.0015288479626178741,
+          "seconds": 0.024537314999179216,
+          "startup_seconds": 0.011794815996836405,
+          "samples_per_second": 244.52553183592838,
+          "group_seconds": 0.008179104999726405,
+          "loader_wait_seconds": 0.001407142000971362,
           "peak_allocated_bytes": null,
           "peak_reserved_bytes": null,
           "cache_conditions": "synthetic generation",
@@ -180,16 +180,16 @@
             "upload_checkpoint": false
           },
           "environment": {
-            "python": "3.11.14",
-            "platform": "Linux-6.8.0-85-generic-x86_64-with-glibc2.35",
+            "python": "3.11.15",
+            "platform": "Linux-6.8.0-149-generic-x86_64-with-glibc2.35",
             "torch": "2.15.0+cpu",
             "numpy": "2.4.6",
             "cuda": null,
             "device": "cpu",
             "gpu": null,
-            "cpu_count": 32,
-            "code_commit": "35ca03d4f65e246a1e7157bc6d7ae2e750546477",
-            "dirty_state": "M GameFormer_from_Scratch/docs/evidence/cpu-benchmark.json\n M GameFormer_from_Scratch/docs/evidence/cpu-smoke.json",
+            "cpu_count": 24,
+            "code_commit": "08efecab86f40480e3350805f1a30c273c6b41f0",
+            "dirty_state": "M docs/evidence/cpu-benchmark.json\n M docs/evidence/cpu-smoke.json\n M gameformer/teaching.py\n M notebooks/assets/architecture/README.md\n M notebooks/assets/architecture/agent-history.png\n M notebooks/assets/architecture/agent-history.svg\n M notebooks/assets/architecture/checkpoint-resume.png\n M notebooks/assets/architecture/checkpoint-resume.svg\n M notebooks/assets/architecture/crosswalk-encoding.png\n M notebooks/assets/architecture/crosswalk-encoding.svg\n M notebooks/assets/architecture/decoding-metrics.png\n M notebooks/assets/architecture/decoding-metrics.svg\n M notebooks/assets/architecture/full-assembly.png\n M notebooks/assets/architecture/full-assembly.svg\n M notebooks/assets/architecture/future-encoding.png\n M notebooks/assets/architecture/future-encoding.svg\n M notebooks/assets/architecture/future-interaction.png\n M notebooks/assets/architecture/future-interaction.svg\n M notebooks/assets/architecture/gaussian-head.png\n M notebooks/assets/architecture/gaussian-head.svg\n M notebooks/assets/architecture/initial-query.png\n M notebooks/assets/architecture/initial-query.svg\n M notebooks/assets/architecture/joint-objective.png\n M notebooks/assets/architecture/joint-objective.svg\n M notebooks/assets/architecture/lane-encoding.png\n M notebooks/assets/architecture/lane-encoding.svg\n M notebooks/assets/architecture/manifest.json\n M notebooks/assets/architecture/map-segments.png\n M notebooks/assets/architecture/map-segments.svg\n M notebooks/assets/architecture/optimizer-update.png\n M notebooks/assets/architecture/optimizer-update.svg\n M notebooks/assets/architecture/overview.png\n M notebooks/assets/architecture/overview.svg\n M notebooks/assets/architecture/reasoning-mask.png\n M notebooks/assets/architecture/reasoning-mask.svg\n M notebooks/assets/architecture/scene-attention.png\n M notebooks/assets/architecture/scene-attention.svg\n M notebooks/assets/architecture/scene-tensors.png\n M notebooks/assets/architecture/scene-tensors.svg\n M notebooks/assets/architecture/tracking-eta.png\n M notebooks/assets/architecture/tracking-eta.svg\n M notebooks/gameformer_e2e_walkthrough.ipynb\n M tests/test_notebook.py\n?? docs/superpowers/plans/2026-11-15-notebook-illustrations.md\n?? gameformer/illustrations.py\n?? gameformer/lesson_notes.py",
             "data_manifests": {},
             "dataset_identity": {
               "kind": "synthetic",
@@ -202,14 +202,14 @@
             "initialization": "random; no pretrained weights",
             "distributed_workers": 1
           },
-          "cpu_affinity": 32,
+          "cpu_affinity": 24,
           "torch_threads": 1,
           "hardware_limits": {
-            "logical_cpus": 32,
+            "logical_cpus": 24,
             "torch_threads": 1,
             "cpu_quota": null,
             "memory_limit_bytes": null,
-            "host_ram_bytes": 67177312256
+            "host_ram_bytes": 100674281472
           }
         },
         {
@@ -218,11 +218,11 @@
           "optimizer_updates": 3,
           "measured_groups": 3,
           "warmup_groups": 1,
-          "seconds": 0.025981600978411734,
-          "startup_seconds": 0.013190413010306656,
-          "samples_per_second": 230.93265133990147,
-          "group_seconds": 0.008660533659470579,
-          "loader_wait_seconds": 0.0015434961533173919,
+          "seconds": 0.024653849999594968,
+          "startup_seconds": 0.012554676999570802,
+          "samples_per_second": 243.36969682619844,
+          "group_seconds": 0.00821794999986499,
+          "loader_wait_seconds": 0.0013875060030841269,
           "peak_allocated_bytes": null,
           "peak_reserved_bytes": null,
           "cache_conditions": "synthetic generation",
@@ -281,16 +281,16 @@
             "upload_checkpoint": false
           },
           "environment": {
-            "python": "3.11.14",
-            "platform": "Linux-6.8.0-85-generic-x86_64-with-glibc2.35",
+            "python": "3.11.15",
+            "platform": "Linux-6.8.0-149-generic-x86_64-with-glibc2.35",
             "torch": "2.15.0+cpu",
             "numpy": "2.4.6",
             "cuda": null,
             "device": "cpu",
             "gpu": null,
-            "cpu_count": 32,
-            "code_commit": "35ca03d4f65e246a1e7157bc6d7ae2e750546477",
-            "dirty_state": "M GameFormer_from_Scratch/docs/evidence/cpu-benchmark.json\n M GameFormer_from_Scratch/docs/evidence/cpu-smoke.json",
+            "cpu_count": 24,
+            "code_commit": "08efecab86f40480e3350805f1a30c273c6b41f0",
+            "dirty_state": "M docs/evidence/cpu-benchmark.json\n M docs/evidence/cpu-smoke.json\n M gameformer/teaching.py\n M notebooks/assets/architecture/README.md\n M notebooks/assets/architecture/agent-history.png\n M notebooks/assets/architecture/agent-history.svg\n M notebooks/assets/architecture/checkpoint-resume.png\n M notebooks/assets/architecture/checkpoint-resume.svg\n M notebooks/assets/architecture/crosswalk-encoding.png\n M notebooks/assets/architecture/crosswalk-encoding.svg\n M notebooks/assets/architecture/decoding-metrics.png\n M notebooks/assets/architecture/decoding-metrics.svg\n M notebooks/assets/architecture/full-assembly.png\n M notebooks/assets/architecture/full-assembly.svg\n M notebooks/assets/architecture/future-encoding.png\n M notebooks/assets/architecture/future-encoding.svg\n M notebooks/assets/architecture/future-interaction.png\n M notebooks/assets/architecture/future-interaction.svg\n M notebooks/assets/architecture/gaussian-head.png\n M notebooks/assets/architecture/gaussian-head.svg\n M notebooks/assets/architecture/initial-query.png\n M notebooks/assets/architecture/initial-query.svg\n M notebooks/assets/architecture/joint-objective.png\n M notebooks/assets/architecture/joint-objective.svg\n M notebooks/assets/architecture/lane-encoding.png\n M notebooks/assets/architecture/lane-encoding.svg\n M notebooks/assets/architecture/manifest.json\n M notebooks/assets/architecture/map-segments.png\n M notebooks/assets/architecture/map-segments.svg\n M notebooks/assets/architecture/optimizer-update.png\n M notebooks/assets/architecture/optimizer-update.svg\n M notebooks/assets/architecture/overview.png\n M notebooks/assets/architecture/overview.svg\n M notebooks/assets/architecture/reasoning-mask.png\n M notebooks/assets/architecture/reasoning-mask.svg\n M notebooks/assets/architecture/scene-attention.png\n M notebooks/assets/architecture/scene-attention.svg\n M notebooks/assets/architecture/scene-tensors.png\n M notebooks/assets/architecture/scene-tensors.svg\n M notebooks/assets/architecture/tracking-eta.png\n M notebooks/assets/architecture/tracking-eta.svg\n M notebooks/gameformer_e2e_walkthrough.ipynb\n M tests/test_notebook.py\n?? docs/superpowers/plans/2026-11-15-notebook-illustrations.md\n?? gameformer/illustrations.py\n?? gameformer/lesson_notes.py",
             "data_manifests": {},
             "dataset_identity": {
               "kind": "synthetic",
@@ -303,18 +303,18 @@
             "initialization": "random; no pretrained weights",
             "distributed_workers": 1
           },
-          "cpu_affinity": 32,
+          "cpu_affinity": 24,
           "torch_threads": 1,
           "hardware_limits": {
-            "logical_cpus": 32,
+            "logical_cpus": 24,
             "torch_threads": 1,
             "cpu_quota": null,
             "memory_limit_bytes": null,
-            "host_ram_bytes": 67177312256
+            "host_ram_bytes": 100674281472
           }
         }
       ],
-      "median_samples_per_second": 232.59207381238676,
+      "median_samples_per_second": 243.9476143310634,
       "memory_headroom_ok": true
     },
     {
@@ -357,7 +357,7 @@
         "device": "cpu",
         "precision": "fp32",
         "workers": 2,
-        "loader_timeout": 19.826074050040916,
+        "loader_timeout": 19.8343391970011,
         "prefetch": 2,
         "pin_memory": false,
         "persistent_workers": true,
@@ -380,11 +380,11 @@
           "optimizer_updates": 3,
           "measured_groups": 3,
           "warmup_groups": 1,
-          "seconds": 0.030207921052351594,
-          "startup_seconds": 0.03357955499086529,
-          "samples_per_second": 198.62340045187977,
-          "group_seconds": 0.010069307017450532,
-          "loader_wait_seconds": 0.0037217960925772786,
+          "seconds": 0.033375700000760844,
+          "startup_seconds": 0.029642356999829644,
+          "samples_per_second": 179.77151040617042,
+          "group_seconds": 0.011125233333586948,
+          "loader_wait_seconds": 0.007085055996867595,
           "peak_allocated_bytes": null,
           "peak_reserved_bytes": null,
           "cache_conditions": "synthetic generation",
@@ -427,7 +427,7 @@
             "device": "cpu",
             "precision": "fp32",
             "workers": 2,
-            "loader_timeout": 19.826074050040916,
+            "loader_timeout": 19.8343391970011,
             "prefetch": 2,
             "pin_memory": false,
             "persistent_workers": true,
@@ -443,16 +443,16 @@
             "upload_checkpoint": false
           },
           "environment": {
-            "python": "3.11.14",
-            "platform": "Linux-6.8.0-85-generic-x86_64-with-glibc2.35",
+            "python": "3.11.15",
+            "platform": "Linux-6.8.0-149-generic-x86_64-with-glibc2.35",
             "torch": "2.15.0+cpu",
             "numpy": "2.4.6",
             "cuda": null,
             "device": "cpu",
             "gpu": null,
-            "cpu_count": 32,
-            "code_commit": "35ca03d4f65e246a1e7157bc6d7ae2e750546477",
-            "dirty_state": "M GameFormer_from_Scratch/docs/evidence/cpu-benchmark.json\n M GameFormer_from_Scratch/docs/evidence/cpu-smoke.json",
+            "cpu_count": 24,
+            "code_commit": "08efecab86f40480e3350805f1a30c273c6b41f0",
+            "dirty_state": "M docs/evidence/cpu-benchmark.json\n M docs/evidence/cpu-smoke.json\n M gameformer/teaching.py\n M notebooks/assets/architecture/README.md\n M notebooks/assets/architecture/agent-history.png\n M notebooks/assets/architecture/agent-history.svg\n M notebooks/assets/architecture/checkpoint-resume.png\n M notebooks/assets/architecture/checkpoint-resume.svg\n M notebooks/assets/architecture/crosswalk-encoding.png\n M notebooks/assets/architecture/crosswalk-encoding.svg\n M notebooks/assets/architecture/decoding-metrics.png\n M notebooks/assets/architecture/decoding-metrics.svg\n M notebooks/assets/architecture/full-assembly.png\n M notebooks/assets/architecture/full-assembly.svg\n M notebooks/assets/architecture/future-encoding.png\n M notebooks/assets/architecture/future-encoding.svg\n M notebooks/assets/architecture/future-interaction.png\n M notebooks/assets/architecture/future-interaction.svg\n M notebooks/assets/architecture/gaussian-head.png\n M notebooks/assets/architecture/gaussian-head.svg\n M notebooks/assets/architecture/initial-query.png\n M notebooks/assets/architecture/initial-query.svg\n M notebooks/assets/architecture/joint-objective.png\n M notebooks/assets/architecture/joint-objective.svg\n M notebooks/assets/architecture/lane-encoding.png\n M notebooks/assets/architecture/lane-encoding.svg\n M notebooks/assets/architecture/manifest.json\n M notebooks/assets/architecture/map-segments.png\n M notebooks/assets/architecture/map-segments.svg\n M notebooks/assets/architecture/optimizer-update.png\n M notebooks/assets/architecture/optimizer-update.svg\n M notebooks/assets/architecture/overview.png\n M notebooks/assets/architecture/overview.svg\n M notebooks/assets/architecture/reasoning-mask.png\n M notebooks/assets/architecture/reasoning-mask.svg\n M notebooks/assets/architecture/scene-attention.png\n M notebooks/assets/architecture/scene-attention.svg\n M notebooks/assets/architecture/scene-tensors.png\n M notebooks/assets/architecture/scene-tensors.svg\n M notebooks/assets/architecture/tracking-eta.png\n M notebooks/assets/architecture/tracking-eta.svg\n M notebooks/gameformer_e2e_walkthrough.ipynb\n M tests/test_notebook.py\n?? docs/superpowers/plans/2026-11-15-notebook-illustrations.md\n?? gameformer/illustrations.py\n?? gameformer/lesson_notes.py",
             "data_manifests": {},
             "dataset_identity": {
               "kind": "synthetic",
@@ -465,14 +465,14 @@
             "initialization": "random; no pretrained weights",
             "distributed_workers": 1
           },
-          "cpu_affinity": 32,
+          "cpu_affinity": 24,
           "torch_threads": 1,
           "hardware_limits": {
-            "logical_cpus": 32,
+            "logical_cpus": 24,
             "torch_threads": 1,
             "cpu_quota": null,
             "memory_limit_bytes": null,
-            "host_ram_bytes": 67177312256
+            "host_ram_bytes": 100674281472
           }
         },
         {
@@ -481,11 +481,11 @@
           "optimizer_updates": 3,
           "measured_groups": 3,
           "warmup_groups": 1,
-          "seconds": 0.027798748924396932,
-          "startup_seconds": 0.03606807196047157,
-          "samples_per_second": 215.83705138378505,
-          "group_seconds": 0.009266249641465643,
-          "loader_wait_seconds": 0.002585318055935204,
+          "seconds": 0.02804105599716422,
+          "startup_seconds": 0.028208717001689365,
+          "samples_per_second": 213.97197026412903,
+          "group_seconds": 0.009347018665721407,
+          "loader_wait_seconds": 0.003442658002313692,
           "peak_allocated_bytes": null,
           "peak_reserved_bytes": null,
           "cache_conditions": "synthetic generation",
@@ -528,7 +528,7 @@
             "device": "cpu",
             "precision": "fp32",
             "workers": 2,
-            "loader_timeout": 19.826074050040916,
+            "loader_timeout": 19.8343391970011,
             "prefetch": 2,
             "pin_memory": false,
             "persistent_workers": true,
@@ -544,16 +544,16 @@
             "upload_checkpoint": false
           },
           "environment": {
-            "python": "3.11.14",
-            "platform": "Linux-6.8.0-85-generic-x86_64-with-glibc2.35",
+            "python": "3.11.15",
+            "platform": "Linux-6.8.0-149-generic-x86_64-with-glibc2.35",
             "torch": "2.15.0+cpu",
             "numpy": "2.4.6",
             "cuda": null,
             "device": "cpu",
             "gpu": null,
-            "cpu_count": 32,
-            "code_commit": "35ca03d4f65e246a1e7157bc6d7ae2e750546477",
-            "dirty_state": "M GameFormer_from_Scratch/docs/evidence/cpu-benchmark.json\n M GameFormer_from_Scratch/docs/evidence/cpu-smoke.json",
+            "cpu_count": 24,
+            "code_commit": "08efecab86f40480e3350805f1a30c273c6b41f0",
+            "dirty_state": "M docs/evidence/cpu-benchmark.json\n M docs/evidence/cpu-smoke.json\n M gameformer/teaching.py\n M notebooks/assets/architecture/README.md\n M notebooks/assets/architecture/agent-history.png\n M notebooks/assets/architecture/agent-history.svg\n M notebooks/assets/architecture/checkpoint-resume.png\n M notebooks/assets/architecture/checkpoint-resume.svg\n M notebooks/assets/architecture/crosswalk-encoding.png\n M notebooks/assets/architecture/crosswalk-encoding.svg\n M notebooks/assets/architecture/decoding-metrics.png\n M notebooks/assets/architecture/decoding-metrics.svg\n M notebooks/assets/architecture/full-assembly.png\n M notebooks/assets/architecture/full-assembly.svg\n M notebooks/assets/architecture/future-encoding.png\n M notebooks/assets/architecture/future-encoding.svg\n M notebooks/assets/architecture/future-interaction.png\n M notebooks/assets/architecture/future-interaction.svg\n M notebooks/assets/architecture/gaussian-head.png\n M notebooks/assets/architecture/gaussian-head.svg\n M notebooks/assets/architecture/initial-query.png\n M notebooks/assets/architecture/initial-query.svg\n M notebooks/assets/architecture/joint-objective.png\n M notebooks/assets/architecture/joint-objective.svg\n M notebooks/assets/architecture/lane-encoding.png\n M notebooks/assets/architecture/lane-encoding.svg\n M notebooks/assets/architecture/manifest.json\n M notebooks/assets/architecture/map-segments.png\n M notebooks/assets/architecture/map-segments.svg\n M notebooks/assets/architecture/optimizer-update.png\n M notebooks/assets/architecture/optimizer-update.svg\n M notebooks/assets/architecture/overview.png\n M notebooks/assets/architecture/overview.svg\n M notebooks/assets/architecture/reasoning-mask.png\n M notebooks/assets/architecture/reasoning-mask.svg\n M notebooks/assets/architecture/scene-attention.png\n M notebooks/assets/architecture/scene-attention.svg\n M notebooks/assets/architecture/scene-tensors.png\n M notebooks/assets/architecture/scene-tensors.svg\n M notebooks/assets/architecture/tracking-eta.png\n M notebooks/assets/architecture/tracking-eta.svg\n M notebooks/gameformer_e2e_walkthrough.ipynb\n M tests/test_notebook.py\n?? docs/superpowers/plans/2026-11-15-notebook-illustrations.md\n?? gameformer/illustrations.py\n?? gameformer/lesson_notes.py",
             "data_manifests": {},
             "dataset_identity": {
               "kind": "synthetic",
@@ -566,18 +566,18 @@
             "initialization": "random; no pretrained weights",
             "distributed_workers": 1
           },
-          "cpu_affinity": 32,
+          "cpu_affinity": 24,
           "torch_threads": 1,
           "hardware_limits": {
-            "logical_cpus": 32,
+            "logical_cpus": 24,
             "torch_threads": 1,
             "cpu_quota": null,
             "memory_limit_bytes": null,
-            "host_ram_bytes": 67177312256
+            "host_ram_bytes": 100674281472
           }
         }
       ],
-      "median_samples_per_second": 207.2302259178324,
+      "median_samples_per_second": 196.87174033514972,
       "memory_headroom_ok": true
     },
     {
@@ -636,7 +636,7 @@
         "upload_checkpoint": false
       },
       "status": "rejected",
-      "reason": "RuntimeError: could not create a primitive descriptor for the LSTM forward propagation primitive. Run workload with environment variable ONEDNN_VERBOSE=all to get additional diagnostic information."
+      "reason": "RuntimeError: DNNL does not support bf16/f16 backward on the platform with avx2_vnni_2"
     },
     {
       "config": {
@@ -701,11 +701,11 @@
           "optimizer_updates": 3,
           "measured_groups": 3,
           "warmup_groups": 1,
-          "seconds": 0.03759590501431376,
-          "startup_seconds": 0.016672482015565038,
-          "samples_per_second": 159.59184910472672,
-          "group_seconds": 0.012531968338104585,
-          "loader_wait_seconds": 0.001714311889372766,
+          "seconds": 0.03515669400076149,
+          "startup_seconds": 0.015583814001729479,
+          "samples_per_second": 170.66451128396886,
+          "group_seconds": 0.01171889800025383,
+          "loader_wait_seconds": 0.0015523180009040516,
           "peak_allocated_bytes": null,
           "peak_reserved_bytes": null,
           "cache_conditions": "synthetic generation",
@@ -764,16 +764,16 @@
             "upload_checkpoint": false
           },
           "environment": {
-            "python": "3.11.14",
-            "platform": "Linux-6.8.0-85-generic-x86_64-with-glibc2.35",
+            "python": "3.11.15",
+            "platform": "Linux-6.8.0-149-generic-x86_64-with-glibc2.35",
             "torch": "2.15.0+cpu",
             "numpy": "2.4.6",
             "cuda": null,
             "device": "cpu",
             "gpu": null,
-            "cpu_count": 32,
-            "code_commit": "35ca03d4f65e246a1e7157bc6d7ae2e750546477",
-            "dirty_state": "M GameFormer_from_Scratch/docs/evidence/cpu-benchmark.json\n M GameFormer_from_Scratch/docs/evidence/cpu-smoke.json",
+            "cpu_count": 24,
+            "code_commit": "08efecab86f40480e3350805f1a30c273c6b41f0",
+            "dirty_state": "M docs/evidence/cpu-benchmark.json\n M docs/evidence/cpu-smoke.json\n M gameformer/teaching.py\n M notebooks/assets/architecture/README.md\n M notebooks/assets/architecture/agent-history.png\n M notebooks/assets/architecture/agent-history.svg\n M notebooks/assets/architecture/checkpoint-resume.png\n M notebooks/assets/architecture/checkpoint-resume.svg\n M notebooks/assets/architecture/crosswalk-encoding.png\n M notebooks/assets/architecture/crosswalk-encoding.svg\n M notebooks/assets/architecture/decoding-metrics.png\n M notebooks/assets/architecture/decoding-metrics.svg\n M notebooks/assets/architecture/full-assembly.png\n M notebooks/assets/architecture/full-assembly.svg\n M notebooks/assets/architecture/future-encoding.png\n M notebooks/assets/architecture/future-encoding.svg\n M notebooks/assets/architecture/future-interaction.png\n M notebooks/assets/architecture/future-interaction.svg\n M notebooks/assets/architecture/gaussian-head.png\n M notebooks/assets/architecture/gaussian-head.svg\n M notebooks/assets/architecture/initial-query.png\n M notebooks/assets/architecture/initial-query.svg\n M notebooks/assets/architecture/joint-objective.png\n M notebooks/assets/architecture/joint-objective.svg\n M notebooks/assets/architecture/lane-encoding.png\n M notebooks/assets/architecture/lane-encoding.svg\n M notebooks/assets/architecture/manifest.json\n M notebooks/assets/architecture/map-segments.png\n M notebooks/assets/architecture/map-segments.svg\n M notebooks/assets/architecture/optimizer-update.png\n M notebooks/assets/architecture/optimizer-update.svg\n M notebooks/assets/architecture/overview.png\n M notebooks/assets/architecture/overview.svg\n M notebooks/assets/architecture/reasoning-mask.png\n M notebooks/assets/architecture/reasoning-mask.svg\n M notebooks/assets/architecture/scene-attention.png\n M notebooks/assets/architecture/scene-attention.svg\n M notebooks/assets/architecture/scene-tensors.png\n M notebooks/assets/architecture/scene-tensors.svg\n M notebooks/assets/architecture/tracking-eta.png\n M notebooks/assets/architecture/tracking-eta.svg\n M notebooks/gameformer_e2e_walkthrough.ipynb\n M tests/test_notebook.py\n?? docs/superpowers/plans/2026-11-15-notebook-illustrations.md\n?? gameformer/illustrations.py\n?? gameformer/lesson_notes.py",
             "data_manifests": {},
             "dataset_identity": {
               "kind": "synthetic",
@@ -786,14 +786,14 @@
             "initialization": "random; no pretrained weights",
             "distributed_workers": 1
           },
-          "cpu_affinity": 32,
+          "cpu_affinity": 24,
           "torch_threads": 1,
           "hardware_limits": {
-            "logical_cpus": 32,
+            "logical_cpus": 24,
             "torch_threads": 1,
             "cpu_quota": null,
             "memory_limit_bytes": null,
-            "host_ram_bytes": 67177312256
+            "host_ram_bytes": 100674281472
           }
         },
         {
@@ -802,11 +802,11 @@
           "optimizer_updates": 3,
           "measured_groups": 3,
           "warmup_groups": 1,
-          "seconds": 0.0370836389483884,
-          "startup_seconds": 0.016526823048479855,
-          "samples_per_second": 161.79641939537197,
-          "group_seconds": 0.012361212982796133,
-          "loader_wait_seconds": 0.001707328949123621,
+          "seconds": 0.034998947998246877,
+          "startup_seconds": 0.015714969002146972,
+          "samples_per_second": 171.43372424509857,
+          "group_seconds": 0.011666315999415625,
+          "loader_wait_seconds": 0.0015742959985800553,
           "peak_allocated_bytes": null,
           "peak_reserved_bytes": null,
           "cache_conditions": "synthetic generation",
@@ -865,16 +865,16 @@
             "upload_checkpoint": false
           },
           "environment": {
-            "python": "3.11.14",
-            "platform": "Linux-6.8.0-85-generic-x86_64-with-glibc2.35",
+            "python": "3.11.15",
+            "platform": "Linux-6.8.0-149-generic-x86_64-with-glibc2.35",
             "torch": "2.15.0+cpu",
             "numpy": "2.4.6",
             "cuda": null,
             "device": "cpu",
             "gpu": null,
-            "cpu_count": 32,
-            "code_commit": "35ca03d4f65e246a1e7157bc6d7ae2e750546477",
-            "dirty_state": "M GameFormer_from_Scratch/docs/evidence/cpu-benchmark.json\n M GameFormer_from_Scratch/docs/evidence/cpu-smoke.json",
+            "cpu_count": 24,
+            "code_commit": "08efecab86f40480e3350805f1a30c273c6b41f0",
+            "dirty_state": "M docs/evidence/cpu-benchmark.json\n M docs/evidence/cpu-smoke.json\n M gameformer/teaching.py\n M notebooks/assets/architecture/README.md\n M notebooks/assets/architecture/agent-history.png\n M notebooks/assets/architecture/agent-history.svg\n M notebooks/assets/architecture/checkpoint-resume.png\n M notebooks/assets/architecture/checkpoint-resume.svg\n M notebooks/assets/architecture/crosswalk-encoding.png\n M notebooks/assets/architecture/crosswalk-encoding.svg\n M notebooks/assets/architecture/decoding-metrics.png\n M notebooks/assets/architecture/decoding-metrics.svg\n M notebooks/assets/architecture/full-assembly.png\n M notebooks/assets/architecture/full-assembly.svg\n M notebooks/assets/architecture/future-encoding.png\n M notebooks/assets/architecture/future-encoding.svg\n M notebooks/assets/architecture/future-interaction.png\n M notebooks/assets/architecture/future-interaction.svg\n M notebooks/assets/architecture/gaussian-head.png\n M notebooks/assets/architecture/gaussian-head.svg\n M notebooks/assets/architecture/initial-query.png\n M notebooks/assets/architecture/initial-query.svg\n M notebooks/assets/architecture/joint-objective.png\n M notebooks/assets/architecture/joint-objective.svg\n M notebooks/assets/architecture/lane-encoding.png\n M notebooks/assets/architecture/lane-encoding.svg\n M notebooks/assets/architecture/manifest.json\n M notebooks/assets/architecture/map-segments.png\n M notebooks/assets/architecture/map-segments.svg\n M notebooks/assets/architecture/optimizer-update.png\n M notebooks/assets/architecture/optimizer-update.svg\n M notebooks/assets/architecture/overview.png\n M notebooks/assets/architecture/overview.svg\n M notebooks/assets/architecture/reasoning-mask.png\n M notebooks/assets/architecture/reasoning-mask.svg\n M notebooks/assets/architecture/scene-attention.png\n M notebooks/assets/architecture/scene-attention.svg\n M notebooks/assets/architecture/scene-tensors.png\n M notebooks/assets/architecture/scene-tensors.svg\n M notebooks/assets/architecture/tracking-eta.png\n M notebooks/assets/architecture/tracking-eta.svg\n M notebooks/gameformer_e2e_walkthrough.ipynb\n M tests/test_notebook.py\n?? docs/superpowers/plans/2026-11-15-notebook-illustrations.md\n?? gameformer/illustrations.py\n?? gameformer/lesson_notes.py",
             "data_manifests": {},
             "dataset_identity": {
               "kind": "synthetic",
@@ -887,33 +887,33 @@
             "initialization": "random; no pretrained weights",
             "distributed_workers": 1
           },
-          "cpu_affinity": 32,
+          "cpu_affinity": 24,
           "torch_threads": 1,
           "hardware_limits": {
-            "logical_cpus": 32,
+            "logical_cpus": 24,
             "torch_threads": 1,
             "cpu_quota": null,
             "memory_limit_bytes": null,
-            "host_ram_bytes": 67177312256
+            "host_ram_bytes": 100674281472
           }
         }
       ],
-      "median_samples_per_second": 160.69413425004933,
+      "median_samples_per_second": 171.04911776453372,
       "memory_headroom_ok": true
     }
   ],
   "selection_claim": "best measured among tested candidates",
   "selection_rule": "correctness + two repeats + candidate worst > incumbent best by 3% + >=10% GPU memory headroom; otherwise FP32 baseline",
-  "elapsed_seconds": 0.7244390469277278,
+  "elapsed_seconds": 0.7252733440000156,
   "time_limit_seconds": 20,
   "budget_semantics": "deadline checked between candidates and timed steps; initialization/probes and one atomic step may overrun",
   "max_trials": 4,
   "hardware_limits": {
-    "logical_cpus": 32,
+    "logical_cpus": 24,
     "torch_threads": 1,
     "cpu_quota": null,
     "memory_limit_bytes": null,
-    "host_ram_bytes": 67177312256
+    "host_ram_bytes": 100674281472
   },
   "candidate_count_available": 5
 }

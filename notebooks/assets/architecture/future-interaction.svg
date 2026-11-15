@@ -1,29 +1,65 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="620" viewBox="0 0 1100 620">
-<rect width="1100" height="620" fill="#f5f7fb"/>
-<g font-family="DejaVu Sans" fill="#172336">
-<text x="32" y="43" font-size="25" font-weight="bold" fill="#172336">Pool modes, then mix future agents</text>
-<text x="33" y="74" font-size="14" font-weight="normal" fill="#172336">Full multi-future [B,P,M,256] -&gt; [B,P,256] -&gt; future self-attention.</text>
-<rect x="32" y="128" width="336" height="362" rx="12" fill="#e7eefb" stroke="#2c518c" stroke-width="1.5"/>
-<text x="49" y="164" font-size="17" font-weight="bold" fill="#2c518c">Toy two-mode features</text>
-<text x="49" y="207" font-size="15" font-weight="normal" fill="#172336">Scalar features: (2,4)</text>
-<text x="49" y="244" font-size="15" font-weight="normal" fill="#172336">Mode probabilities: (.25,.75)</text>
-<text x="49" y="281" font-size="15" font-weight="normal" fill="#172336">Full model has six modes</text>
-<text x="49" y="318" font-size="15" font-weight="normal" fill="#172336">Toy example has two modes</text>
-<rect x="397" y="128" width="336" height="362" rx="12" fill="#fff0d8" stroke="#805100" stroke-width="1.5"/>
-<text x="414" y="164" font-size="17" font-weight="bold" fill="#805100">Released probability pool</text>
-<text x="414" y="207" font-size="15" font-weight="normal" fill="#172336">Weighted values: (.5,3)</text>
-<text x="414" y="244" font-size="15" font-weight="normal" fill="#172336">Source applies mean:</text>
-<text x="414" y="281" font-size="15" font-weight="normal" fill="#172336">(.5 + 3) / 2 = 1.75</text>
-<text x="414" y="318" font-size="15" font-weight="normal" fill="#172336">Normalized sum would be 3.5</text>
-<rect x="762" y="128" width="336" height="362" rx="12" fill="#e1f4e9" stroke="#24633e" stroke-width="1.5"/>
-<text x="779" y="164" font-size="17" font-weight="bold" fill="#24633e">Future interaction</text>
-<text x="779" y="207" font-size="15" font-weight="normal" fill="#172336">Self-attention across agents</text>
-<text x="779" y="244" font-size="15" font-weight="normal" fill="#172336">Residual + norm + FFN</text>
-<text x="779" y="281" font-size="15" font-weight="normal" fill="#172336">Shared future MLP at all k</text>
-<text x="779" y="318" font-size="15" font-weight="normal" fill="#172336">Independent attention at each k</text>
-<path d="M371 310 H388 M381 304 L389 310 L381 316" stroke="#536783" stroke-width="2.5" fill="none"/>
-<path d="M736 310 H753 M746 304 L754 310 L746 316" stroke="#536783" stroke-width="2.5" fill="none"/>
-<text x="33" y="528" font-size="14" font-weight="normal" fill="#172336">Blue: inputs   |   Amber: operation   |   Green: result / interpretation</text>
-<text x="33" y="558" font-size="14" font-weight="normal" fill="#172336">Worked toy values explain the computation; they are not trained-model measurements.</text>
-<text x="33" y="588" font-size="12" font-weight="normal" fill="#172336">Source: gameformer/model.py  |  Figure: future-interaction</text>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="760" viewBox="0 0 1200 760">
+<rect width="1200" height="760" fill="#f8fafc"/>
+<g font-family="DejaVu Sans">
+<text x="43" y="49" font-size="29" font-weight="bold" text-anchor="start" fill="#172b45">Pool modes, then mix future agents</text>
+<text x="44" y="82" font-size="16" font-weight="normal" text-anchor="start" fill="#586b80">Full multi-future [B,P,M,256] -&gt; [B,P,256] -&gt; future self-attention.</text>
+<polyline points="44,103 1155,103" fill="none" stroke="#d4dee8" stroke-width="1" stroke-linejoin="round"/>
+<ellipse cx="56" cy="135" rx="13" ry="13" fill="#2976c9" stroke="#2976c9" stroke-width="2"/>
+<text x="56" y="141" font-size="15" font-weight="bold" text-anchor="middle" fill="#ffffff">1</text>
+<text x="79" y="142" font-size="20" font-weight="bold" text-anchor="start" fill="#172b45">Probability weighting retains the released 1/M factor</text>
+<text x="129" y="254.05" font-size="22" font-weight="normal" text-anchor="end" fill="#586b80">feature</text>
+<rect x="142" y="217" width="108" height="57" rx="0" fill="#eaf2fb" stroke="#d4dee8" stroke-width="1"/>
+<text x="196" y="254.62" font-size="22" font-weight="normal" text-anchor="middle" fill="#172b45">2</text>
+<rect x="250" y="217" width="108" height="57" rx="0" fill="#efeaf6" stroke="#d4dee8" stroke-width="1"/>
+<text x="304" y="254.62" font-size="22" font-weight="normal" text-anchor="middle" fill="#172b45">4</text>
+<text x="129" y="311.05" font-size="22" font-weight="normal" text-anchor="end" fill="#586b80">softmax</text>
+<rect x="142" y="274" width="108" height="57" rx="0" fill="#ffffff" stroke="#d4dee8" stroke-width="1"/>
+<text x="196" y="311.62" font-size="22" font-weight="normal" text-anchor="middle" fill="#172b45">0.25</text>
+<rect x="250" y="274" width="108" height="57" rx="0" fill="#ffffff" stroke="#d4dee8" stroke-width="1"/>
+<text x="304" y="311.62" font-size="22" font-weight="normal" text-anchor="middle" fill="#172b45">0.75</text>
+<text x="196" y="205" font-size="21" font-weight="normal" text-anchor="middle" fill="#586b80">mode 0</text>
+<text x="304" y="205" font-size="21" font-weight="normal" text-anchor="middle" fill="#586b80">mode 1</text>
+<polyline points="388,274 449,274" fill="none" stroke="#2976c9" stroke-width="2.3" stroke-linejoin="round"/>
+<polygon points="449,274 439.996,278.35 439.996,269.65" fill="#2976c9" stroke="#2976c9" stroke-width="1.5"/>
+<text x="481" y="207" font-size="18" font-weight="normal" text-anchor="start" fill="#586b80">element-wise ×</text>
+<rect x="483" y="244" width="102" height="61" rx="0" fill="#eaf2fb" stroke="#d4dee8" stroke-width="1"/>
+<text x="534" y="284.26" font-size="25" font-weight="normal" text-anchor="middle" fill="#172b45">0.5</text>
+<rect x="585" y="244" width="102" height="61" rx="0" fill="#efeaf6" stroke="#d4dee8" stroke-width="1"/>
+<text x="636" y="284.26" font-size="25" font-weight="normal" text-anchor="middle" fill="#172b45">3.0</text>
+<polyline points="710,274 773,274" fill="none" stroke="#2976c9" stroke-width="2.3" stroke-linejoin="round"/>
+<polygon points="773,274 763.996,278.35 763.996,269.65" fill="#2976c9" stroke="#2976c9" stroke-width="1.5"/>
+<text x="805" y="228" font-size="20" font-weight="bold" text-anchor="start" fill="#172b45">mean over M = 2</text>
+<text x="946" y="289" font-size="24" font-weight="bold" text-anchor="middle" fill="#008b87">(0.5 + 3) / 2 = 1.75</text>
+<text x="800" y="337" font-size="18" font-weight="normal" text-anchor="start" fill="#586b80">A normalized sum would be 3.5.</text>
+<polyline points="46,390 1154,390" fill="none" stroke="#d4dee8" stroke-width="2" stroke-linejoin="round"/>
+<ellipse cx="56" cy="429" rx="13" ry="13" fill="#2976c9" stroke="#2976c9" stroke-width="2"/>
+<text x="56" y="435" font-size="15" font-weight="bold" text-anchor="middle" fill="#ffffff">2</text>
+<text x="79" y="436" font-size="20" font-weight="bold" text-anchor="start" fill="#172b45">Self-attention mixes future tokens across agents</text>
+<rect x="87" y="490" width="191" height="55" rx="10" fill="#ffffff" stroke="#2976c9" stroke-width="1.5"/>
+<text x="182.5" y="523.62" font-size="18" font-weight="bold" text-anchor="middle" fill="#2976c9">A: pooled future</text>
+<rect x="87" y="611" width="191" height="55" rx="10" fill="#ffffff" stroke="#008b87" stroke-width="1.5"/>
+<text x="182.5" y="644.62" font-size="18" font-weight="bold" text-anchor="middle" fill="#008b87">B: pooled future</text>
+<rect x="430" y="477" width="270" height="192" rx="10" fill="#ffffff" stroke="#8057ad" stroke-width="1.5"/>
+<text x="565" y="579.46" font-size="19" font-weight="bold" text-anchor="middle" fill="#8057ad">Future self-attention</text>
+<polyline points="279,518 430,518" fill="none" stroke="#2976c9" stroke-width="2.3" stroke-linejoin="round"/>
+<polygon points="430,518 420.996,522.35 420.996,513.65" fill="#2976c9" stroke="#2976c9" stroke-width="1.5"/>
+<polyline points="279,518 430,639" fill="none" stroke="#2976c9" stroke-width="2.3" stroke-linejoin="round"/>
+<polygon points="430,639 420.253,636.764 425.693,629.975" fill="#2976c9" stroke="#2976c9" stroke-width="1.5"/>
+<polyline points="279,639 430,518" fill="none" stroke="#008b87" stroke-width="2.3" stroke-linejoin="round"/>
+<polygon points="430,518 425.693,527.025 420.253,520.236" fill="#008b87" stroke="#008b87" stroke-width="1.5"/>
+<polyline points="279,639 430,639" fill="none" stroke="#008b87" stroke-width="2.3" stroke-linejoin="round"/>
+<polygon points="430,639 420.996,643.35 420.996,634.65" fill="#008b87" stroke="#008b87" stroke-width="1.5"/>
+<polyline points="700,518 799,518" fill="none" stroke="#8057ad" stroke-width="2.3" stroke-linejoin="round"/>
+<polygon points="799,518 789.996,522.35 789.996,513.65" fill="#8057ad" stroke="#8057ad" stroke-width="1.5"/>
+<polyline points="700,639 799,639" fill="none" stroke="#8057ad" stroke-width="2.3" stroke-linejoin="round"/>
+<polygon points="799,639 789.996,643.35 789.996,634.65" fill="#8057ad" stroke="#8057ad" stroke-width="1.5"/>
+<rect x="800" y="491" width="326" height="54" rx="10" fill="#ffffff" stroke="#2976c9" stroke-width="1.5"/>
+<text x="963" y="524.46" font-size="19" font-weight="bold" text-anchor="middle" fill="#2976c9">Mixed A future token</text>
+<rect x="800" y="612" width="326" height="54" rx="10" fill="#ffffff" stroke="#008b87" stroke-width="1.5"/>
+<text x="963" y="645.46" font-size="19" font-weight="bold" text-anchor="middle" fill="#008b87">Mixed B future token</text>
+<text x="958" y="583" font-size="17" font-weight="normal" text-anchor="middle" fill="#586b80">Includes residual + norm + FFN</text>
+<text x="81" y="701" font-size="17" font-weight="normal" text-anchor="start" fill="#586b80">The future MLP is shared across levels; each level has its own interaction attention.</text>
+<polyline points="44,720 1155,720" fill="none" stroke="#d4dee8" stroke-width="1" stroke-linejoin="round"/>
+<text x="44" y="743" font-size="13" font-weight="normal" text-anchor="start" fill="#586b80">Illustrative values · untrained</text>
+<text x="1154" y="743" font-size="13" font-weight="normal" text-anchor="end" fill="#586b80">Local source: model.py   ·   future-interaction</text>
 </g></svg>

@@ -1,29 +1,151 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="620" viewBox="0 0 1100 620">
-<rect width="1100" height="620" fill="#f5f7fb"/>
-<g font-family="DejaVu Sans" fill="#172336">
-<text x="32" y="43" font-size="25" font-weight="bold" fill="#172336">One encoder, a hierarchy of decoders</text>
-<text x="33" y="74" font-size="14" font-weight="normal" fill="#172336">Full release: E6 scene layers; K3 interactions plus initial level 0.</text>
-<rect x="32" y="128" width="336" height="362" rx="12" fill="#e7eefb" stroke="#2c518c" stroke-width="1.5"/>
-<text x="49" y="164" font-size="17" font-weight="bold" fill="#2c518c">Prepare common context</text>
-<text x="49" y="207" font-size="15" font-weight="normal" fill="#172336">C=34 observed actors</text>
-<text x="49" y="244" font-size="15" font-weight="normal" fill="#172336">P=2 agent-local maps</text>
-<text x="49" y="281" font-size="15" font-weight="normal" fill="#172336">D=256 features</text>
-<text x="49" y="318" font-size="15" font-weight="normal" fill="#172336">Scene shape: [B,2,114,256]</text>
-<rect x="397" y="128" width="336" height="362" rx="12" fill="#fff0d8" stroke="#805100" stroke-width="1.5"/>
-<text x="414" y="164" font-size="17" font-weight="bold" fill="#805100">Iterate level-k responses</text>
-<text x="414" y="207" font-size="15" font-weight="normal" fill="#172336">Level 0 -&gt; level 1</text>
-<text x="414" y="244" font-size="15" font-weight="normal" fill="#172336">Level 1 -&gt; level 2</text>
-<text x="414" y="281" font-size="15" font-weight="normal" fill="#172336">Level 2 -&gt; level 3</text>
-<text x="414" y="318" font-size="15" font-weight="normal" fill="#172336">Keep every intermediate output</text>
-<rect x="762" y="128" width="336" height="362" rx="12" fill="#e1f4e9" stroke="#24633e" stroke-width="1.5"/>
-<text x="779" y="164" font-size="17" font-weight="bold" fill="#24633e">Stack all stages</text>
-<text x="779" y="207" font-size="15" font-weight="normal" fill="#172336">Trajectories:</text>
-<text x="779" y="244" font-size="15" font-weight="normal" fill="#172336">[4,B,2,6,80,4]</text>
-<text x="779" y="281" font-size="15" font-weight="normal" fill="#172336">Scores: [4,B,2,6]</text>
-<text x="779" y="318" font-size="15" font-weight="normal" fill="#172336">Paper K6 is a named recipe</text>
-<path d="M371 310 H388 M381 304 L389 310 L381 316" stroke="#536783" stroke-width="2.5" fill="none"/>
-<path d="M736 310 H753 M746 304 L754 310 L746 316" stroke="#536783" stroke-width="2.5" fill="none"/>
-<text x="33" y="528" font-size="14" font-weight="normal" fill="#172336">Blue: inputs   |   Amber: operation   |   Green: result / interpretation</text>
-<text x="33" y="558" font-size="14" font-weight="normal" fill="#172336">Worked toy values explain the computation; they are not trained-model measurements.</text>
-<text x="33" y="588" font-size="12" font-weight="normal" fill="#172336">Source: gameformer/model.py  |  Figure: full-assembly</text>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="760" viewBox="0 0 1200 760">
+<rect width="1200" height="760" fill="#f8fafc"/>
+<g font-family="DejaVu Sans">
+<text x="43" y="49" font-size="29" font-weight="bold" text-anchor="start" fill="#172b45">One encoder, a hierarchy of decoders</text>
+<text x="44" y="82" font-size="16" font-weight="normal" text-anchor="start" fill="#586b80">Full release: E6 scene layers; K3 interactions plus initial level 0.</text>
+<polyline points="44,103 1155,103" fill="none" stroke="#d4dee8" stroke-width="1" stroke-linejoin="round"/>
+<ellipse cx="56" cy="135" rx="13" ry="13" fill="#2976c9" stroke="#2976c9" stroke-width="2"/>
+<text x="56" y="141" font-size="15" font-weight="bold" text-anchor="middle" fill="#ffffff">1</text>
+<text x="79" y="142" font-size="20" font-weight="bold" text-anchor="start" fill="#172b45">Encode observations once</text>
+<rect x="103" y="196" width="70" height="32" rx="3" fill="#ffffff" stroke="#2976c9" stroke-width="1.5"/>
+<polyline points="113,205 113,219" fill="none" stroke="#2976c9" stroke-width="2" stroke-linejoin="round"/>
+<polyline points="123,205 123,219" fill="none" stroke="#2976c9" stroke-width="2" stroke-linejoin="round"/>
+<polyline points="133,205 133,219" fill="none" stroke="#2976c9" stroke-width="2" stroke-linejoin="round"/>
+<polyline points="143,205 143,219" fill="none" stroke="#2976c9" stroke-width="2" stroke-linejoin="round"/>
+<polyline points="153,205 153,219" fill="none" stroke="#2976c9" stroke-width="2" stroke-linejoin="round"/>
+<rect x="98" y="201" width="70" height="32" rx="3" fill="#ffffff" stroke="#2976c9" stroke-width="1.5"/>
+<polyline points="108,210 108,224" fill="none" stroke="#2976c9" stroke-width="2" stroke-linejoin="round"/>
+<polyline points="118,210 118,224" fill="none" stroke="#2976c9" stroke-width="2" stroke-linejoin="round"/>
+<polyline points="128,210 128,224" fill="none" stroke="#2976c9" stroke-width="2" stroke-linejoin="round"/>
+<polyline points="138,210 138,224" fill="none" stroke="#2976c9" stroke-width="2" stroke-linejoin="round"/>
+<polyline points="148,210 148,224" fill="none" stroke="#2976c9" stroke-width="2" stroke-linejoin="round"/>
+<rect x="93" y="206" width="70" height="32" rx="3" fill="#ffffff" stroke="#2976c9" stroke-width="1.5"/>
+<polyline points="103,215 103,229" fill="none" stroke="#2976c9" stroke-width="2" stroke-linejoin="round"/>
+<polyline points="113,215 113,229" fill="none" stroke="#2976c9" stroke-width="2" stroke-linejoin="round"/>
+<polyline points="123,215 123,229" fill="none" stroke="#2976c9" stroke-width="2" stroke-linejoin="round"/>
+<polyline points="133,215 133,229" fill="none" stroke="#2976c9" stroke-width="2" stroke-linejoin="round"/>
+<polyline points="143,215 143,229" fill="none" stroke="#2976c9" stroke-width="2" stroke-linejoin="round"/>
+<rect x="88" y="211" width="70" height="32" rx="3" fill="#ffffff" stroke="#2976c9" stroke-width="1.5"/>
+<polyline points="98,220 98,234" fill="none" stroke="#2976c9" stroke-width="2" stroke-linejoin="round"/>
+<polyline points="108,220 108,234" fill="none" stroke="#2976c9" stroke-width="2" stroke-linejoin="round"/>
+<polyline points="118,220 118,234" fill="none" stroke="#2976c9" stroke-width="2" stroke-linejoin="round"/>
+<polyline points="128,220 128,234" fill="none" stroke="#2976c9" stroke-width="2" stroke-linejoin="round"/>
+<polyline points="138,220 138,234" fill="none" stroke="#2976c9" stroke-width="2" stroke-linejoin="round"/>
+<rect x="83" y="216" width="70" height="32" rx="3" fill="#ffffff" stroke="#2976c9" stroke-width="1.5"/>
+<polyline points="93,225 93,239" fill="none" stroke="#2976c9" stroke-width="2" stroke-linejoin="round"/>
+<polyline points="103,225 103,239" fill="none" stroke="#2976c9" stroke-width="2" stroke-linejoin="round"/>
+<polyline points="113,225 113,239" fill="none" stroke="#2976c9" stroke-width="2" stroke-linejoin="round"/>
+<polyline points="123,225 123,239" fill="none" stroke="#2976c9" stroke-width="2" stroke-linejoin="round"/>
+<polyline points="133,225 133,239" fill="none" stroke="#2976c9" stroke-width="2" stroke-linejoin="round"/>
+<text x="123" y="277" font-size="17" font-weight="normal" text-anchor="middle" fill="#2976c9">34 actors</text>
+<rect x="262" y="196" width="70" height="32" rx="3" fill="#ffffff" stroke="#008b87" stroke-width="1.5"/>
+<polyline points="272,205 272,219" fill="none" stroke="#008b87" stroke-width="2" stroke-linejoin="round"/>
+<polyline points="282,205 282,219" fill="none" stroke="#008b87" stroke-width="2" stroke-linejoin="round"/>
+<polyline points="292,205 292,219" fill="none" stroke="#008b87" stroke-width="2" stroke-linejoin="round"/>
+<polyline points="302,205 302,219" fill="none" stroke="#008b87" stroke-width="2" stroke-linejoin="round"/>
+<polyline points="312,205 312,219" fill="none" stroke="#008b87" stroke-width="2" stroke-linejoin="round"/>
+<rect x="257" y="201" width="70" height="32" rx="3" fill="#ffffff" stroke="#008b87" stroke-width="1.5"/>
+<polyline points="267,210 267,224" fill="none" stroke="#008b87" stroke-width="2" stroke-linejoin="round"/>
+<polyline points="277,210 277,224" fill="none" stroke="#008b87" stroke-width="2" stroke-linejoin="round"/>
+<polyline points="287,210 287,224" fill="none" stroke="#008b87" stroke-width="2" stroke-linejoin="round"/>
+<polyline points="297,210 297,224" fill="none" stroke="#008b87" stroke-width="2" stroke-linejoin="round"/>
+<polyline points="307,210 307,224" fill="none" stroke="#008b87" stroke-width="2" stroke-linejoin="round"/>
+<rect x="252" y="206" width="70" height="32" rx="3" fill="#ffffff" stroke="#008b87" stroke-width="1.5"/>
+<polyline points="262,215 262,229" fill="none" stroke="#008b87" stroke-width="2" stroke-linejoin="round"/>
+<polyline points="272,215 272,229" fill="none" stroke="#008b87" stroke-width="2" stroke-linejoin="round"/>
+<polyline points="282,215 282,229" fill="none" stroke="#008b87" stroke-width="2" stroke-linejoin="round"/>
+<polyline points="292,215 292,229" fill="none" stroke="#008b87" stroke-width="2" stroke-linejoin="round"/>
+<polyline points="302,215 302,229" fill="none" stroke="#008b87" stroke-width="2" stroke-linejoin="round"/>
+<rect x="247" y="211" width="70" height="32" rx="3" fill="#ffffff" stroke="#008b87" stroke-width="1.5"/>
+<polyline points="257,220 257,234" fill="none" stroke="#008b87" stroke-width="2" stroke-linejoin="round"/>
+<polyline points="267,220 267,234" fill="none" stroke="#008b87" stroke-width="2" stroke-linejoin="round"/>
+<polyline points="277,220 277,234" fill="none" stroke="#008b87" stroke-width="2" stroke-linejoin="round"/>
+<polyline points="287,220 287,234" fill="none" stroke="#008b87" stroke-width="2" stroke-linejoin="round"/>
+<polyline points="297,220 297,234" fill="none" stroke="#008b87" stroke-width="2" stroke-linejoin="round"/>
+<rect x="242" y="216" width="70" height="32" rx="3" fill="#ffffff" stroke="#008b87" stroke-width="1.5"/>
+<polyline points="252,225 252,239" fill="none" stroke="#008b87" stroke-width="2" stroke-linejoin="round"/>
+<polyline points="262,225 262,239" fill="none" stroke="#008b87" stroke-width="2" stroke-linejoin="round"/>
+<polyline points="272,225 272,239" fill="none" stroke="#008b87" stroke-width="2" stroke-linejoin="round"/>
+<polyline points="282,225 282,239" fill="none" stroke="#008b87" stroke-width="2" stroke-linejoin="round"/>
+<polyline points="292,225 292,239" fill="none" stroke="#008b87" stroke-width="2" stroke-linejoin="round"/>
+<text x="282" y="277" font-size="17" font-weight="normal" text-anchor="middle" fill="#008b87">local map</text>
+<polyline points="140,294 140,332 214,332 214,366" fill="none" stroke="#2976c9" stroke-width="2.3" stroke-linejoin="round"/>
+<polygon points="214,366 209.65,356.996 218.35,356.996" fill="#2976c9" stroke="#2976c9" stroke-width="1.5"/>
+<polyline points="291,294 291,332 214,332" fill="none" stroke="#008b87" stroke-width="2.3" stroke-linejoin="round"/>
+<polygon points="214,332 223.004,327.65 223.004,336.35" fill="#008b87" stroke="#008b87" stroke-width="1.5"/>
+<rect x="71" y="366" width="287" height="66" rx="10" fill="#ffffff" stroke="#8057ad" stroke-width="1.5"/>
+<text x="214.5" y="405.46" font-size="19" font-weight="bold" text-anchor="middle" fill="#8057ad">Scene Transformer × E6</text>
+<polyline points="214,432 214,490" fill="none" stroke="#8057ad" stroke-width="2.3" stroke-linejoin="round"/>
+<polygon points="214,490 209.65,480.996 218.35,480.996" fill="#8057ad" stroke="#8057ad" stroke-width="1.5"/>
+<rect x="71" y="490" width="287" height="79" rx="10" fill="#ffffff" stroke="#8057ad" stroke-width="1.5"/>
+<text x="214.5" y="537.32" font-size="23" font-weight="bold" text-anchor="middle" fill="#8057ad">[B, 2, 114, 256]</text>
+<text x="76" y="621" font-size="16" font-weight="normal" text-anchor="start" fill="#586b80">2 target-specific map contexts</text>
+<text x="76" y="655" font-size="16" font-weight="normal" text-anchor="start" fill="#586b80">Same observed actors; local maps</text>
+<ellipse cx="418" cy="135" rx="13" ry="13" fill="#2976c9" stroke="#2976c9" stroke-width="2"/>
+<text x="418" y="141" font-size="15" font-weight="bold" text-anchor="middle" fill="#ffffff">2</text>
+<text x="441" y="142" font-size="20" font-weight="bold" text-anchor="start" fill="#172b45">Initial prediction + three interaction levels</text>
+<rect x="412" y="237" width="151" height="74" rx="10" fill="#ffffff" stroke="#2976c9" stroke-width="1.5"/>
+<text x="487.5" y="281.48" font-size="22" font-weight="bold" text-anchor="middle" fill="#2976c9">Level 0</text>
+<text x="487" y="347" font-size="15" font-weight="normal" text-anchor="middle" fill="#2976c9">xy, log σ, scores</text>
+<polyline points="563,274 599,274" fill="none" stroke="#2976c9" stroke-width="2.3" stroke-linejoin="round"/>
+<polygon points="599,274 589.996,278.35 589.996,269.65" fill="#2976c9" stroke="#2976c9" stroke-width="1.5"/>
+<polyline points="487,311 487,398" fill="none" stroke="#2976c9" stroke-width="2.3" stroke-linejoin="round"/>
+<polygon points="487,398 482.65,388.996 491.35,388.996" fill="#2976c9" stroke="#2976c9" stroke-width="1.5"/>
+<rect x="423" y="398" width="128" height="57" rx="5" fill="#ffffff" stroke="#2976c9" stroke-width="1.5"/>
+<polyline points="438,411 532,411" fill="none" stroke="#2976c9" stroke-width="2" stroke-linejoin="round"/>
+<polyline points="438,421 532,421" fill="none" stroke="#2976c9" stroke-width="2" stroke-linejoin="round"/>
+<polyline points="438,431 532,431" fill="none" stroke="#2976c9" stroke-width="2" stroke-linejoin="round"/>
+<polyline points="438,441 532,441" fill="none" stroke="#2976c9" stroke-width="2" stroke-linejoin="round"/>
+<rect x="599" y="237" width="151" height="74" rx="10" fill="#ffffff" stroke="#008b87" stroke-width="1.5"/>
+<text x="674.5" y="281.48" font-size="22" font-weight="bold" text-anchor="middle" fill="#008b87">Level 1</text>
+<text x="674" y="347" font-size="15" font-weight="normal" text-anchor="middle" fill="#008b87">xy, log σ, scores</text>
+<polyline points="750,274 786,274" fill="none" stroke="#008b87" stroke-width="2.3" stroke-linejoin="round"/>
+<polygon points="786,274 776.996,278.35 776.996,269.65" fill="#008b87" stroke="#008b87" stroke-width="1.5"/>
+<polyline points="674,311 674,398" fill="none" stroke="#008b87" stroke-width="2.3" stroke-linejoin="round"/>
+<polygon points="674,398 669.65,388.996 678.35,388.996" fill="#008b87" stroke="#008b87" stroke-width="1.5"/>
+<rect x="610" y="398" width="128" height="57" rx="5" fill="#ffffff" stroke="#008b87" stroke-width="1.5"/>
+<polyline points="625,411 719,411" fill="none" stroke="#008b87" stroke-width="2" stroke-linejoin="round"/>
+<polyline points="625,421 719,421" fill="none" stroke="#008b87" stroke-width="2" stroke-linejoin="round"/>
+<polyline points="625,431 719,431" fill="none" stroke="#008b87" stroke-width="2" stroke-linejoin="round"/>
+<polyline points="625,441 719,441" fill="none" stroke="#008b87" stroke-width="2" stroke-linejoin="round"/>
+<rect x="786" y="237" width="151" height="74" rx="10" fill="#ffffff" stroke="#008b87" stroke-width="1.5"/>
+<text x="861.5" y="281.48" font-size="22" font-weight="bold" text-anchor="middle" fill="#008b87">Level 2</text>
+<text x="861" y="347" font-size="15" font-weight="normal" text-anchor="middle" fill="#008b87">xy, log σ, scores</text>
+<polyline points="937,274 973,274" fill="none" stroke="#008b87" stroke-width="2.3" stroke-linejoin="round"/>
+<polygon points="973,274 963.996,278.35 963.996,269.65" fill="#008b87" stroke="#008b87" stroke-width="1.5"/>
+<polyline points="861,311 861,398" fill="none" stroke="#008b87" stroke-width="2.3" stroke-linejoin="round"/>
+<polygon points="861,398 856.65,388.996 865.35,388.996" fill="#008b87" stroke="#008b87" stroke-width="1.5"/>
+<rect x="797" y="398" width="128" height="57" rx="5" fill="#ffffff" stroke="#008b87" stroke-width="1.5"/>
+<polyline points="812,411 906,411" fill="none" stroke="#008b87" stroke-width="2" stroke-linejoin="round"/>
+<polyline points="812,421 906,421" fill="none" stroke="#008b87" stroke-width="2" stroke-linejoin="round"/>
+<polyline points="812,431 906,431" fill="none" stroke="#008b87" stroke-width="2" stroke-linejoin="round"/>
+<polyline points="812,441 906,441" fill="none" stroke="#008b87" stroke-width="2" stroke-linejoin="round"/>
+<rect x="973" y="237" width="151" height="74" rx="10" fill="#ffffff" stroke="#008b87" stroke-width="1.5"/>
+<text x="1048.5" y="281.48" font-size="22" font-weight="bold" text-anchor="middle" fill="#008b87">Level 3</text>
+<text x="1048" y="347" font-size="15" font-weight="normal" text-anchor="middle" fill="#008b87">xy, log σ, scores</text>
+<polyline points="1048,311 1048,398" fill="none" stroke="#008b87" stroke-width="2.3" stroke-linejoin="round"/>
+<polygon points="1048,398 1043.65,388.996 1052.35,388.996" fill="#008b87" stroke="#008b87" stroke-width="1.5"/>
+<rect x="984" y="398" width="128" height="57" rx="5" fill="#ffffff" stroke="#008b87" stroke-width="1.5"/>
+<polyline points="999,411 1093,411" fill="none" stroke="#008b87" stroke-width="2" stroke-linejoin="round"/>
+<polyline points="999,421 1093,421" fill="none" stroke="#008b87" stroke-width="2" stroke-linejoin="round"/>
+<polyline points="999,431 1093,431" fill="none" stroke="#008b87" stroke-width="2" stroke-linejoin="round"/>
+<polyline points="999,441 1093,441" fill="none" stroke="#008b87" stroke-width="2" stroke-linejoin="round"/>
+<polyline points="358,529 390,529 390,194 1048,194" fill="none" stroke="#8057ad" stroke-width="2" stroke-linejoin="round"/>
+<polyline points="487,194 487,237" fill="none" stroke="#8057ad" stroke-width="2.3" stroke-linejoin="round"/>
+<polygon points="487,237 482.65,227.996 491.35,227.996" fill="#8057ad" stroke="#8057ad" stroke-width="1.5"/>
+<polyline points="674,194 674,237" fill="none" stroke="#8057ad" stroke-width="2.3" stroke-linejoin="round"/>
+<polygon points="674,237 669.65,227.996 678.35,227.996" fill="#8057ad" stroke="#8057ad" stroke-width="1.5"/>
+<polyline points="861,194 861,237" fill="none" stroke="#8057ad" stroke-width="2.3" stroke-linejoin="round"/>
+<polygon points="861,237 856.65,227.996 865.35,227.996" fill="#8057ad" stroke="#8057ad" stroke-width="1.5"/>
+<polyline points="1048,194 1048,237" fill="none" stroke="#8057ad" stroke-width="2.3" stroke-linejoin="round"/>
+<polygon points="1048,237 1043.65,227.996 1052.35,227.996" fill="#8057ad" stroke="#8057ad" stroke-width="1.5"/>
+<text x="758" y="181" font-size="16" font-weight="normal" text-anchor="middle" fill="#8057ad">scene context reused at every level</text>
+<rect x="411" y="518" width="714" height="61" rx="10" fill="#ffffff" stroke="#d98524" stroke-width="1.5"/>
+<text x="768" y="554.28" font-size="17" font-weight="bold" text-anchor="middle" fill="#d98524">Between levels: shared future MLP → pool → interaction attention</text>
+<text x="411" y="624" font-size="20" font-weight="bold" text-anchor="start" fill="#172b45">Keep all four stages</text>
+<text x="411" y="662" font-size="21" font-weight="bold" text-anchor="start" fill="#8057ad">Trajectories [4, B, 2, 6, 80, 4]    Scores [4, B, 2, 6]</text>
+<text x="411" y="697" font-size="16" font-weight="normal" text-anchor="start" fill="#586b80">K6 is the separately named paper-recipe reconstruction.</text>
+<polyline points="44,720 1155,720" fill="none" stroke="#d4dee8" stroke-width="1" stroke-linejoin="round"/>
+<text x="44" y="743" font-size="13" font-weight="normal" text-anchor="start" fill="#586b80">Illustrative values · untrained</text>
+<text x="1154" y="743" font-size="13" font-weight="normal" text-anchor="end" fill="#586b80">Local source: model.py   ·   full-assembly</text>
 </g></svg>

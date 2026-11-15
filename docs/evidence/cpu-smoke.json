@@ -3,7 +3,7 @@
     "completed_epochs": 2,
     "global_step": 8,
     "run_id": null,
-    "checkpoint": "outputs/review-evidence-35ca03d/smoke/latest.pt",
+    "checkpoint": "outputs/illustration-evidence/smoke/latest.pt",
     "data_kind": "synthetic"
   },
   "metrics": {

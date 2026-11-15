@@ -1,29 +1,73 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="620" viewBox="0 0 1100 620">
-<rect width="1100" height="620" fill="#f5f7fb"/>
-<g font-family="DejaVu Sans" fill="#172336">
-<text x="32" y="43" font-size="25" font-weight="bold" fill="#172336">Coordinates, validity and targets</text>
-<text x="33" y="74" font-size="14" font-weight="normal" fill="#172336">Full histories: [B,34,11,9]; targets: [B,2,80,2]. Positions are meters.</text>
-<rect x="32" y="128" width="336" height="362" rx="12" fill="#e7eefb" stroke="#2c518c" stroke-width="1.5"/>
-<text x="49" y="164" font-size="17" font-weight="bold" fill="#2c518c">World observations</text>
-<text x="49" y="207" font-size="15" font-weight="normal" fill="#172336">Focal origin: (10, 5) m</text>
-<text x="49" y="244" font-size="15" font-weight="normal" fill="#172336">Focal heading: 90 degrees</text>
-<text x="49" y="281" font-size="15" font-weight="normal" fill="#172336">World point: (10, 6) m</text>
-<text x="49" y="318" font-size="15" font-weight="normal" fill="#172336">Validity bit: true</text>
-<rect x="397" y="128" width="336" height="362" rx="12" fill="#fff0d8" stroke="#805100" stroke-width="1.5"/>
-<text x="414" y="164" font-size="17" font-weight="bold" fill="#805100">Translate, then rotate</text>
-<text x="414" y="207" font-size="15" font-weight="normal" fill="#172336">delta = (0, 1)</text>
-<text x="414" y="244" font-size="15" font-weight="normal" fill="#172336">R(-90 deg) delta</text>
-<text x="414" y="281" font-size="15" font-weight="normal" fill="#172336">Local point = (1, 0)</text>
-<text x="414" y="318" font-size="15" font-weight="normal" fill="#172336">Zero coordinates stay valid</text>
-<rect x="762" y="128" width="336" height="362" rx="12" fill="#e1f4e9" stroke="#24633e" stroke-width="1.5"/>
-<text x="779" y="164" font-size="17" font-weight="bold" fill="#24633e">Keep labels separate</text>
-<text x="779" y="207" font-size="15" font-weight="normal" fill="#172336">future_valid: [B,P,T]</text>
-<text x="779" y="244" font-size="15" font-weight="normal" fill="#172336">false is padding, not x=0</text>
-<text x="779" y="281" font-size="15" font-weight="normal" fill="#172336">No future enters the encoder</text>
-<text x="779" y="318" font-size="15" font-weight="normal" fill="#172336">Units: m, rad, m/s, seconds</text>
-<path d="M371 310 H388 M381 304 L389 310 L381 316" stroke="#536783" stroke-width="2.5" fill="none"/>
-<path d="M736 310 H753 M746 304 L754 310 L746 316" stroke="#536783" stroke-width="2.5" fill="none"/>
-<text x="33" y="528" font-size="14" font-weight="normal" fill="#172336">Blue: inputs   |   Amber: operation   |   Green: result / interpretation</text>
-<text x="33" y="558" font-size="14" font-weight="normal" fill="#172336">Worked toy values explain the computation; they are not trained-model measurements.</text>
-<text x="33" y="588" font-size="12" font-weight="normal" fill="#172336">Source: gameformer/geometry.py, gameformer/data.py  |  Figure: scene-tensors</text>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="760" viewBox="0 0 1200 760">
+<rect width="1200" height="760" fill="#f8fafc"/>
+<g font-family="DejaVu Sans">
+<text x="43" y="49" font-size="29" font-weight="bold" text-anchor="start" fill="#172b45">Coordinates, validity and targets</text>
+<text x="44" y="82" font-size="16" font-weight="normal" text-anchor="start" fill="#586b80">Full histories: [B,34,11,9]; targets: [B,2,80,2]. Positions are meters.</text>
+<polyline points="44,103 1155,103" fill="none" stroke="#d4dee8" stroke-width="1" stroke-linejoin="round"/>
+<ellipse cx="58" cy="135" rx="13" ry="13" fill="#2976c9" stroke="#2976c9" stroke-width="2"/>
+<text x="58" y="141" font-size="15" font-weight="bold" text-anchor="middle" fill="#ffffff">1</text>
+<text x="81" y="142" font-size="20" font-weight="bold" text-anchor="start" fill="#172b45">World → local frame</text>
+<rect x="45" y="166" width="493" height="344" rx="10" fill="#ffffff" stroke="#d4dee8" stroke-width="1.5"/>
+<polyline points="81,417 470,417" fill="none" stroke="#586b80" stroke-width="2.3" stroke-linejoin="round"/>
+<polygon points="470,417 460.996,421.35 460.996,412.65" fill="#586b80" stroke="#586b80" stroke-width="1.5"/>
+<polyline points="164,477 164,190" fill="none" stroke="#586b80" stroke-width="2.3" stroke-linejoin="round"/>
+<polygon points="164,190 168.35,199.004 159.65,199.004" fill="#586b80" stroke="#586b80" stroke-width="1.5"/>
+<text x="459" y="447" font-size="17" font-weight="normal" text-anchor="end" fill="#586b80">world x</text>
+<text x="177" y="199" font-size="17" font-weight="normal" text-anchor="start" fill="#586b80">world y</text>
+<polyline points="164,417 164,267" fill="none" stroke="#2976c9" stroke-width="4" stroke-linejoin="round"/>
+<polygon points="164,267 168.35,276.004 159.65,276.004" fill="#2976c9" stroke="#2976c9" stroke-width="1.5"/>
+<polyline points="164,417 89,417" fill="none" stroke="#008b87" stroke-width="4" stroke-linejoin="round"/>
+<polygon points="89,417 98.0045,412.65 98.0045,421.35" fill="#008b87" stroke="#008b87" stroke-width="1.5"/>
+<ellipse cx="164" cy="307" rx="7" ry="7" fill="#d98524" stroke="#d98524" stroke-width="2"/>
+<text x="187" y="311" font-size="18" font-weight="bold" text-anchor="start" fill="#d98524">point (10, 6) m</text>
+<text x="187" y="347" font-size="18" font-weight="normal" text-anchor="start" fill="#172b45">Δ = (0, 1) m</text>
+<text x="187" y="393" font-size="17" font-weight="normal" text-anchor="start" fill="#2976c9">focal (10, 5), heading 90°</text>
+<text x="86" y="248" font-size="17" font-weight="normal" text-anchor="start" fill="#2976c9">+x local</text>
+<text x="63" y="456" font-size="17" font-weight="normal" text-anchor="start" fill="#008b87">+y local</text>
+<text x="61" y="550" font-size="19" font-weight="bold" text-anchor="start" fill="#172b45">p_local = R(−heading) · (p_world − origin)</text>
+<text x="61" y="588" font-size="21" font-weight="bold" text-anchor="start" fill="#2976c9">(0, 1) world → (1, 0) local</text>
+<text x="61" y="625" font-size="17" font-weight="normal" text-anchor="start" fill="#586b80">+x follows the focal actor; +y points left.</text>
+<ellipse cx="602" cy="135" rx="13" ry="13" fill="#2976c9" stroke="#2976c9" stroke-width="2"/>
+<text x="602" y="141" font-size="15" font-weight="bold" text-anchor="middle" fill="#ffffff">2</text>
+<text x="625" y="142" font-size="20" font-weight="bold" text-anchor="start" fill="#172b45">Coordinates and validity are separate</text>
+<text x="692" y="237.15" font-size="18" font-weight="normal" text-anchor="end" fill="#586b80">focal</text>
+<rect x="705" y="204" width="95" height="51" rx="0" fill="#e6f2f1" stroke="#d4dee8" stroke-width="1"/>
+<text x="752.5" y="237.66" font-size="18" font-weight="normal" text-anchor="middle" fill="#172b45">0</text>
+<rect x="800" y="204" width="95" height="51" rx="0" fill="#e6f2f1" stroke="#d4dee8" stroke-width="1"/>
+<text x="847.5" y="237.66" font-size="18" font-weight="normal" text-anchor="middle" fill="#172b45">0</text>
+<text x="692" y="288.15" font-size="18" font-weight="normal" text-anchor="end" fill="#586b80">point</text>
+<rect x="705" y="255" width="95" height="51" rx="0" fill="#ffffff" stroke="#d4dee8" stroke-width="1"/>
+<text x="752.5" y="288.66" font-size="18" font-weight="normal" text-anchor="middle" fill="#172b45">1</text>
+<rect x="800" y="255" width="95" height="51" rx="0" fill="#ffffff" stroke="#d4dee8" stroke-width="1"/>
+<text x="847.5" y="288.66" font-size="18" font-weight="normal" text-anchor="middle" fill="#172b45">0</text>
+<text x="692" y="339.15" font-size="18" font-weight="normal" text-anchor="end" fill="#586b80">padding</text>
+<rect x="705" y="306" width="95" height="51" rx="0" fill="#edf3f8" stroke="#d4dee8" stroke-width="1"/>
+<text x="752.5" y="339.66" font-size="18" font-weight="normal" text-anchor="middle" fill="#172b45">0</text>
+<rect x="800" y="306" width="95" height="51" rx="0" fill="#edf3f8" stroke="#d4dee8" stroke-width="1"/>
+<text x="847.5" y="339.66" font-size="18" font-weight="normal" text-anchor="middle" fill="#172b45">0</text>
+<text x="752.5" y="192" font-size="17" font-weight="normal" text-anchor="middle" fill="#586b80">x (m)</text>
+<text x="847.5" y="192" font-size="17" font-weight="normal" text-anchor="middle" fill="#586b80">y (m)</text>
+<rect x="955" y="204" width="130" height="51" rx="0" fill="#e6f2f1" stroke="#d4dee8" stroke-width="1"/>
+<text x="1020" y="237.66" font-size="18" font-weight="normal" text-anchor="middle" fill="#172b45">true</text>
+<rect x="955" y="255" width="130" height="51" rx="0" fill="#e6f2f1" stroke="#d4dee8" stroke-width="1"/>
+<text x="1020" y="288.66" font-size="18" font-weight="normal" text-anchor="middle" fill="#172b45">true</text>
+<rect x="955" y="306" width="130" height="51" rx="0" fill="#f6e8eb" stroke="#d4dee8" stroke-width="1"/>
+<text x="1020" y="339.66" font-size="18" font-weight="normal" text-anchor="middle" fill="#172b45">false</text>
+<text x="1020" y="192" font-size="17" font-weight="normal" text-anchor="middle" fill="#586b80">validity</text>
+<polyline points="945,202 945,360" fill="none" stroke="#586b80" stroke-width="1" stroke-linejoin="round" stroke-dasharray="6 5"/>
+<text x="623" y="409" font-size="22" font-weight="bold" text-anchor="start" fill="#008b87">A valid origin is still data.</text>
+<rect x="598" y="447" width="550" height="71" rx="10" fill="#eaf2fb" stroke="#2976c9" stroke-width="1.5"/>
+<text x="619" y="476" font-size="20" font-weight="bold" text-anchor="start" fill="#2976c9">Observed history  [B, 34, 11, 9]</text>
+<text x="619" y="502" font-size="16" font-weight="normal" text-anchor="start" fill="#586b80">x, y, heading, vx, vy, length, width, height, type</text>
+<rect x="598" y="555" width="550" height="73" rx="10" fill="#f7edf0" stroke="#c84c61" stroke-width="1.5"/>
+<text x="619" y="585" font-size="20" font-weight="bold" text-anchor="start" fill="#c84c61">Future labels  [B, 2, 80, 2]</text>
+<text x="619" y="611" font-size="16" font-weight="normal" text-anchor="start" fill="#586b80">Separate future_valid mask; loss reads valid labels.</text>
+<polyline points="857,518 857,553" fill="none" stroke="#c84c61" stroke-width="2" stroke-linejoin="round" stroke-dasharray="6 5"/>
+<polyline points="846,528 868,546" fill="none" stroke="#c84c61" stroke-width="3" stroke-linejoin="round"/>
+<polyline points="868,528 846,546" fill="none" stroke="#c84c61" stroke-width="3" stroke-linejoin="round"/>
+<text x="884" y="543" font-size="16" font-weight="normal" text-anchor="start" fill="#c84c61">No labels in encoder</text>
+<text x="611" y="672" font-size="17" font-weight="normal" text-anchor="start" fill="#586b80">Units: meters · radians · meters/second · seconds</text>
+<polyline points="44,720 1155,720" fill="none" stroke="#d4dee8" stroke-width="1" stroke-linejoin="round"/>
+<text x="44" y="743" font-size="13" font-weight="normal" text-anchor="start" fill="#586b80">Illustrative values · untrained</text>
+<text x="1154" y="743" font-size="13" font-weight="normal" text-anchor="end" fill="#586b80">Local source: geometry.py,data.py   ·   scene-tensors</text>
 </g></svg>
