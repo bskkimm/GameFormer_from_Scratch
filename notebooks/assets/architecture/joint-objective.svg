@@ -1,29 +1,57 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="620" viewBox="0 0 1100 620">
-<rect width="1100" height="620" fill="#f5f7fb"/>
-<g font-family="DejaVu Sans" fill="#172336">
-<text x="32" y="43" font-size="25" font-weight="bold" fill="#172336">One winning mode for the joint scene</text>
-<text x="33" y="74" font-size="14" font-weight="normal" fill="#172336">Illustrative two-mode example; actual model uses six shared modes.</text>
-<rect x="32" y="128" width="336" height="362" rx="12" fill="#e7eefb" stroke="#2c518c" stroke-width="1.5"/>
-<text x="49" y="164" font-size="17" font-weight="bold" fill="#2c518c">Mean agent distances</text>
-<text x="49" y="207" font-size="15" font-weight="normal" fill="#172336">Mode 0: agent errors (0,10)</text>
-<text x="49" y="244" font-size="15" font-weight="normal" fill="#172336">Mode 1: agent errors (2,2)</text>
-<text x="49" y="281" font-size="15" font-weight="normal" fill="#172336">Joint averages: (5,2)</text>
-<text x="49" y="318" font-size="15" font-weight="normal" fill="#172336">Select mode 1 for both agents</text>
-<rect x="397" y="128" width="336" height="362" rx="12" fill="#fff0d8" stroke="#805100" stroke-width="1.5"/>
-<text x="414" y="164" font-size="17" font-weight="bold" fill="#805100">Diagonal Gaussian NLL</text>
-<text x="414" y="207" font-size="15" font-weight="normal" fill="#172336">Toy residual: dx=2, dy=0</text>
-<text x="414" y="244" font-size="15" font-weight="normal" fill="#172336">sigma_x=sigma_y=1</text>
-<text x="414" y="281" font-size="15" font-weight="normal" fill="#172336">NLL per timestep = 2</text>
-<text x="414" y="318" font-size="15" font-weight="normal" fill="#172336">Mean + 3 horizons -&gt; 8</text>
-<rect x="762" y="128" width="336" height="362" rx="12" fill="#e1f4e9" stroke="#24633e" stroke-width="1.5"/>
-<text x="779" y="164" font-size="17" font-weight="bold" fill="#24633e">Supervise all levels</text>
-<text x="779" y="207" font-size="15" font-weight="normal" fill="#172336">Joint CE uses summed logits</text>
-<text x="779" y="244" font-size="15" font-weight="normal" fill="#172336">Label smoothing = 0.2</text>
-<text x="779" y="281" font-size="15" font-weight="normal" fill="#172336">Planning adds .1 potential</text>
-<text x="779" y="318" font-size="15" font-weight="normal" fill="#172336">1 m interaction: 1/(1+1)=.5</text>
-<path d="M371 310 H388 M381 304 L389 310 L381 316" stroke="#536783" stroke-width="2.5" fill="none"/>
-<path d="M736 310 H753 M746 304 L754 310 L746 316" stroke="#536783" stroke-width="2.5" fill="none"/>
-<text x="33" y="528" font-size="14" font-weight="normal" fill="#172336">Blue: inputs   |   Amber: operation   |   Green: result / interpretation</text>
-<text x="33" y="558" font-size="14" font-weight="normal" fill="#172336">Worked toy values explain the computation; they are not trained-model measurements.</text>
-<text x="33" y="588" font-size="12" font-weight="normal" fill="#172336">Source: gameformer/losses.py  |  Figure: joint-objective</text>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="760" viewBox="0 0 1200 760">
+<rect width="1200" height="760" fill="#f8fafc"/>
+<g font-family="DejaVu Sans">
+<text x="43" y="49" font-size="29" font-weight="bold" text-anchor="start" fill="#172b45">One winning mode for the joint scene</text>
+<text x="44" y="82" font-size="16" font-weight="normal" text-anchor="start" fill="#586b80">Illustrative two-mode example; actual model uses six shared modes.</text>
+<polyline points="44,103 1155,103" fill="none" stroke="#d4dee8" stroke-width="1" stroke-linejoin="round"/>
+<ellipse cx="56" cy="135" rx="13" ry="13" fill="#2976c9" stroke="#2976c9" stroke-width="2"/>
+<text x="56" y="141" font-size="15" font-weight="bold" text-anchor="middle" fill="#ffffff">1</text>
+<text x="79" y="142" font-size="20" font-weight="bold" text-anchor="start" fill="#172b45">Choose one mode using both agents&#x27; valid target distances</text>
+<text x="163" y="255.6" font-size="25" font-weight="normal" text-anchor="end" fill="#586b80">mode 0</text>
+<rect x="176" y="214" width="140" height="64" rx="0" fill="#ffffff" stroke="#d4dee8" stroke-width="1"/>
+<text x="246" y="256.24" font-size="25" font-weight="normal" text-anchor="middle" fill="#172b45">0</text>
+<rect x="316" y="214" width="140" height="64" rx="0" fill="#ffffff" stroke="#d4dee8" stroke-width="1"/>
+<text x="386" y="256.24" font-size="25" font-weight="normal" text-anchor="middle" fill="#172b45">10</text>
+<rect x="456" y="214" width="140" height="64" rx="0" fill="#ffffff" stroke="#d4dee8" stroke-width="1"/>
+<text x="526" y="256.24" font-size="25" font-weight="normal" text-anchor="middle" fill="#172b45">20</text>
+<text x="163" y="319.6" font-size="25" font-weight="normal" text-anchor="end" fill="#586b80">mode 1</text>
+<rect x="176" y="278" width="140" height="64" rx="0" fill="#e6f2f1" stroke="#d4dee8" stroke-width="1"/>
+<text x="246" y="320.24" font-size="25" font-weight="normal" text-anchor="middle" fill="#172b45">2</text>
+<rect x="316" y="278" width="140" height="64" rx="0" fill="#e6f2f1" stroke="#d4dee8" stroke-width="1"/>
+<text x="386" y="320.24" font-size="25" font-weight="normal" text-anchor="middle" fill="#172b45">2</text>
+<rect x="456" y="278" width="140" height="64" rx="0" fill="#e6f2f1" stroke="#d4dee8" stroke-width="1"/>
+<text x="526" y="320.24" font-size="25" font-weight="normal" text-anchor="middle" fill="#172b45">8</text>
+<text x="246" y="202" font-size="24" font-weight="normal" text-anchor="middle" fill="#586b80">A error (m)</text>
+<text x="386" y="202" font-size="24" font-weight="normal" text-anchor="middle" fill="#586b80">B error (m)</text>
+<text x="526" y="202" font-size="24" font-weight="normal" text-anchor="middle" fill="#586b80">joint cost</text>
+<polyline points="630,279 706,279" fill="none" stroke="#008b87" stroke-width="2.3" stroke-linejoin="round"/>
+<polygon points="706,279 696.996,283.35 696.996,274.65" fill="#008b87" stroke="#008b87" stroke-width="1.5"/>
+<rect x="724" y="227" width="397" height="90" rx="10" fill="#ffffff" stroke="#008b87" stroke-width="1.5"/>
+<text x="922.5" y="279.48" font-size="22" font-weight="bold" text-anchor="middle" fill="#008b87">Winner: mode 1 for A and B</text>
+<text x="650" y="357" font-size="18" font-weight="normal" text-anchor="start" fill="#586b80">Constant errors: mean + 3, 5, 8 s terms.</text>
+<polyline points="46,394 1154,394" fill="none" stroke="#d4dee8" stroke-width="2" stroke-linejoin="round"/>
+<ellipse cx="56" cy="432" rx="13" ry="13" fill="#2976c9" stroke="#2976c9" stroke-width="2"/>
+<text x="56" y="438" font-size="15" font-weight="bold" text-anchor="middle" fill="#ffffff">2</text>
+<text x="79" y="439" font-size="20" font-weight="bold" text-anchor="start" fill="#172b45">Regress the winner: constant-free NLL</text>
+<ellipse cx="174" cy="560" rx="85" ry="85" fill="#edf5fa" stroke="#2976c9" stroke-width="2"/>
+<ellipse cx="174" cy="560" rx="43" ry="43" fill="#e2edf7" stroke="#2976c9" stroke-width="2"/>
+<ellipse cx="174" cy="560" rx="5" ry="5" fill="#2976c9" stroke="#2976c9" stroke-width="2"/>
+<ellipse cx="260" cy="560" rx="6" ry="6" fill="#c84c61" stroke="#c84c61" stroke-width="2"/>
+<polyline points="174,560 260,560" fill="none" stroke="#c84c61" stroke-width="2.3" stroke-linejoin="round"/>
+<polygon points="260,560 250.996,564.35 250.996,555.65" fill="#c84c61" stroke="#c84c61" stroke-width="1.5"/>
+<text x="79" y="677" font-size="17" font-weight="normal" text-anchor="start" fill="#586b80">dx = 2, dy = 0; σ = 1</text>
+<text x="305" y="512" font-size="21" font-weight="bold" text-anchor="start" fill="#2976c9">NLL = log σx + log σy</text>
+<text x="305" y="548" font-size="21" font-weight="bold" text-anchor="start" fill="#2976c9">+ ½ [(dx/σx)² + (dy/σy)²]</text>
+<text x="305" y="600" font-size="21" font-weight="bold" text-anchor="start" fill="#172b45">Toy NLL = 0 + ½ · 2² = 2</text>
+<text x="305" y="641" font-size="18" font-weight="normal" text-anchor="start" fill="#586b80">Mean + 3, 5, 8 s terms → 8</text>
+<polyline points="730,448 730,692" fill="none" stroke="#d4dee8" stroke-width="2" stroke-linejoin="round"/>
+<text x="762" y="466" font-size="18" font-weight="bold" text-anchor="start" fill="#8057ad">Score supervision at every level</text>
+<text x="762" y="512" font-size="18" font-weight="normal" text-anchor="start" fill="#8057ad">joint logits = logits A + logits B</text>
+<text x="762" y="548" font-size="18" font-weight="normal" text-anchor="start" fill="#586b80">2 × cross-entropy; smoothing 0.2</text>
+<text x="762" y="606" font-size="18" font-weight="bold" text-anchor="start" fill="#d98524">Planning only, at levels k ≥ 1:</text>
+<text x="762" y="643" font-size="18" font-weight="normal" text-anchor="start" fill="#d98524">+ 0.1 × interaction potential</text>
+<text x="762" y="678" font-size="17" font-weight="normal" text-anchor="start" fill="#586b80">At d = 1 m: 1 / (1 + 1) = 0.5</text>
+<polyline points="44,720 1155,720" fill="none" stroke="#d4dee8" stroke-width="1" stroke-linejoin="round"/>
+<text x="44" y="743" font-size="13" font-weight="normal" text-anchor="start" fill="#586b80">Illustrative values · untrained</text>
+<text x="1154" y="743" font-size="13" font-weight="normal" text-anchor="end" fill="#586b80">Local source: losses.py   ·   joint-objective</text>
 </g></svg>

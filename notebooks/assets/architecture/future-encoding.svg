@@ -1,29 +1,126 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="620" viewBox="0 0 1100 620">
-<rect width="1100" height="620" fill="#f5f7fb"/>
-<g font-family="DejaVu Sans" fill="#172336">
-<text x="32" y="43" font-size="25" font-weight="bold" fill="#172336">Previous xy becomes a detached future feature</text>
-<text x="33" y="74" font-size="14" font-weight="normal" fill="#172336">Full input [B,P,M,80,2]; shared future MLP outputs [B,P,M,256].</text>
-<rect x="32" y="128" width="336" height="362" rx="12" fill="#e7eefb" stroke="#2c518c" stroke-width="1.5"/>
-<text x="49" y="164" font-size="17" font-weight="bold" fill="#2c518c">Toy first future step</text>
-<text x="49" y="207" font-size="15" font-weight="normal" fill="#172336">Current xy = (0,0)</text>
-<text x="49" y="244" font-size="15" font-weight="normal" fill="#172336">Next xy = (1,0) m</text>
-<text x="49" y="281" font-size="15" font-weight="normal" fill="#172336">dt = 0.1 seconds</text>
-<text x="49" y="318" font-size="15" font-weight="normal" fill="#172336">Size = (4,2,1.5) m</text>
-<rect x="397" y="128" width="336" height="362" rx="12" fill="#fff0d8" stroke="#805100" stroke-width="1.5"/>
-<text x="414" y="164" font-size="17" font-weight="bold" fill="#805100">Kinematic transformation</text>
-<text x="414" y="207" font-size="15" font-weight="normal" fill="#172336">delta xy = (1,0) m</text>
-<text x="414" y="244" font-size="15" font-weight="normal" fill="#172336">Velocity = (10,0) m/s</text>
-<text x="414" y="281" font-size="15" font-weight="normal" fill="#172336">Heading = atan2(0,1) = 0</text>
-<text x="414" y="318" font-size="15" font-weight="normal" fill="#172336">xy, angle, velocity, size</text>
-<rect x="762" y="128" width="336" height="362" rx="12" fill="#e1f4e9" stroke="#24633e" stroke-width="1.5"/>
-<text x="779" y="164" font-size="17" font-weight="bold" fill="#24633e">Gradient barrier</text>
-<text x="779" y="207" font-size="15" font-weight="normal" fill="#172336">Detach kinematic inputs</text>
-<text x="779" y="244" font-size="15" font-weight="normal" fill="#172336">8 -&gt; 64 -&gt; 256 -&gt; time max</text>
-<text x="779" y="281" font-size="15" font-weight="normal" fill="#172336">Add type embedding</text>
-<text x="779" y="318" font-size="15" font-weight="normal" fill="#172336">MLP learns; input xy detached</text>
-<path d="M371 310 H388 M381 304 L389 310 L381 316" stroke="#536783" stroke-width="2.5" fill="none"/>
-<path d="M736 310 H753 M746 304 L754 310 L746 316" stroke="#536783" stroke-width="2.5" fill="none"/>
-<text x="33" y="528" font-size="14" font-weight="normal" fill="#172336">Blue: inputs   |   Amber: operation   |   Green: result / interpretation</text>
-<text x="33" y="558" font-size="14" font-weight="normal" fill="#172336">Worked toy values explain the computation; they are not trained-model measurements.</text>
-<text x="33" y="588" font-size="12" font-weight="normal" fill="#172336">Source: gameformer/model.py  |  Figure: future-encoding</text>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="760" viewBox="0 0 1200 760">
+<rect width="1200" height="760" fill="#f8fafc"/>
+<g font-family="DejaVu Sans">
+<text x="43" y="49" font-size="29" font-weight="bold" text-anchor="start" fill="#172b45">Previous xy becomes a detached future feature</text>
+<text x="44" y="82" font-size="16" font-weight="normal" text-anchor="start" fill="#586b80">Full input [B,P,M,80,2]; shared future MLP outputs [B,P,M,256].</text>
+<polyline points="44,103 1155,103" fill="none" stroke="#d4dee8" stroke-width="1" stroke-linejoin="round"/>
+<ellipse cx="56" cy="135" rx="13" ry="13" fill="#2976c9" stroke="#2976c9" stroke-width="2"/>
+<text x="56" y="141" font-size="15" font-weight="bold" text-anchor="middle" fill="#ffffff">1</text>
+<text x="79" y="142" font-size="20" font-weight="bold" text-anchor="start" fill="#172b45">Build kinematics from previous predicted xy</text>
+<polyline points="79,255 289,255" fill="none" stroke="#586b80" stroke-width="2.3" stroke-linejoin="round"/>
+<polygon points="289,255 279.996,259.35 279.996,250.65" fill="#586b80" stroke="#586b80" stroke-width="1.5"/>
+<rect x="79.5" y="243.5" width="43" height="23" rx="5" fill="#008b87" stroke="#008b87" stroke-width="1.5"/>
+<rect x="92.4" y="248.1" width="17.2" height="13.8" rx="2" fill="#eaf2f8" stroke="#008b87" stroke-width="1"/>
+<ellipse cx="265" cy="255" rx="7" ry="7" fill="#2976c9" stroke="#2976c9" stroke-width="2"/>
+<text x="74" y="311" font-size="17" font-weight="normal" text-anchor="start" fill="#008b87">current (0, 0)</text>
+<text x="231" y="311" font-size="17" font-weight="normal" text-anchor="start" fill="#2976c9">next (1, 0) m</text>
+<text x="99" y="215" font-size="19" font-weight="bold" text-anchor="start" fill="#172b45">Δxy = (1, 0) m; Δt = 0.1 s</text>
+<polyline points="340,255 408,255" fill="none" stroke="#172b45" stroke-width="2.3" stroke-linejoin="round"/>
+<polygon points="408,255 398.996,259.35 398.996,250.65" fill="#172b45" stroke="#172b45" stroke-width="1.5"/>
+<text x="438" y="218" font-size="21" font-weight="bold" text-anchor="start" fill="#2976c9">velocity = Δxy / Δt = (10, 0) m/s</text>
+<text x="438" y="262" font-size="21" font-weight="bold" text-anchor="start" fill="#008b87">heading = atan2(0, 1) = 0 rad</text>
+<text x="438" y="307" font-size="18" font-weight="normal" text-anchor="start" fill="#586b80">size = (4, 2, 1.5) m from current state</text>
+<text x="872" y="219" font-size="16" font-weight="normal" text-anchor="start" fill="#586b80">Released heading uses</text>
+<text x="872" y="247" font-size="16" font-weight="normal" text-anchor="start" fill="#586b80">clamp(dx, min=0.001)</text>
+<text x="872" y="277" font-size="16" font-weight="normal" text-anchor="start" fill="#586b80">before atan2.</text>
+<ellipse cx="56" cy="374" rx="13" ry="13" fill="#2976c9" stroke="#2976c9" stroke-width="2"/>
+<text x="56" y="380" font-size="15" font-weight="bold" text-anchor="middle" fill="#ffffff">2</text>
+<text x="79" y="381" font-size="20" font-weight="bold" text-anchor="start" fill="#172b45">Detach the eight kinematic inputs, then learn future features</text>
+<rect x="65" y="448" width="54" height="44" rx="0" fill="#eaf2fb" stroke="#d4dee8" stroke-width="1"/>
+<text x="92" y="477.04" font-size="17" font-weight="normal" text-anchor="middle" fill="#172b45">x</text>
+<rect x="119" y="448" width="54" height="44" rx="0" fill="#eaf2fb" stroke="#d4dee8" stroke-width="1"/>
+<text x="146" y="477.04" font-size="17" font-weight="normal" text-anchor="middle" fill="#172b45">y</text>
+<rect x="173" y="448" width="54" height="44" rx="0" fill="#eaf2fb" stroke="#d4dee8" stroke-width="1"/>
+<text x="200" y="477.04" font-size="17" font-weight="normal" text-anchor="middle" fill="#172b45">θ</text>
+<rect x="227" y="448" width="54" height="44" rx="0" fill="#eaf2fb" stroke="#d4dee8" stroke-width="1"/>
+<text x="254" y="477.04" font-size="17" font-weight="normal" text-anchor="middle" fill="#172b45">vx</text>
+<rect x="281" y="448" width="54" height="44" rx="0" fill="#eaf2fb" stroke="#d4dee8" stroke-width="1"/>
+<text x="308" y="477.04" font-size="17" font-weight="normal" text-anchor="middle" fill="#172b45">vy</text>
+<rect x="335" y="448" width="54" height="44" rx="0" fill="#e6f2f1" stroke="#d4dee8" stroke-width="1"/>
+<text x="362" y="477.04" font-size="17" font-weight="normal" text-anchor="middle" fill="#172b45">L</text>
+<rect x="389" y="448" width="54" height="44" rx="0" fill="#e6f2f1" stroke="#d4dee8" stroke-width="1"/>
+<text x="416" y="477.04" font-size="17" font-weight="normal" text-anchor="middle" fill="#172b45">W</text>
+<rect x="443" y="448" width="54" height="44" rx="0" fill="#e6f2f1" stroke="#d4dee8" stroke-width="1"/>
+<text x="470" y="477.04" font-size="17" font-weight="normal" text-anchor="middle" fill="#172b45">H</text>
+<rect x="65" y="492" width="54" height="44" rx="0" fill="#ffffff" stroke="#d4dee8" stroke-width="1"/>
+<text x="92" y="521.04" font-size="17" font-weight="normal" text-anchor="middle" fill="#172b45">1</text>
+<rect x="119" y="492" width="54" height="44" rx="0" fill="#ffffff" stroke="#d4dee8" stroke-width="1"/>
+<text x="146" y="521.04" font-size="17" font-weight="normal" text-anchor="middle" fill="#172b45">0</text>
+<rect x="173" y="492" width="54" height="44" rx="0" fill="#ffffff" stroke="#d4dee8" stroke-width="1"/>
+<text x="200" y="521.04" font-size="17" font-weight="normal" text-anchor="middle" fill="#172b45">0</text>
+<rect x="227" y="492" width="54" height="44" rx="0" fill="#ffffff" stroke="#d4dee8" stroke-width="1"/>
+<text x="254" y="521.04" font-size="17" font-weight="normal" text-anchor="middle" fill="#172b45">10</text>
+<rect x="281" y="492" width="54" height="44" rx="0" fill="#ffffff" stroke="#d4dee8" stroke-width="1"/>
+<text x="308" y="521.04" font-size="17" font-weight="normal" text-anchor="middle" fill="#172b45">0</text>
+<rect x="335" y="492" width="54" height="44" rx="0" fill="#ffffff" stroke="#d4dee8" stroke-width="1"/>
+<text x="362" y="521.04" font-size="17" font-weight="normal" text-anchor="middle" fill="#172b45">4</text>
+<rect x="389" y="492" width="54" height="44" rx="0" fill="#ffffff" stroke="#d4dee8" stroke-width="1"/>
+<text x="416" y="521.04" font-size="17" font-weight="normal" text-anchor="middle" fill="#172b45">2</text>
+<rect x="443" y="492" width="54" height="44" rx="0" fill="#ffffff" stroke="#d4dee8" stroke-width="1"/>
+<text x="470" y="521.04" font-size="17" font-weight="normal" text-anchor="middle" fill="#172b45">1.5</text>
+<polyline points="498,492 546,492" fill="none" stroke="#2976c9" stroke-width="2.3" stroke-linejoin="round"/>
+<polygon points="546,492 536.996,496.35 536.996,487.65" fill="#2976c9" stroke="#2976c9" stroke-width="1.5"/>
+<rect x="546" y="425" width="12" height="157" rx="0" fill="#c84c61" stroke="#c84c61" stroke-width="1.5"/>
+<text x="552" y="414" font-size="19" font-weight="bold" text-anchor="middle" fill="#c84c61">detach</text>
+<polyline points="558,492 601,492" fill="none" stroke="#2976c9" stroke-width="2.3" stroke-linejoin="round"/>
+<polygon points="601,492 591.996,496.35 591.996,487.65" fill="#2976c9" stroke="#2976c9" stroke-width="1.5"/>
+<rect x="601" y="463" width="135" height="58" rx="10" fill="#ffffff" stroke="#2976c9" stroke-width="1.5"/>
+<text x="668.5" y="498.46" font-size="19" font-weight="bold" text-anchor="middle" fill="#2976c9">8 → 64 → D</text>
+<text x="665" y="558" font-size="17" font-weight="normal" text-anchor="middle" fill="#2976c9">shared MLP</text>
+<polyline points="736,492 758,492 758,411 849,411 849,428" fill="none" stroke="#2976c9" stroke-width="2.3" stroke-linejoin="round"/>
+<polygon points="849,428 844.65,418.996 853.35,418.996" fill="#2976c9" stroke="#2976c9" stroke-width="1.5"/>
+<text x="779" y="456.95" font-size="17" font-weight="normal" text-anchor="end" fill="#586b80">t1</text>
+<rect x="792" y="429" width="58" height="43" rx="0" fill="#ffffff" stroke="#d4dee8" stroke-width="1"/>
+<text x="821" y="457.38" font-size="17" font-weight="normal" text-anchor="middle" fill="#172b45">.2</text>
+<rect x="850" y="429" width="58" height="43" rx="0" fill="#e6f2f1" stroke="#d4dee8" stroke-width="1"/>
+<text x="879" y="457.38" font-size="17" font-weight="normal" text-anchor="middle" fill="#172b45">.8</text>
+<text x="779" y="499.95" font-size="17" font-weight="normal" text-anchor="end" fill="#586b80">t2</text>
+<rect x="792" y="472" width="58" height="43" rx="0" fill="#eaf2fb" stroke="#d4dee8" stroke-width="1"/>
+<text x="821" y="500.38" font-size="17" font-weight="normal" text-anchor="middle" fill="#172b45">.9</text>
+<rect x="850" y="472" width="58" height="43" rx="0" fill="#ffffff" stroke="#d4dee8" stroke-width="1"/>
+<text x="879" y="500.38" font-size="17" font-weight="normal" text-anchor="middle" fill="#172b45">.3</text>
+<text x="779" y="542.95" font-size="17" font-weight="normal" text-anchor="end" fill="#586b80">…</text>
+<rect x="792" y="515" width="58" height="43" rx="0" fill="#ffffff" stroke="#d4dee8" stroke-width="1"/>
+<text x="821" y="543.38" font-size="17" font-weight="normal" text-anchor="middle" fill="#172b45">.4</text>
+<rect x="850" y="515" width="58" height="43" rx="0" fill="#ffffff" stroke="#d4dee8" stroke-width="1"/>
+<text x="879" y="543.38" font-size="17" font-weight="normal" text-anchor="middle" fill="#172b45">.6</text>
+<text x="849" y="595" font-size="17" font-weight="normal" text-anchor="middle" fill="#008b87">max over time</text>
+<polyline points="909,492 948,492" fill="none" stroke="#008b87" stroke-width="2.3" stroke-linejoin="round"/>
+<polygon points="948,492 938.996,496.35 938.996,487.65" fill="#008b87" stroke="#008b87" stroke-width="1.5"/>
+<ellipse cx="968" cy="492" rx="17" ry="17" fill="#ffffff" stroke="#8057ad" stroke-width="2"/>
+<text x="968" y="498" font-size="20" font-weight="bold" text-anchor="middle" fill="#8057ad">+</text>
+<rect x="913" y="370" width="113" height="47" rx="10" fill="#ffffff" stroke="#8057ad" stroke-width="1.5"/>
+<text x="969.5" y="399.28" font-size="17" font-weight="bold" text-anchor="middle" fill="#8057ad">Type emb.</text>
+<polyline points="969,417 969,474" fill="none" stroke="#8057ad" stroke-width="2.3" stroke-linejoin="round"/>
+<polygon points="969,474 964.65,464.996 973.35,464.996" fill="#8057ad" stroke="#8057ad" stroke-width="1.5"/>
+<polyline points="986,492 1030,492" fill="none" stroke="#8057ad" stroke-width="2.3" stroke-linejoin="round"/>
+<polygon points="1030,492 1021,496.35 1021,487.65" fill="#8057ad" stroke="#8057ad" stroke-width="1.5"/>
+<rect x="1050" y="468" width="70" height="32" rx="3" fill="#ffffff" stroke="#8057ad" stroke-width="1.5"/>
+<polyline points="1060,477 1060,491" fill="none" stroke="#8057ad" stroke-width="2" stroke-linejoin="round"/>
+<polyline points="1070,477 1070,491" fill="none" stroke="#8057ad" stroke-width="2" stroke-linejoin="round"/>
+<polyline points="1080,477 1080,491" fill="none" stroke="#8057ad" stroke-width="2" stroke-linejoin="round"/>
+<polyline points="1090,477 1090,491" fill="none" stroke="#8057ad" stroke-width="2" stroke-linejoin="round"/>
+<polyline points="1100,477 1100,491" fill="none" stroke="#8057ad" stroke-width="2" stroke-linejoin="round"/>
+<rect x="1045" y="473" width="70" height="32" rx="3" fill="#ffffff" stroke="#8057ad" stroke-width="1.5"/>
+<polyline points="1055,482 1055,496" fill="none" stroke="#8057ad" stroke-width="2" stroke-linejoin="round"/>
+<polyline points="1065,482 1065,496" fill="none" stroke="#8057ad" stroke-width="2" stroke-linejoin="round"/>
+<polyline points="1075,482 1075,496" fill="none" stroke="#8057ad" stroke-width="2" stroke-linejoin="round"/>
+<polyline points="1085,482 1085,496" fill="none" stroke="#8057ad" stroke-width="2" stroke-linejoin="round"/>
+<polyline points="1095,482 1095,496" fill="none" stroke="#8057ad" stroke-width="2" stroke-linejoin="round"/>
+<rect x="1040" y="478" width="70" height="32" rx="3" fill="#ffffff" stroke="#8057ad" stroke-width="1.5"/>
+<polyline points="1050,487 1050,501" fill="none" stroke="#8057ad" stroke-width="2" stroke-linejoin="round"/>
+<polyline points="1060,487 1060,501" fill="none" stroke="#8057ad" stroke-width="2" stroke-linejoin="round"/>
+<polyline points="1070,487 1070,501" fill="none" stroke="#8057ad" stroke-width="2" stroke-linejoin="round"/>
+<polyline points="1080,487 1080,501" fill="none" stroke="#8057ad" stroke-width="2" stroke-linejoin="round"/>
+<polyline points="1090,487 1090,501" fill="none" stroke="#8057ad" stroke-width="2" stroke-linejoin="round"/>
+<text x="1068" y="572" font-size="18" font-weight="bold" text-anchor="middle" fill="#8057ad">[P, M, D]</text>
+<polyline points="1046,634 667,634 667,557" fill="none" stroke="#c84c61" stroke-width="2.3" stroke-linejoin="round" stroke-dasharray="6 5"/>
+<polygon points="667,557 671.35,566.004 662.65,566.004" fill="#c84c61" stroke="#c84c61" stroke-width="1.5"/>
+<text x="876" y="665" font-size="17" font-weight="normal" text-anchor="middle" fill="#c84c61">MLP parameters receive gradients</text>
+<polyline points="540,615 560,635" fill="none" stroke="#c84c61" stroke-width="3" stroke-linejoin="round"/>
+<polyline points="560,615 540,635" fill="none" stroke="#c84c61" stroke-width="3" stroke-linejoin="round"/>
+<text x="65" y="669" font-size="18" font-weight="bold" text-anchor="start" fill="#c84c61">No gradient to xy through this path.</text>
+<polyline points="44,720 1155,720" fill="none" stroke="#d4dee8" stroke-width="1" stroke-linejoin="round"/>
+<text x="44" y="743" font-size="13" font-weight="normal" text-anchor="start" fill="#586b80">Illustrative values · untrained</text>
+<text x="1154" y="743" font-size="13" font-weight="normal" text-anchor="end" fill="#586b80">Local source: model.py   ·   future-encoding</text>
 </g></svg>

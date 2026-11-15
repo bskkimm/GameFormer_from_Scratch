@@ -3,13 +3,13 @@
 import ast
 import base64
 import hashlib
-import html
 import json
 import subprocess
 import sys
-import textwrap
 from importlib.metadata import version
 from pathlib import Path
+
+from .lesson_notes import LESSON_NOTES
 
 ROOT = Path(__file__).resolve().parents[1]
 ASSETS = Path("notebooks/assets/architecture")
@@ -237,7 +237,7 @@ FIGURES = [
         "Full level-0 query: [B,P=2,M=6,D=256]. Toy vectors use D=2.",
         [
             "Three query ingredients",
-            "History token: (1,2)",
+            "Scene actor token: (1,2)",
             "Mode embedding: (.5,0)",
             "Agent embedding: (0,-.5)",
             "No previous future at level 0",
@@ -398,17 +398,17 @@ FIGURES = [
         "One winning mode for the joint scene",
         "Illustrative two-mode example; actual model uses six shared modes.",
         [
-            "Mean agent distances",
+            "Constant per-time distances",
             "Mode 0: agent errors (0,10)",
             "Mode 1: agent errors (2,2)",
-            "Joint averages: (5,2)",
+            "Full horizon costs: (20,8)",
             "Select mode 1 for both agents",
         ],
         [
-            "Diagonal Gaussian NLL",
+            "Constant-free Gaussian NLL",
             "Toy residual: dx=2, dy=0",
             "sigma_x=sigma_y=1",
-            "NLL per timestep = 2",
+            "NLL (up to a constant) = 2",
             "Mean + 3 horizons -> 8",
         ],
         [
@@ -551,88 +551,14 @@ def source_code(module, names):
 
 
 def draw_figure(spec, destination):
-    import matplotlib
-    from PIL import Image, ImageDraw, ImageFont
+    from .illustrations import draw_illustration
 
-    # Use wheel-bundled fonts and rasterizer, not host Cairo/fontconfig versions.
-    # SVG and PNG use the same layout primitives; SVG text stays editable.
-    scale = 2
-    picture = Image.new("RGB", (1100 * scale, 620 * scale), "#f5f7fb")
-    canvas = ImageDraw.Draw(picture)
-    font_root = Path(matplotlib.get_data_path()) / "fonts/ttf"
-
-    identifier, title, subtitle, *rest = spec
-    panels, source = rest[:3], rest[3]
-    parts = [
-        '<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="620" viewBox="0 0 1100 620">',
-        '<rect width="1100" height="620" fill="#f5f7fb"/>',
-        '<g font-family="DejaVu Sans" fill="#172336">',
-    ]
-
-    def label(x, y, content, size=15, weight="normal", color="#172336"):
-        parts.append(
-            f'<text x="{x}" y="{y}" font-size="{size}" font-weight="{weight}" fill="{color}">{html.escape(content)}</text>'
-        )
-        font = ImageFont.truetype(
-            str(font_root / ("DejaVuSans-Bold.ttf" if weight == "bold" else "DejaVuSans.ttf")),
-            size * scale,
-        )
-        canvas.text((x * scale, y * scale), content, font=font, fill=color, anchor="ls")
-
-    label(32, 43, title, 25, "bold")
-    for i, line in enumerate(textwrap.wrap(subtitle, 124)):
-        label(33, 74 + i * 21, line, 14)
-    colors = [("#e7eefb", "#2c518c"), ("#fff0d8", "#805100"), ("#e1f4e9", "#24633e")]
-    for i, panel in enumerate(panels):
-        x = 32 + i * 365
-        background, accent = colors[i]
-        parts.append(
-            f'<rect x="{x}" y="128" width="336" height="362" rx="12" fill="{background}" stroke="{accent}" stroke-width="1.5"/>'
-        )
-        canvas.rounded_rectangle(
-            (x * scale, 128 * scale, (x + 336) * scale, 490 * scale),
-            radius=12 * scale,
-            fill=background,
-            outline=accent,
-            width=3,
-        )
-        label(x + 17, 164, panel[0], 17, "bold", accent)
-        y = 207
-        for row in panel[1:]:
-            for line in textwrap.wrap(row, 34):
-                label(x + 17, y, line)
-                y += 25
-            y += 12
-    for x in (371, 736):
-        parts.append(
-            f'<path d="M{x} 310 H{x + 17} M{x + 10} 304 L{x + 18} 310 L{x + 10} 316" stroke="#536783" stroke-width="2.5" fill="none"/>'
-        )
-        for points in (((x, 310), (x + 17, 310)), ((x + 10, 304), (x + 18, 310), (x + 10, 316))):
-            canvas.line([(px * scale, py * scale) for px, py in points], fill="#536783", width=5)
-    label(33, 528, "Blue: inputs   |   Amber: operation   |   Green: result / interpretation", 14)
-    label(
-        33,
-        558,
-        "Conceptual overview."
-        if identifier == "overview"
-        else "Worked toy values explain the computation; they are not trained-model measurements.",
-        14,
-    )
-    label(
-        33,
-        588,
-        f"Source: gameformer/{source.replace(',', ', gameformer/')}  |  Figure: {identifier}",
-        12,
-    )
-    parts.append("</g></svg>")
-    svg = "\n".join(parts) + "\n"
-    (destination / (identifier + ".svg")).write_text(svg)
-    picture.resize((1100, 620), Image.Resampling.LANCZOS).quantize(colors=64).save(
-        destination / (identifier + ".png"), optimize=True
-    )
+    draw_illustration(spec, destination)
 
 
 def generate_assets(destination):
+    from .illustrations import HEIGHT, PNG_COLORS, WIDTH
+
     destination = Path(destination)
     destination.mkdir(parents=True, exist_ok=True)
     inventory = []
@@ -640,7 +566,9 @@ def generate_assets(destination):
         draw_figure(figure, destination)
         identifier, title, subtitle = figure[:3]
         sources = [f"gameformer/{name}" for name in figure[-1].split(",")]
-        sources.append("gameformer/teaching.py")
+        sources.extend(
+            ["gameformer/teaching.py", "gameformer/illustrations.py", "gameformer/lesson_notes.py"]
+        )
         inventory.append(
             {
                 "id": identifier,
@@ -651,7 +579,7 @@ def generate_assets(destination):
                 "png_sha256": digest(destination / (identifier + ".png")),
                 "svg_sha256": digest(destination / (identifier + ".svg")),
                 "source_sha256": {path: digest(ROOT / path) for path in sources},
-                "generation": "shared editable SVG/Pillow primitives; wheel-bundled DejaVu fonts; 2x supersampling; 64-color PNG",
+                "generation": f"bespoke shared SVG/Pillow geometry; bundled DejaVu fonts; 2x supersampling; fixed {PNG_COLORS}-color PNG",
             }
         )
     manifest = {
@@ -663,17 +591,18 @@ def generate_assets(destination):
             for name in ("DejaVuSans.ttf", "DejaVuSans-Bold.ttf")
         },
         "font": "DejaVu Sans",
-        "width": 1100,
-        "height": 620,
+        "width": WIDTH,
+        "height": HEIGHT,
+        "png_colors": PNG_COLORS,
     }
     (destination / "manifest.json").write_text(json.dumps(manifest, indent=2) + "\n")
     return manifest
 
 
-def build_notebook():
+def notebook_document(manifest):
+    """Build lesson content from source without writing or rendering assets."""
     import nbformat as nbf
 
-    manifest = generate_assets(ROOT / ASSETS)
     specs = {item["id"]: item for item in manifest["figures"]}
     cells = []
 
@@ -687,7 +616,10 @@ def build_notebook():
         entry = specs[identifier]
         markdown(
             identifier,
-            body + f"\n\n![{entry['alt']}](attachment:{identifier}.png)\n\n*{entry['caption']}*",
+            body
+            + "\n\n"
+            + LESSON_NOTES[identifier].strip()
+            + f"\n\n![{entry['alt']}](attachment:{identifier}.png)\n\n*{entry['caption']}*",
         )
         cells[-1].attachments = {
             identifier + ".png": {
@@ -932,7 +864,7 @@ def build_notebook():
         "## Actual training objectives\n\n"
         "Select one shared joint mode by its displacement errors. For the joint "
         "predictor, use the temporal mean and 3/5/8-second horizons. "
-        r"The diagonal NLL is $log\sigma_x+log\sigma_y+\frac12[(d_x/\sigma_x)^2+(d_y/\sigma_y)^2]$. "
+        r"The diagonal NLL, up to an additive constant, is $log\sigma_x+log\sigma_y+\frac12[(d_x/\sigma_x)^2+(d_y/\sigma_y)^2]$. "
         "The printed Eq. 3 repeats x; the correct y term agrees with the released "
         "code. Add twice the joint score cross-entropy with label smoothing .2. "
         "Sum all levels. Missing labels contribute neither error nor denominator.\n\n"
@@ -949,6 +881,32 @@ def build_notebook():
         'components = objective(outputs, batch, "joint")\n'
         'assert torch.isfinite(components["loss"])\n'
         "print({name: float(value.detach()) for name, value in components.items()})",
+    )
+    code(
+        "joint-loss-worked-example",
+        "# The figure's distances are constant over all 80 valid timesteps.\n"
+        "toy_prediction = torch.zeros(1, 1, 2, 2, 80, 4)\n"
+        "toy_prediction[0, 0, 1, 0, :, 0] = 10  # mode 0 fits only the first agent\n"
+        "toy_prediction[0, 0, :, 1, :, 0] = 2   # mode 1 fits both agents\n"
+        "toy_prediction.requires_grad_()\n"
+        'toy_targets = {"future": torch.zeros(1, 2, 80, 2),\n'
+        '               "future_valid": torch.ones(1, 2, 80, dtype=torch.bool)}\n'
+        'toy_loss = objective({"trajectories": toy_prediction,\n'
+        '                      "scores": torch.zeros(1, 1, 2, 2)}, toy_targets, "joint")\n'
+        'torch.testing.assert_close(toy_loss["regression"], torch.tensor(8.))\n'
+        'toy_loss["regression"].backward()\n'
+        "assert toy_prediction.grad[0, 0, :, 0].count_nonzero() == 0\n"
+        "assert toy_prediction.grad[0, 0, :, 1, :, :2].count_nonzero() > 0\n"
+        "# Probe uncertainty learning inside the clamp range, away from its boundary.\n"
+        "interior_prediction = toy_prediction.detach().clone()\n"
+        "interior_prediction[..., 2:] = 0.5\n"
+        "interior_prediction.requires_grad_()\n"
+        'interior_loss = objective({"trajectories": interior_prediction,\n'
+        '                           "scores": torch.zeros(1, 1, 2, 2)}, toy_targets, "joint")\n'
+        'torch.testing.assert_close(interior_loss["regression"], torch.tensor(4*(1+2/math.e)))\n'
+        'interior_loss["regression"].backward()\n'
+        "assert interior_prediction.grad[0, 0, :, 1, :, 2:].count_nonzero() > 0\n"
+        'print("Joint winner: mode 1; regression = 8; only its Gaussian gets regression gradients.")',
     )
     figure(
         "optimizer-update",
@@ -1052,6 +1010,14 @@ def build_notebook():
             "architecture_definitions": DEFINITIONS,
         },
     )
+    return notebook
+
+
+def build_notebook():
+    import nbformat as nbf
+
+    manifest = generate_assets(ROOT / ASSETS)
+    notebook = notebook_document(manifest)
     path = ROOT / NOTEBOOK
     path.parent.mkdir(parents=True, exist_ok=True)
     nbf.write(notebook, path)
@@ -1069,6 +1035,25 @@ def verify_assets(regenerate=None):
     manifest = json.loads((ROOT / ASSETS / "manifest.json").read_text())
     assert len(manifest["figures"]) == len(FIGURES) == manifest["figure_count"] == 18
     assert notebook.metadata["architecture_definitions"] == DEFINITIONS
+    expected_document = notebook_document(manifest)
+    actual_markdown = [
+        (cell.id, cell.source) for cell in notebook.cells if cell.cell_type == "markdown"
+    ]
+    expected_markdown = [
+        (cell.id, cell.source) for cell in expected_document.cells if cell.cell_type == "markdown"
+    ]
+    assert actual_markdown == expected_markdown, "Stale notebook explanation: rebuild the lesson"
+    actual_code = [
+        (cell.id, ast.dump(ast.parse(cell.source)))
+        for cell in notebook.cells
+        if cell.cell_type == "code"
+    ]
+    expected_code = [
+        (cell.id, ast.dump(ast.parse(cell.source)))
+        for cell in expected_document.cells
+        if cell.cell_type == "code"
+    ]
+    assert actual_code == expected_code, "Stale notebook executable probe: rebuild the lesson"
     anchors = {cell.id: cell for cell in notebook.cells}
     assert len(anchors) == len(notebook.cells), "Duplicate notebook cell IDs"
     declared = {}

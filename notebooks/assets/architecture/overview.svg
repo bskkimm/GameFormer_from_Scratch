@@ -1,29 +1,121 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="620" viewBox="0 0 1100 620">
-<rect width="1100" height="620" fill="#f5f7fb"/>
-<g font-family="DejaVu Sans" fill="#172336">
-<text x="32" y="43" font-size="25" font-weight="bold" fill="#172336">From a scene to interacting futures</text>
-<text x="33" y="74" font-size="14" font-weight="normal" fill="#172336">One common scene; multiple possible futures; one shared mode index.</text>
-<rect x="32" y="128" width="336" height="362" rx="12" fill="#e7eefb" stroke="#2c518c" stroke-width="1.5"/>
-<text x="49" y="164" font-size="17" font-weight="bold" fill="#2c518c">Observe and encode</text>
-<text x="49" y="207" font-size="15" font-weight="normal" fill="#172336">Agent history H=11</text>
-<text x="49" y="244" font-size="15" font-weight="normal" fill="#172336">Nearby lanes + crosswalks</text>
-<text x="49" y="281" font-size="15" font-weight="normal" fill="#172336">Local frame, explicit masks</text>
-<text x="49" y="318" font-size="15" font-weight="normal" fill="#172336">Scene Transformer: D=256</text>
-<rect x="397" y="128" width="336" height="362" rx="12" fill="#fff0d8" stroke="#805100" stroke-width="1.5"/>
-<text x="414" y="164" font-size="17" font-weight="bold" fill="#805100">Reason about futures</text>
-<text x="414" y="207" font-size="15" font-weight="normal" fill="#172336">Level 0: mode + agent query</text>
-<text x="414" y="244" font-size="15" font-weight="normal" fill="#172336">Predict xy, uncertainty, score</text>
-<text x="414" y="281" font-size="15" font-weight="normal" fill="#172336">Encode previous futures</text>
-<text x="414" y="318" font-size="15" font-weight="normal" fill="#172336">Level k responds to level k-1</text>
-<rect x="762" y="128" width="336" height="362" rx="12" fill="#e1f4e9" stroke="#24633e" stroke-width="1.5"/>
-<text x="779" y="164" font-size="17" font-weight="bold" fill="#24633e">Learn and select</text>
-<text x="779" y="207" font-size="15" font-weight="normal" fill="#172336">Supervise every level</text>
-<text x="779" y="244" font-size="15" font-weight="normal" fill="#172336">P=2 agents, M=6 joint modes</text>
-<text x="779" y="281" font-size="15" font-weight="normal" fill="#172336">T=80 steps at dt=0.1 s</text>
-<text x="779" y="318" font-size="15" font-weight="normal" fill="#172336">Select mode using scores</text>
-<path d="M371 310 H388 M381 304 L389 310 L381 316" stroke="#536783" stroke-width="2.5" fill="none"/>
-<path d="M736 310 H753 M746 304 L754 310 L746 316" stroke="#536783" stroke-width="2.5" fill="none"/>
-<text x="33" y="528" font-size="14" font-weight="normal" fill="#172336">Blue: inputs   |   Amber: operation   |   Green: result / interpretation</text>
-<text x="33" y="558" font-size="14" font-weight="normal" fill="#172336">Conceptual overview.</text>
-<text x="33" y="588" font-size="12" font-weight="normal" fill="#172336">Source: gameformer/model.py  |  Figure: overview</text>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="760" viewBox="0 0 1200 760">
+<rect width="1200" height="760" fill="#f8fafc"/>
+<g font-family="DejaVu Sans">
+<text x="43" y="49" font-size="29" font-weight="bold" text-anchor="start" fill="#172b45">From a scene to interacting futures</text>
+<text x="44" y="82" font-size="16" font-weight="normal" text-anchor="start" fill="#586b80">One common scene; multiple possible futures; one shared mode index.</text>
+<polyline points="44,103 1155,103" fill="none" stroke="#d4dee8" stroke-width="1" stroke-linejoin="round"/>
+<ellipse cx="55" cy="136" rx="13" ry="13" fill="#2976c9" stroke="#2976c9" stroke-width="2"/>
+<text x="55" y="142" font-size="15" font-weight="bold" text-anchor="middle" fill="#ffffff">1</text>
+<text x="78" y="143" font-size="20" font-weight="bold" text-anchor="start" fill="#172b45">Observe a shared scene</text>
+<rect x="42" y="167" width="355" height="350" rx="14" fill="#e7eee8" stroke="#e7eee8" stroke-width="1.5"/>
+<rect x="43" y="298.5" width="353" height="94" rx="0" fill="#dee6ec" stroke="#dee6ec" stroke-width="1.5"/>
+<rect x="183.15" y="168" width="94" height="348" rx="0" fill="#dee6ec" stroke="#dee6ec" stroke-width="1.5"/>
+<polyline points="54,345.5 178.15,345.5" fill="none" stroke="#ffffff" stroke-width="2" stroke-linejoin="round" stroke-dasharray="6 5"/>
+<polyline points="282.15,345.5 385,345.5" fill="none" stroke="#ffffff" stroke-width="2" stroke-linejoin="round" stroke-dasharray="6 5"/>
+<polyline points="230.15,179 230.15,293.5" fill="none" stroke="#ffffff" stroke-width="2" stroke-linejoin="round" stroke-dasharray="6 5"/>
+<polyline points="230.15,397.5 230.15,505" fill="none" stroke="#ffffff" stroke-width="2" stroke-linejoin="round" stroke-dasharray="6 5"/>
+<rect x="188.15" y="400.5" width="9" height="25" rx="0" fill="#ffffff" stroke="#ffffff" stroke-width="1.5"/>
+<rect x="206.15" y="400.5" width="9" height="25" rx="0" fill="#ffffff" stroke="#ffffff" stroke-width="1.5"/>
+<rect x="224.15" y="400.5" width="9" height="25" rx="0" fill="#ffffff" stroke="#ffffff" stroke-width="1.5"/>
+<rect x="242.15" y="400.5" width="9" height="25" rx="0" fill="#ffffff" stroke="#ffffff" stroke-width="1.5"/>
+<rect x="260.15" y="400.5" width="9" height="25" rx="0" fill="#ffffff" stroke="#ffffff" stroke-width="1.5"/>
+<polyline points="54,297.5 181.15,297.5 181.15,179" fill="none" stroke="#586b80" stroke-width="1" stroke-linejoin="round"/>
+<polyline points="279.15,179 279.15,297.5 385,297.5" fill="none" stroke="#586b80" stroke-width="1" stroke-linejoin="round"/>
+<rect x="92.5" y="357" width="43" height="23" rx="5" fill="#2976c9" stroke="#2976c9" stroke-width="1.5"/>
+<rect x="105.4" y="361.6" width="17.2" height="13.8" rx="2" fill="#eaf2f8" stroke="#2976c9" stroke-width="1"/>
+<text x="114" y="405" font-size="17" font-weight="bold" text-anchor="middle" fill="#2976c9">agent A</text>
+<rect x="240.65" y="212.5" width="23" height="43" rx="5" fill="#008b87" stroke="#008b87" stroke-width="1.5"/>
+<rect x="247.55" y="221.1" width="9.2" height="25.8" rx="2" fill="#eaf2f8" stroke="#008b87" stroke-width="1"/>
+<text x="252.15" y="280.5" font-size="17" font-weight="bold" text-anchor="middle" fill="#008b87">agent B</text>
+<polyline points="139,368.5 145.073,368.38 151.141,368.029 157.203,367.458 163.257,366.68 169.301,365.707 175.334,364.551 181.353,363.225 187.358,361.74 193.347,360.109 199.318,358.344 205.269,356.457 211.199,354.46 217.107,352.366 222.989,350.186 228.846,347.934 234.675,345.62 240.475,343.258 246.243,340.859 251.98,338.435 257.681,336 263.347,333.565 268.975,331.141 274.564,328.742 280.113,326.38 285.619,324.066 291.08,321.814 296.496,319.634 301.865,317.54 307.185,315.543 312.454,313.656 317.671,311.891 322.834,310.26 327.941,308.775 332.991,307.449 337.983,306.293 342.913,305.32 347.782,304.542 352.587,303.971 357.327,303.62 362,303.5" fill="none" stroke="#2976c9" stroke-width="3" stroke-linejoin="round"/>
+<polyline points="252.15,261 252.032,267.319 251.686,273.6 251.124,279.845 250.358,286.053 249.4,292.224 248.262,298.358 246.956,304.457 245.494,310.52 243.888,316.547 242.15,322.539 240.292,328.496 238.326,334.417 236.264,340.305 234.118,346.157 231.9,351.976 229.622,357.76 227.296,363.511 224.934,369.228 222.548,374.912 220.15,380.562 217.752,386.181 215.366,391.766 213.004,397.319 210.678,402.84 208.4,408.329 206.182,413.787 204.036,419.213 201.974,424.607 200.008,429.971 198.15,435.305 196.412,440.607 194.806,445.88 193.344,451.123 192.038,456.335 190.9,461.519 189.942,466.673 189.176,471.797 188.614,476.893 188.268,481.961 188.15,487" fill="none" stroke="#2976c9" stroke-width="3" stroke-linejoin="round" stroke-dasharray="6 5"/>
+<polyline points="139,368.5 145.073,368.458 151.141,368.333 157.203,368.131 163.257,367.856 169.301,367.512 175.334,367.103 181.353,366.633 187.358,366.108 193.347,365.531 199.318,364.906 205.269,364.239 211.199,363.532 217.107,362.791 222.989,362.02 228.846,361.223 234.675,360.404 240.475,359.568 246.243,358.719 251.98,357.862 257.681,357 263.347,356.138 268.975,355.281 274.564,354.432 280.113,353.596 285.619,352.777 291.08,351.98 296.496,351.209 301.865,350.468 307.185,349.761 312.454,349.094 317.671,348.469 322.834,347.892 327.941,347.367 332.991,346.897 337.983,346.488 342.913,346.144 347.782,345.869 352.587,345.667 357.327,345.542 362,345.5" fill="none" stroke="#d98524" stroke-width="3" stroke-linejoin="round"/>
+<polyline points="252.15,261 252.109,267.319 251.99,273.6 251.797,279.845 251.534,286.053 251.205,292.224 250.813,298.358 250.365,304.457 249.862,310.52 249.31,316.547 248.713,322.539 248.074,328.496 247.398,334.417 246.689,340.305 245.952,346.157 245.189,351.976 244.406,357.76 243.606,363.511 242.795,369.228 241.974,374.912 241.15,380.562 240.326,386.181 239.505,391.766 238.694,397.319 237.894,402.84 237.111,408.329 236.349,413.787 235.611,419.213 234.902,424.607 234.226,429.971 233.587,435.305 232.99,440.607 232.438,445.88 231.935,451.123 231.487,456.335 231.095,461.519 230.766,466.673 230.503,471.797 230.31,476.893 230.191,481.961 230.15,487" fill="none" stroke="#d98524" stroke-width="3" stroke-linejoin="round" stroke-dasharray="6 5"/>
+<polyline points="139,368.5 145.073,368.535 151.141,368.638 157.203,368.805 163.257,369.032 169.301,369.316 175.334,369.654 181.353,370.042 187.358,370.476 193.347,370.953 199.318,371.469 205.269,372.02 211.199,372.604 217.107,373.216 222.989,373.853 228.846,374.512 234.675,375.188 240.475,375.879 246.243,376.58 251.98,377.288 257.681,378 263.347,378.712 268.975,379.42 274.564,380.121 280.113,380.812 285.619,381.488 291.08,382.147 296.496,382.784 301.865,383.396 307.185,383.98 312.454,384.531 317.671,385.047 322.834,385.524 327.941,385.958 332.991,386.346 337.983,386.684 342.913,386.968 347.782,387.195 352.587,387.362 357.327,387.465 362,387.5" fill="none" stroke="#8057ad" stroke-width="3" stroke-linejoin="round"/>
+<polyline points="252.15,261 252.187,267.319 252.295,273.6 252.471,279.845 252.71,286.053 253.009,292.224 253.365,298.358 253.773,304.457 254.23,310.52 254.732,316.547 255.275,322.539 255.856,328.496 256.47,334.417 257.114,340.305 257.785,346.157 258.478,351.976 259.19,357.76 259.917,363.511 260.655,369.228 261.401,374.912 262.15,380.562 262.899,386.181 263.645,391.766 264.383,397.319 265.11,402.84 265.822,408.329 266.515,413.787 267.186,419.213 267.83,424.607 268.444,429.971 269.025,435.305 269.568,440.607 270.07,445.88 270.527,451.123 270.935,456.335 271.291,461.519 271.59,466.673 271.829,471.797 272.005,476.893 272.113,481.961 272.15,487" fill="none" stroke="#8057ad" stroke-width="3" stroke-linejoin="round" stroke-dasharray="6 5"/>
+<text x="52" y="552" font-size="18" font-weight="normal" text-anchor="start" fill="#586b80">Solid: A  ·  dashed: B</text>
+<text x="52" y="583" font-size="18" font-weight="bold" text-anchor="start" fill="#172b45">Color = one joint mode</text>
+<text x="52" y="620" font-size="16" font-weight="normal" text-anchor="start" fill="#586b80">History: 11 samples at 0.1 s; future: 80 × 0.1 s</text>
+<polyline points="410,340 463,340" fill="none" stroke="#2976c9" stroke-width="3" stroke-linejoin="round"/>
+<polygon points="463,340 453.996,344.35 453.996,335.65" fill="#2976c9" stroke="#2976c9" stroke-width="1.5"/>
+<ellipse cx="483" cy="136" rx="13" ry="13" fill="#2976c9" stroke="#2976c9" stroke-width="2"/>
+<text x="483" y="142" font-size="15" font-weight="bold" text-anchor="middle" fill="#ffffff">2</text>
+<text x="506" y="143" font-size="20" font-weight="bold" text-anchor="start" fill="#172b45">Encode, then reason</text>
+<rect x="480" y="190" width="305" height="45" rx="10" fill="#ffffff" stroke="#2976c9" stroke-width="1.5"/>
+<text x="632.5" y="218.62" font-size="18" font-weight="bold" text-anchor="middle" fill="#2976c9">Actor histories → LSTMs</text>
+<rect x="480" y="255" width="305" height="45" rx="10" fill="#ffffff" stroke="#008b87" stroke-width="1.5"/>
+<text x="632.5" y="283.62" font-size="18" font-weight="bold" text-anchor="middle" fill="#008b87">Lanes / crosswalks → MLPs</text>
+<polyline points="785,212 815,212 815,337 785,337" fill="none" stroke="#2976c9" stroke-width="2.3" stroke-linejoin="round"/>
+<polygon points="785,337 794.004,332.65 794.004,341.35" fill="#2976c9" stroke="#2976c9" stroke-width="1.5"/>
+<polyline points="632,300 632,315" fill="none" stroke="#008b87" stroke-width="2.3" stroke-linejoin="round"/>
+<polygon points="632,315 627.65,305.996 636.35,305.996" fill="#008b87" stroke="#008b87" stroke-width="1.5"/>
+<rect x="480" y="315" width="305" height="48" rx="10" fill="#ffffff" stroke="#8057ad" stroke-width="1.5"/>
+<text x="632.5" y="344.78" font-size="17" font-weight="bold" text-anchor="middle" fill="#8057ad">Scene Transformer · D = 256</text>
+<polyline points="632,363 632,409" fill="none" stroke="#8057ad" stroke-width="2.3" stroke-linejoin="round"/>
+<polygon points="632,409 627.65,399.996 636.35,399.996" fill="#8057ad" stroke="#8057ad" stroke-width="1.5"/>
+<rect x="480" y="409" width="305" height="55" rx="10" fill="#ffffff" stroke="#2976c9" stroke-width="1.5"/>
+<text x="632.5" y="442.28" font-size="17" font-weight="bold" text-anchor="middle" fill="#2976c9">Level 0: agent + mode queries</text>
+<polyline points="632,464 632,502" fill="none" stroke="#2976c9" stroke-width="2.3" stroke-linejoin="round"/>
+<polygon points="632,502 627.65,492.996 636.35,492.996" fill="#2976c9" stroke="#2976c9" stroke-width="1.5"/>
+<rect x="480" y="502" width="305" height="56" rx="10" fill="#ffffff" stroke="#008b87" stroke-width="1.5"/>
+<text x="632.5" y="535.44" font-size="16" font-weight="bold" text-anchor="middle" fill="#008b87">Level k responds to level k − 1</text>
+<polyline points="785,530 839,530 839,245 926,245" fill="none" stroke="#008b87" stroke-width="2.3" stroke-linejoin="round"/>
+<polygon points="926,245 916.996,249.35 916.996,240.65" fill="#008b87" stroke="#008b87" stroke-width="1.5"/>
+<text x="632" y="584" font-size="16" font-weight="normal" text-anchor="middle" fill="#008b87">Repeat response levels k = 1 … K</text>
+<text x="477" y="605" font-size="16" font-weight="normal" text-anchor="start" fill="#586b80">Every level predicts means, uncertainty and scores.</text>
+<ellipse cx="880" cy="136" rx="13" ry="13" fill="#2976c9" stroke="#2976c9" stroke-width="2"/>
+<text x="880" y="142" font-size="15" font-weight="bold" text-anchor="middle" fill="#ffffff">3</text>
+<text x="903" y="143" font-size="20" font-weight="bold" text-anchor="start" fill="#172b45">Learn and select</text>
+<rect x="951" y="200" width="70" height="32" rx="3" fill="#ffffff" stroke="#8057ad" stroke-width="1.5"/>
+<polyline points="961,209 961,223" fill="none" stroke="#8057ad" stroke-width="2" stroke-linejoin="round"/>
+<polyline points="971,209 971,223" fill="none" stroke="#8057ad" stroke-width="2" stroke-linejoin="round"/>
+<polyline points="981,209 981,223" fill="none" stroke="#8057ad" stroke-width="2" stroke-linejoin="round"/>
+<polyline points="991,209 991,223" fill="none" stroke="#8057ad" stroke-width="2" stroke-linejoin="round"/>
+<polyline points="1001,209 1001,223" fill="none" stroke="#8057ad" stroke-width="2" stroke-linejoin="round"/>
+<rect x="946" y="205" width="70" height="32" rx="3" fill="#ffffff" stroke="#8057ad" stroke-width="1.5"/>
+<polyline points="956,214 956,228" fill="none" stroke="#8057ad" stroke-width="2" stroke-linejoin="round"/>
+<polyline points="966,214 966,228" fill="none" stroke="#8057ad" stroke-width="2" stroke-linejoin="round"/>
+<polyline points="976,214 976,228" fill="none" stroke="#8057ad" stroke-width="2" stroke-linejoin="round"/>
+<polyline points="986,214 986,228" fill="none" stroke="#8057ad" stroke-width="2" stroke-linejoin="round"/>
+<polyline points="996,214 996,228" fill="none" stroke="#8057ad" stroke-width="2" stroke-linejoin="round"/>
+<rect x="941" y="210" width="70" height="32" rx="3" fill="#ffffff" stroke="#8057ad" stroke-width="1.5"/>
+<polyline points="951,219 951,233" fill="none" stroke="#8057ad" stroke-width="2" stroke-linejoin="round"/>
+<polyline points="961,219 961,233" fill="none" stroke="#8057ad" stroke-width="2" stroke-linejoin="round"/>
+<polyline points="971,219 971,233" fill="none" stroke="#8057ad" stroke-width="2" stroke-linejoin="round"/>
+<polyline points="981,219 981,233" fill="none" stroke="#8057ad" stroke-width="2" stroke-linejoin="round"/>
+<polyline points="991,219 991,233" fill="none" stroke="#8057ad" stroke-width="2" stroke-linejoin="round"/>
+<rect x="936" y="215" width="70" height="32" rx="3" fill="#ffffff" stroke="#8057ad" stroke-width="1.5"/>
+<polyline points="946,224 946,238" fill="none" stroke="#8057ad" stroke-width="2" stroke-linejoin="round"/>
+<polyline points="956,224 956,238" fill="none" stroke="#8057ad" stroke-width="2" stroke-linejoin="round"/>
+<polyline points="966,224 966,238" fill="none" stroke="#8057ad" stroke-width="2" stroke-linejoin="round"/>
+<polyline points="976,224 976,238" fill="none" stroke="#8057ad" stroke-width="2" stroke-linejoin="round"/>
+<polyline points="986,224 986,238" fill="none" stroke="#8057ad" stroke-width="2" stroke-linejoin="round"/>
+<rect x="931" y="220" width="70" height="32" rx="3" fill="#ffffff" stroke="#8057ad" stroke-width="1.5"/>
+<polyline points="941,229 941,243" fill="none" stroke="#8057ad" stroke-width="2" stroke-linejoin="round"/>
+<polyline points="951,229 951,243" fill="none" stroke="#8057ad" stroke-width="2" stroke-linejoin="round"/>
+<polyline points="961,229 961,243" fill="none" stroke="#8057ad" stroke-width="2" stroke-linejoin="round"/>
+<polyline points="971,229 971,243" fill="none" stroke="#8057ad" stroke-width="2" stroke-linejoin="round"/>
+<polyline points="981,229 981,243" fill="none" stroke="#8057ad" stroke-width="2" stroke-linejoin="round"/>
+<rect x="926" y="225" width="70" height="32" rx="3" fill="#ffffff" stroke="#8057ad" stroke-width="1.5"/>
+<polyline points="936,234 936,248" fill="none" stroke="#8057ad" stroke-width="2" stroke-linejoin="round"/>
+<polyline points="946,234 946,248" fill="none" stroke="#8057ad" stroke-width="2" stroke-linejoin="round"/>
+<polyline points="956,234 956,248" fill="none" stroke="#8057ad" stroke-width="2" stroke-linejoin="round"/>
+<polyline points="966,234 966,248" fill="none" stroke="#8057ad" stroke-width="2" stroke-linejoin="round"/>
+<polyline points="976,234 976,248" fill="none" stroke="#8057ad" stroke-width="2" stroke-linejoin="round"/>
+<text x="1000" y="309" font-size="18" font-weight="bold" text-anchor="middle" fill="#8057ad">2 agents × 6 modes</text>
+<polyline points="855,245 855,369 868,369" fill="none" stroke="#c84c61" stroke-width="2.3" stroke-linejoin="round"/>
+<polygon points="868,369 858.996,373.35 858.996,364.65" fill="#c84c61" stroke="#c84c61" stroke-width="1.5"/>
+<rect x="868" y="340" width="284" height="58" rx="10" fill="#ffffff" stroke="#c84c61" stroke-width="1.5"/>
+<text x="1010" y="375.12" font-size="18" font-weight="bold" text-anchor="middle" fill="#c84c61">All-level supervision</text>
+<polyline points="1020,241 1170,241 1170,479 1152,479" fill="none" stroke="#2976c9" stroke-width="2.3" stroke-linejoin="round"/>
+<polygon points="1152,479 1161,474.65 1161,483.35" fill="#2976c9" stroke="#2976c9" stroke-width="1.5"/>
+<rect x="868" y="450" width="284" height="58" rx="10" fill="#ffffff" stroke="#2976c9" stroke-width="1.5"/>
+<text x="1010" y="484.78" font-size="17" font-weight="bold" text-anchor="middle" fill="#2976c9">Scores select a joint mode</text>
+<text x="876" y="557" font-size="17" font-weight="normal" text-anchor="start" fill="#172b45">One index selects both agents.</text>
+<text x="876" y="589" font-size="16" font-weight="normal" text-anchor="start" fill="#586b80">Targets supervise training only.</text>
+<rect x="470" y="635" width="680" height="43" rx="10" fill="#edf3f8" stroke="#edf3f8" stroke-width="1.5"/>
+<text x="490" y="663" font-size="17" font-weight="normal" text-anchor="start" fill="#172b45">Output: [levels, B, P, M, T, 4]    4 = μx, μy, log σx, log σy</text>
+<polyline points="44,720 1155,720" fill="none" stroke="#d4dee8" stroke-width="1" stroke-linejoin="round"/>
+<text x="44" y="743" font-size="13" font-weight="normal" text-anchor="start" fill="#586b80">Conceptual architecture</text>
+<text x="1154" y="743" font-size="13" font-weight="normal" text-anchor="end" fill="#586b80">Local source: model.py   ·   overview</text>
 </g></svg>

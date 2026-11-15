@@ -1,29 +1,104 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="620" viewBox="0 0 1100 620">
-<rect width="1100" height="620" fill="#f5f7fb"/>
-<g font-family="DejaVu Sans" fill="#172336">
-<text x="32" y="43" font-size="25" font-weight="bold" fill="#172336">Modes and agents create distinct queries</text>
-<text x="33" y="74" font-size="14" font-weight="normal" fill="#172336">Full level-0 query: [B,P=2,M=6,D=256]. Toy vectors use D=2.</text>
-<rect x="32" y="128" width="336" height="362" rx="12" fill="#e7eefb" stroke="#2c518c" stroke-width="1.5"/>
-<text x="49" y="164" font-size="17" font-weight="bold" fill="#2c518c">Three query ingredients</text>
-<text x="49" y="207" font-size="15" font-weight="normal" fill="#172336">History token: (1,2)</text>
-<text x="49" y="244" font-size="15" font-weight="normal" fill="#172336">Mode embedding: (.5,0)</text>
-<text x="49" y="281" font-size="15" font-weight="normal" fill="#172336">Agent embedding: (0,-.5)</text>
-<text x="49" y="318" font-size="15" font-weight="normal" fill="#172336">No previous future at level 0</text>
-<rect x="397" y="128" width="336" height="362" rx="12" fill="#fff0d8" stroke="#805100" stroke-width="1.5"/>
-<text x="414" y="164" font-size="17" font-weight="bold" fill="#805100">Element-wise addition</text>
-<text x="414" y="207" font-size="15" font-weight="normal" fill="#172336">(1,2) + (.5,0) + (0,-.5)</text>
-<text x="414" y="244" font-size="15" font-weight="normal" fill="#172336">Query = (1.5,1.5)</text>
-<text x="414" y="281" font-size="15" font-weight="normal" fill="#172336">Keys/values = scene tokens</text>
-<text x="414" y="318" font-size="15" font-weight="normal" fill="#172336">Cross-attention reads context</text>
-<rect x="762" y="128" width="336" height="362" rx="12" fill="#e1f4e9" stroke="#24633e" stroke-width="1.5"/>
-<text x="779" y="164" font-size="17" font-weight="bold" fill="#24633e">Initial futures</text>
-<text x="779" y="207" font-size="15" font-weight="normal" fill="#172336">One head produces Gaussians</text>
-<text x="779" y="244" font-size="15" font-weight="normal" fill="#172336">Another head produces scores</text>
-<text x="779" y="281" font-size="15" font-weight="normal" fill="#172336">A mode index spans both agents</text>
-<text x="779" y="318" font-size="15" font-weight="normal" fill="#172336">No mode-wise self-attention</text>
-<path d="M371 310 H388 M381 304 L389 310 L381 316" stroke="#536783" stroke-width="2.5" fill="none"/>
-<path d="M736 310 H753 M746 304 L754 310 L746 316" stroke="#536783" stroke-width="2.5" fill="none"/>
-<text x="33" y="528" font-size="14" font-weight="normal" fill="#172336">Blue: inputs   |   Amber: operation   |   Green: result / interpretation</text>
-<text x="33" y="558" font-size="14" font-weight="normal" fill="#172336">Worked toy values explain the computation; they are not trained-model measurements.</text>
-<text x="33" y="588" font-size="12" font-weight="normal" fill="#172336">Source: gameformer/model.py  |  Figure: initial-query</text>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="760" viewBox="0 0 1200 760">
+<rect width="1200" height="760" fill="#f8fafc"/>
+<g font-family="DejaVu Sans">
+<text x="43" y="49" font-size="29" font-weight="bold" text-anchor="start" fill="#172b45">Modes and agents create distinct queries</text>
+<text x="44" y="82" font-size="16" font-weight="normal" text-anchor="start" fill="#586b80">Full level-0 query: [B,P=2,M=6,D=256]. Toy vectors use D=2.</text>
+<polyline points="44,103 1155,103" fill="none" stroke="#d4dee8" stroke-width="1" stroke-linejoin="round"/>
+<ellipse cx="56" cy="135" rx="13" ry="13" fill="#2976c9" stroke="#2976c9" stroke-width="2"/>
+<text x="56" y="141" font-size="15" font-weight="bold" text-anchor="middle" fill="#ffffff">1</text>
+<text x="79" y="142" font-size="20" font-weight="bold" text-anchor="start" fill="#172b45">Add the scene actor token, agent identity and shared mode identity</text>
+<text x="70" y="207" font-size="18" font-weight="bold" text-anchor="start" fill="#2976c9">Scene actor</text>
+<rect x="73" y="228" width="63" height="46" rx="0" fill="#eaf2fb" stroke="#d4dee8" stroke-width="1"/>
+<text x="104.5" y="258.36" font-size="18" font-weight="normal" text-anchor="middle" fill="#172b45">1</text>
+<rect x="136" y="228" width="63" height="46" rx="0" fill="#eaf2fb" stroke="#d4dee8" stroke-width="1"/>
+<text x="167.5" y="258.36" font-size="18" font-weight="normal" text-anchor="middle" fill="#172b45">2</text>
+<text x="239" y="258" font-size="28" font-weight="normal" text-anchor="start" fill="#586b80">+</text>
+<text x="294" y="207" font-size="18" font-weight="bold" text-anchor="start" fill="#d98524">Mode m</text>
+<rect x="281" y="228" width="65" height="46" rx="0" fill="#f9efdf" stroke="#d4dee8" stroke-width="1"/>
+<text x="313.5" y="258.36" font-size="18" font-weight="normal" text-anchor="middle" fill="#172b45">0.5</text>
+<rect x="346" y="228" width="65" height="46" rx="0" fill="#f9efdf" stroke="#d4dee8" stroke-width="1"/>
+<text x="378.5" y="258.36" font-size="18" font-weight="normal" text-anchor="middle" fill="#172b45">0</text>
+<text x="447" y="258" font-size="28" font-weight="normal" text-anchor="start" fill="#586b80">+</text>
+<text x="505" y="207" font-size="18" font-weight="bold" text-anchor="start" fill="#008b87">Agent A</text>
+<rect x="489" y="228" width="70" height="46" rx="0" fill="#e6f2f1" stroke="#d4dee8" stroke-width="1"/>
+<text x="524" y="258.36" font-size="18" font-weight="normal" text-anchor="middle" fill="#172b45">0</text>
+<rect x="559" y="228" width="70" height="46" rx="0" fill="#e6f2f1" stroke="#d4dee8" stroke-width="1"/>
+<text x="594" y="258.36" font-size="18" font-weight="normal" text-anchor="middle" fill="#172b45">−0.5</text>
+<polyline points="654,252 725,252" fill="none" stroke="#172b45" stroke-width="2.3" stroke-linejoin="round"/>
+<polygon points="725,252 715.996,256.35 715.996,247.65" fill="#172b45" stroke="#172b45" stroke-width="1.5"/>
+<rect x="750" y="228" width="80" height="46" rx="0" fill="#efeaf6" stroke="#d4dee8" stroke-width="1"/>
+<text x="790" y="258.36" font-size="18" font-weight="normal" text-anchor="middle" fill="#172b45">1.5</text>
+<rect x="830" y="228" width="80" height="46" rx="0" fill="#efeaf6" stroke="#d4dee8" stroke-width="1"/>
+<text x="870" y="258.36" font-size="18" font-weight="normal" text-anchor="middle" fill="#172b45">1.5</text>
+<text x="831" y="207" font-size="19" font-weight="bold" text-anchor="middle" fill="#8057ad">q[A,m]</text>
+<text x="955" y="252" font-size="18" font-weight="normal" text-anchor="start" fill="#586b80">Toy D = 2</text>
+<ellipse cx="56" cy="347" rx="13" ry="13" fill="#2976c9" stroke="#2976c9" stroke-width="2"/>
+<text x="56" y="353" font-size="15" font-weight="bold" text-anchor="middle" fill="#ffffff">2</text>
+<text x="79" y="354" font-size="20" font-weight="bold" text-anchor="start" fill="#172b45">One query per agent × mode</text>
+<text x="157" y="471.25" font-size="18" font-weight="normal" text-anchor="end" fill="#586b80">agent A</text>
+<rect x="170" y="429" width="122" height="65" rx="0" fill="#eaf2fb" stroke="#d4dee8" stroke-width="1"/>
+<text x="231" y="471.9" font-size="18" font-weight="normal" text-anchor="middle" fill="#172b45">q A,0</text>
+<rect x="292" y="429" width="122" height="65" rx="0" fill="#f9efdf" stroke="#d4dee8" stroke-width="1"/>
+<text x="353" y="471.9" font-size="18" font-weight="normal" text-anchor="middle" fill="#172b45">q A,1</text>
+<rect x="414" y="429" width="122" height="65" rx="0" fill="#efeaf6" stroke="#d4dee8" stroke-width="1"/>
+<text x="475" y="471.9" font-size="18" font-weight="normal" text-anchor="middle" fill="#172b45">q A,2</text>
+<text x="157" y="536.25" font-size="18" font-weight="normal" text-anchor="end" fill="#586b80">agent B</text>
+<rect x="170" y="494" width="122" height="65" rx="0" fill="#eaf2fb" stroke="#d4dee8" stroke-width="1"/>
+<text x="231" y="536.9" font-size="18" font-weight="normal" text-anchor="middle" fill="#172b45">q B,0</text>
+<rect x="292" y="494" width="122" height="65" rx="0" fill="#f9efdf" stroke="#d4dee8" stroke-width="1"/>
+<text x="353" y="536.9" font-size="18" font-weight="normal" text-anchor="middle" fill="#172b45">q B,1</text>
+<rect x="414" y="494" width="122" height="65" rx="0" fill="#efeaf6" stroke="#d4dee8" stroke-width="1"/>
+<text x="475" y="536.9" font-size="18" font-weight="normal" text-anchor="middle" fill="#172b45">q B,2</text>
+<text x="231" y="417" font-size="17" font-weight="normal" text-anchor="middle" fill="#586b80">mode 0</text>
+<text x="353" y="417" font-size="17" font-weight="normal" text-anchor="middle" fill="#586b80">mode 1</text>
+<text x="475" y="417" font-size="17" font-weight="normal" text-anchor="middle" fill="#586b80">mode 2</text>
+<text x="171" y="599" font-size="17" font-weight="normal" text-anchor="start" fill="#586b80">The mode column is shared across agents.</text>
+<polyline points="567,492 647,492" fill="none" stroke="#8057ad" stroke-width="2.3" stroke-linejoin="round"/>
+<polygon points="647,492 637.996,496.35 637.996,487.65" fill="#8057ad" stroke="#8057ad" stroke-width="1.5"/>
+<rect x="648" y="456" width="206" height="72" rx="10" fill="#ffffff" stroke="#8057ad" stroke-width="1.5"/>
+<text x="751" y="498.12" font-size="18" font-weight="bold" text-anchor="middle" fill="#8057ad">Cross-attention</text>
+<rect x="715" y="341" width="70" height="32" rx="3" fill="#ffffff" stroke="#008b87" stroke-width="1.5"/>
+<polyline points="725,350 725,364" fill="none" stroke="#008b87" stroke-width="2" stroke-linejoin="round"/>
+<polyline points="735,350 735,364" fill="none" stroke="#008b87" stroke-width="2" stroke-linejoin="round"/>
+<polyline points="745,350 745,364" fill="none" stroke="#008b87" stroke-width="2" stroke-linejoin="round"/>
+<polyline points="755,350 755,364" fill="none" stroke="#008b87" stroke-width="2" stroke-linejoin="round"/>
+<polyline points="765,350 765,364" fill="none" stroke="#008b87" stroke-width="2" stroke-linejoin="round"/>
+<rect x="710" y="346" width="70" height="32" rx="3" fill="#ffffff" stroke="#008b87" stroke-width="1.5"/>
+<polyline points="720,355 720,369" fill="none" stroke="#008b87" stroke-width="2" stroke-linejoin="round"/>
+<polyline points="730,355 730,369" fill="none" stroke="#008b87" stroke-width="2" stroke-linejoin="round"/>
+<polyline points="740,355 740,369" fill="none" stroke="#008b87" stroke-width="2" stroke-linejoin="round"/>
+<polyline points="750,355 750,369" fill="none" stroke="#008b87" stroke-width="2" stroke-linejoin="round"/>
+<polyline points="760,355 760,369" fill="none" stroke="#008b87" stroke-width="2" stroke-linejoin="round"/>
+<rect x="705" y="351" width="70" height="32" rx="3" fill="#ffffff" stroke="#008b87" stroke-width="1.5"/>
+<polyline points="715,360 715,374" fill="none" stroke="#008b87" stroke-width="2" stroke-linejoin="round"/>
+<polyline points="725,360 725,374" fill="none" stroke="#008b87" stroke-width="2" stroke-linejoin="round"/>
+<polyline points="735,360 735,374" fill="none" stroke="#008b87" stroke-width="2" stroke-linejoin="round"/>
+<polyline points="745,360 745,374" fill="none" stroke="#008b87" stroke-width="2" stroke-linejoin="round"/>
+<polyline points="755,360 755,374" fill="none" stroke="#008b87" stroke-width="2" stroke-linejoin="round"/>
+<rect x="700" y="356" width="70" height="32" rx="3" fill="#ffffff" stroke="#008b87" stroke-width="1.5"/>
+<polyline points="710,365 710,379" fill="none" stroke="#008b87" stroke-width="2" stroke-linejoin="round"/>
+<polyline points="720,365 720,379" fill="none" stroke="#008b87" stroke-width="2" stroke-linejoin="round"/>
+<polyline points="730,365 730,379" fill="none" stroke="#008b87" stroke-width="2" stroke-linejoin="round"/>
+<polyline points="740,365 740,379" fill="none" stroke="#008b87" stroke-width="2" stroke-linejoin="round"/>
+<polyline points="750,365 750,379" fill="none" stroke="#008b87" stroke-width="2" stroke-linejoin="round"/>
+<polyline points="744,394 744,455" fill="none" stroke="#008b87" stroke-width="2.3" stroke-linejoin="round"/>
+<polygon points="744,455 739.65,445.996 748.35,445.996" fill="#008b87" stroke="#008b87" stroke-width="1.5"/>
+<text x="835" y="383" font-size="17" font-weight="normal" text-anchor="start" fill="#008b87">scene K,V</text>
+<polyline points="855,491 925,491" fill="none" stroke="#8057ad" stroke-width="2.3" stroke-linejoin="round"/>
+<polygon points="925,491 915.996,495.35 915.996,486.65" fill="#8057ad" stroke="#8057ad" stroke-width="1.5"/>
+<polyline points="925,420 925,566" fill="none" stroke="#8057ad" stroke-width="2" stroke-linejoin="round"/>
+<polyline points="925,420 970,420" fill="none" stroke="#2976c9" stroke-width="2.3" stroke-linejoin="round"/>
+<polygon points="970,420 960.996,424.35 960.996,415.65" fill="#2976c9" stroke="#2976c9" stroke-width="1.5"/>
+<polyline points="925,566 970,566" fill="none" stroke="#d98524" stroke-width="2.3" stroke-linejoin="round"/>
+<polygon points="970,566 960.996,570.35 960.996,561.65" fill="#d98524" stroke="#d98524" stroke-width="1.5"/>
+<rect x="970" y="394" width="175" height="54" rx="10" fill="#ffffff" stroke="#2976c9" stroke-width="1.5"/>
+<text x="1057.5" y="426.78" font-size="17" font-weight="bold" text-anchor="middle" fill="#2976c9">Gaussian head</text>
+<rect x="970" y="540" width="175" height="54" rx="10" fill="#ffffff" stroke="#d98524" stroke-width="1.5"/>
+<text x="1057.5" y="573.12" font-size="18" font-weight="bold" text-anchor="middle" fill="#d98524">Score head</text>
+<text x="967" y="488" font-size="18" font-weight="normal" text-anchor="start" fill="#2976c9">[P, M, T, 4]</text>
+<text x="967" y="634" font-size="18" font-weight="normal" text-anchor="start" fill="#d98524">[P, M] logits</text>
+<text x="62" y="685" font-size="17" font-weight="normal" text-anchor="start" fill="#586b80">Full shape [B, 2, 6, 256]. No previous future and no mode-wise self-attention at level 0.</text>
+<polyline points="44,720 1155,720" fill="none" stroke="#d4dee8" stroke-width="1" stroke-linejoin="round"/>
+<text x="44" y="743" font-size="13" font-weight="normal" text-anchor="start" fill="#586b80">Illustrative values · untrained</text>
+<text x="1154" y="743" font-size="13" font-weight="normal" text-anchor="end" fill="#586b80">Local source: model.py   ·   initial-query</text>
 </g></svg>

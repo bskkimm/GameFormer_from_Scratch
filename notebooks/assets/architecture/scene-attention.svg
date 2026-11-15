@@ -1,29 +1,106 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="620" viewBox="0 0 1100 620">
-<rect width="1100" height="620" fill="#f5f7fb"/>
-<g font-family="DejaVu Sans" fill="#172336">
-<text x="32" y="43" font-size="25" font-weight="bold" fill="#172336">Attention reads only visible keys</text>
-<text x="33" y="74" font-size="14" font-weight="normal" fill="#172336">Scene length = actors + pooled local map; full released context has 114 tokens.</text>
-<rect x="32" y="128" width="336" height="362" rx="12" fill="#e7eefb" stroke="#2c518c" stroke-width="1.5"/>
-<text x="49" y="164" font-size="17" font-weight="bold" fill="#2c518c">Toy logits and values</text>
-<text x="49" y="207" font-size="15" font-weight="normal" fill="#172336">Logits: (0, ln 3, masked)</text>
-<text x="49" y="244" font-size="15" font-weight="normal" fill="#172336">Values: (2,4,99)</text>
-<text x="49" y="281" font-size="15" font-weight="normal" fill="#172336">Mask means no key access</text>
-<text x="49" y="318" font-size="15" font-weight="normal" fill="#172336">Toy one-head scalar values</text>
-<rect x="397" y="128" width="336" height="362" rx="12" fill="#fff0d8" stroke="#805100" stroke-width="1.5"/>
-<text x="414" y="164" font-size="17" font-weight="bold" fill="#805100">Softmax and weighted sum</text>
-<text x="414" y="207" font-size="15" font-weight="normal" fill="#172336">Probabilities: (.25,.75,0)</text>
-<text x="414" y="244" font-size="15" font-weight="normal" fill="#172336">Read = .25*2 + .75*4</text>
-<text x="414" y="281" font-size="15" font-weight="normal" fill="#172336">Read = 3.5</text>
-<text x="414" y="318" font-size="15" font-weight="normal" fill="#172336">Masked 99 contributes zero</text>
-<rect x="762" y="128" width="336" height="362" rx="12" fill="#e1f4e9" stroke="#24633e" stroke-width="1.5"/>
-<text x="779" y="164" font-size="17" font-weight="bold" fill="#24633e">Residual structure</text>
-<text x="779" y="207" font-size="15" font-weight="normal" fill="#172336">Scene/self: Norm(q + read)</text>
-<text x="779" y="244" font-size="15" font-weight="normal" fill="#172336">Then Norm(x + FFN(x))</text>
-<text x="779" y="281" font-size="15" font-weight="normal" fill="#172336">Release cross: Norm(read)</text>
-<text x="779" y="318" font-size="15" font-weight="normal" fill="#172336">Cross has no q residual</text>
-<path d="M371 310 H388 M381 304 L389 310 L381 316" stroke="#536783" stroke-width="2.5" fill="none"/>
-<path d="M736 310 H753 M746 304 L754 310 L746 316" stroke="#536783" stroke-width="2.5" fill="none"/>
-<text x="33" y="528" font-size="14" font-weight="normal" fill="#172336">Blue: inputs   |   Amber: operation   |   Green: result / interpretation</text>
-<text x="33" y="558" font-size="14" font-weight="normal" fill="#172336">Worked toy values explain the computation; they are not trained-model measurements.</text>
-<text x="33" y="588" font-size="12" font-weight="normal" fill="#172336">Source: gameformer/model.py  |  Figure: scene-attention</text>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="760" viewBox="0 0 1200 760">
+<rect width="1200" height="760" fill="#f8fafc"/>
+<g font-family="DejaVu Sans">
+<text x="43" y="49" font-size="29" font-weight="bold" text-anchor="start" fill="#172b45">Attention reads only visible keys</text>
+<text x="44" y="82" font-size="16" font-weight="normal" text-anchor="start" fill="#586b80">Scene length = actors + pooled local map; full released context has 114 tokens.</text>
+<polyline points="44,103 1155,103" fill="none" stroke="#d4dee8" stroke-width="1" stroke-linejoin="round"/>
+<ellipse cx="56" cy="135" rx="13" ry="13" fill="#2976c9" stroke="#2976c9" stroke-width="2"/>
+<text x="56" y="141" font-size="15" font-weight="bold" text-anchor="middle" fill="#ffffff">1</text>
+<text x="79" y="142" font-size="20" font-weight="bold" text-anchor="start" fill="#172b45">A masked attention read, computed explicitly</text>
+<text x="132" y="244.45" font-size="18" font-weight="normal" text-anchor="end" fill="#586b80">key A</text>
+<rect x="145" y="210" width="118" height="53" rx="0" fill="#ffffff" stroke="#d4dee8" stroke-width="1"/>
+<text x="204" y="244.98" font-size="18" font-weight="normal" text-anchor="middle" fill="#172b45">0</text>
+<rect x="263" y="210" width="118" height="53" rx="0" fill="#ffffff" stroke="#d4dee8" stroke-width="1"/>
+<text x="322" y="244.98" font-size="18" font-weight="normal" text-anchor="middle" fill="#172b45">2</text>
+<text x="132" y="297.45" font-size="18" font-weight="normal" text-anchor="end" fill="#586b80">key B</text>
+<rect x="145" y="263" width="118" height="53" rx="0" fill="#ffffff" stroke="#d4dee8" stroke-width="1"/>
+<text x="204" y="297.98" font-size="18" font-weight="normal" text-anchor="middle" fill="#172b45">ln 3</text>
+<rect x="263" y="263" width="118" height="53" rx="0" fill="#ffffff" stroke="#d4dee8" stroke-width="1"/>
+<text x="322" y="297.98" font-size="18" font-weight="normal" text-anchor="middle" fill="#172b45">4</text>
+<text x="132" y="350.45" font-size="18" font-weight="normal" text-anchor="end" fill="#586b80">padding</text>
+<rect x="145" y="316" width="118" height="53" rx="0" fill="#f6e8eb" stroke="#d4dee8" stroke-width="1"/>
+<text x="204" y="350.98" font-size="18" font-weight="normal" text-anchor="middle" fill="#172b45">masked</text>
+<rect x="263" y="316" width="118" height="53" rx="0" fill="#f6e8eb" stroke="#d4dee8" stroke-width="1"/>
+<text x="322" y="350.98" font-size="18" font-weight="normal" text-anchor="middle" fill="#172b45">99</text>
+<text x="204" y="198" font-size="17" font-weight="normal" text-anchor="middle" fill="#586b80">logit</text>
+<text x="322" y="198" font-size="17" font-weight="normal" text-anchor="middle" fill="#586b80">value</text>
+<polyline points="410,289 475,289" fill="none" stroke="#2976c9" stroke-width="2.3" stroke-linejoin="round"/>
+<polygon points="475,289 465.996,293.35 465.996,284.65" fill="#2976c9" stroke="#2976c9" stroke-width="1.5"/>
+<text x="496" y="211" font-size="17" font-weight="normal" text-anchor="start" fill="#586b80">A: 0.25</text>
+<rect x="496" y="219" width="220" height="24" rx="3" fill="#edf3f8" stroke="#edf3f8" stroke-width="1.5"/>
+<rect x="496" y="219" width="55" height="24" rx="3" fill="#2976c9" stroke="#2976c9" stroke-width="1.5"/>
+<text x="496" y="281" font-size="17" font-weight="normal" text-anchor="start" fill="#586b80">B: 0.75</text>
+<rect x="496" y="289" width="220" height="24" rx="3" fill="#edf3f8" stroke="#edf3f8" stroke-width="1.5"/>
+<rect x="496" y="289" width="165" height="24" rx="3" fill="#008b87" stroke="#008b87" stroke-width="1.5"/>
+<text x="496" y="351" font-size="17" font-weight="normal" text-anchor="start" fill="#586b80">padding: 0</text>
+<rect x="496" y="359" width="220" height="24" rx="3" fill="#edf3f8" stroke="#edf3f8" stroke-width="1.5"/>
+<text x="608" y="409" font-size="17" font-weight="normal" text-anchor="middle" fill="#586b80">softmax over visible keys</text>
+<polyline points="747,289 805,289" fill="none" stroke="#008b87" stroke-width="2.3" stroke-linejoin="round"/>
+<polygon points="805,289 795.996,293.35 795.996,284.65" fill="#008b87" stroke="#008b87" stroke-width="1.5"/>
+<text x="834" y="255" font-size="22" font-weight="bold" text-anchor="start" fill="#172b45">0.25 × 2 + 0.75 × 4</text>
+<text x="965" y="316" font-size="32" font-weight="bold" text-anchor="middle" fill="#008b87">read = 3.5</text>
+<text x="832" y="365" font-size="17" font-weight="normal" text-anchor="start" fill="#c84c61">The masked 99 contributes zero.</text>
+<polyline points="45,442 1154,442" fill="none" stroke="#d4dee8" stroke-width="2" stroke-linejoin="round"/>
+<ellipse cx="56" cy="465" rx="13" ry="13" fill="#2976c9" stroke="#2976c9" stroke-width="2"/>
+<text x="56" y="471" font-size="15" font-weight="bold" text-anchor="middle" fill="#ffffff">2</text>
+<text x="79" y="472" font-size="20" font-weight="bold" text-anchor="start" fill="#172b45">Residual paths depend on the attention block</text>
+<text x="47" y="548" font-size="17" font-weight="bold" text-anchor="start" fill="#2976c9">Scene / future self-attention</text>
+<rect x="365" y="517" width="111" height="44" rx="10" fill="#ffffff" stroke="#2976c9" stroke-width="1.5"/>
+<text x="420.5" y="545.12" font-size="18" font-weight="bold" text-anchor="middle" fill="#2976c9">Read</text>
+<polyline points="477,539 515,539" fill="none" stroke="#2976c9" stroke-width="2.3" stroke-linejoin="round"/>
+<polygon points="515,539 505.996,543.35 505.996,534.65" fill="#2976c9" stroke="#2976c9" stroke-width="1.5"/>
+<ellipse cx="534" cy="539" rx="17" ry="17" fill="#ffffff" stroke="#2976c9" stroke-width="2"/>
+<text x="534" y="545" font-size="20" font-weight="bold" text-anchor="middle" fill="#2976c9">+</text>
+<polyline points="406,499 534,499 534,521" fill="none" stroke="#2976c9" stroke-width="2.3" stroke-linejoin="round"/>
+<polygon points="534,521 529.65,511.996 538.35,511.996" fill="#2976c9" stroke="#2976c9" stroke-width="1.5"/>
+<text x="469" y="490" font-size="15" font-weight="normal" text-anchor="middle" fill="#2976c9">query q</text>
+<polyline points="552,539 591,539" fill="none" stroke="#2976c9" stroke-width="2.3" stroke-linejoin="round"/>
+<polygon points="591,539 581.996,543.35 581.996,534.65" fill="#2976c9" stroke="#2976c9" stroke-width="1.5"/>
+<rect x="592" y="517" width="102" height="44" rx="10" fill="#ffffff" stroke="#2976c9" stroke-width="1.5"/>
+<text x="643" y="545.12" font-size="18" font-weight="bold" text-anchor="middle" fill="#2976c9">Norm</text>
+<polyline points="694,539 737,539" fill="none" stroke="#2976c9" stroke-width="2.3" stroke-linejoin="round"/>
+<polygon points="737,539 727.996,543.35 727.996,534.65" fill="#2976c9" stroke="#2976c9" stroke-width="1.5"/>
+<rect x="738" y="517" width="91" height="44" rx="10" fill="#ffffff" stroke="#2976c9" stroke-width="1.5"/>
+<text x="783.5" y="545.12" font-size="18" font-weight="bold" text-anchor="middle" fill="#2976c9">FFN</text>
+<polyline points="829,539 869,539" fill="none" stroke="#2976c9" stroke-width="2.3" stroke-linejoin="round"/>
+<polygon points="869,539 859.996,543.35 859.996,534.65" fill="#2976c9" stroke="#2976c9" stroke-width="1.5"/>
+<ellipse cx="887" cy="539" rx="17" ry="17" fill="#ffffff" stroke="#2976c9" stroke-width="2"/>
+<text x="887" y="545" font-size="20" font-weight="bold" text-anchor="middle" fill="#2976c9">+</text>
+<polyline points="710,539 710,580 887,580 887,557" fill="none" stroke="#2976c9" stroke-width="2.3" stroke-linejoin="round"/>
+<polygon points="887,557 891.35,566.004 882.65,566.004" fill="#2976c9" stroke="#2976c9" stroke-width="1.5"/>
+<polyline points="905,539 949,539" fill="none" stroke="#2976c9" stroke-width="2.3" stroke-linejoin="round"/>
+<polygon points="949,539 939.996,543.35 939.996,534.65" fill="#2976c9" stroke="#2976c9" stroke-width="1.5"/>
+<rect x="950" y="517" width="102" height="44" rx="10" fill="#ffffff" stroke="#2976c9" stroke-width="1.5"/>
+<text x="1001" y="545.12" font-size="18" font-weight="bold" text-anchor="middle" fill="#2976c9">Norm</text>
+<polyline points="1052,539 1126,539" fill="none" stroke="#2976c9" stroke-width="2.3" stroke-linejoin="round"/>
+<polygon points="1126,539 1117,543.35 1117,534.65" fill="#2976c9" stroke="#2976c9" stroke-width="1.5"/>
+<text x="47" y="644" font-size="17" font-weight="bold" text-anchor="start" fill="#8057ad">Released cross-attention</text>
+<rect x="365" y="613" width="111" height="44" rx="10" fill="#ffffff" stroke="#8057ad" stroke-width="1.5"/>
+<text x="420.5" y="641.12" font-size="18" font-weight="bold" text-anchor="middle" fill="#8057ad">Read</text>
+<polyline points="477,635 515,635" fill="none" stroke="#8057ad" stroke-width="2.3" stroke-linejoin="round"/>
+<polygon points="515,635 505.996,639.35 505.996,630.65" fill="#8057ad" stroke="#8057ad" stroke-width="1.5"/>
+<text x="535" y="607" font-size="16" font-weight="bold" text-anchor="middle" fill="#8057ad">no +q</text>
+<polyline points="552,635 591,635" fill="none" stroke="#8057ad" stroke-width="2.3" stroke-linejoin="round"/>
+<polygon points="591,635 581.996,639.35 581.996,630.65" fill="#8057ad" stroke="#8057ad" stroke-width="1.5"/>
+<rect x="592" y="613" width="102" height="44" rx="10" fill="#ffffff" stroke="#8057ad" stroke-width="1.5"/>
+<text x="643" y="641.12" font-size="18" font-weight="bold" text-anchor="middle" fill="#8057ad">Norm</text>
+<polyline points="694,635 737,635" fill="none" stroke="#8057ad" stroke-width="2.3" stroke-linejoin="round"/>
+<polygon points="737,635 727.996,639.35 727.996,630.65" fill="#8057ad" stroke="#8057ad" stroke-width="1.5"/>
+<rect x="738" y="613" width="91" height="44" rx="10" fill="#ffffff" stroke="#8057ad" stroke-width="1.5"/>
+<text x="783.5" y="641.12" font-size="18" font-weight="bold" text-anchor="middle" fill="#8057ad">FFN</text>
+<polyline points="829,635 869,635" fill="none" stroke="#8057ad" stroke-width="2.3" stroke-linejoin="round"/>
+<polygon points="869,635 859.996,639.35 859.996,630.65" fill="#8057ad" stroke="#8057ad" stroke-width="1.5"/>
+<ellipse cx="887" cy="635" rx="17" ry="17" fill="#ffffff" stroke="#8057ad" stroke-width="2"/>
+<text x="887" y="641" font-size="20" font-weight="bold" text-anchor="middle" fill="#8057ad">+</text>
+<polyline points="710,635 710,676 887,676 887,653" fill="none" stroke="#8057ad" stroke-width="2.3" stroke-linejoin="round"/>
+<polygon points="887,653 891.35,662.004 882.65,662.004" fill="#8057ad" stroke="#8057ad" stroke-width="1.5"/>
+<polyline points="905,635 949,635" fill="none" stroke="#8057ad" stroke-width="2.3" stroke-linejoin="round"/>
+<polygon points="949,635 939.996,639.35 939.996,630.65" fill="#8057ad" stroke="#8057ad" stroke-width="1.5"/>
+<rect x="950" y="613" width="102" height="44" rx="10" fill="#ffffff" stroke="#8057ad" stroke-width="1.5"/>
+<text x="1001" y="641.12" font-size="18" font-weight="bold" text-anchor="middle" fill="#8057ad">Norm</text>
+<polyline points="1052,635 1126,635" fill="none" stroke="#8057ad" stroke-width="2.3" stroke-linejoin="round"/>
+<polygon points="1126,635 1117,639.35 1117,630.65" fill="#8057ad" stroke="#8057ad" stroke-width="1.5"/>
+<polyline points="44,720 1155,720" fill="none" stroke="#d4dee8" stroke-width="1" stroke-linejoin="round"/>
+<text x="44" y="743" font-size="13" font-weight="normal" text-anchor="start" fill="#586b80">Illustrative values · untrained</text>
+<text x="1154" y="743" font-size="13" font-weight="normal" text-anchor="end" fill="#586b80">Local source: model.py   ·   scene-attention</text>
 </g></svg>

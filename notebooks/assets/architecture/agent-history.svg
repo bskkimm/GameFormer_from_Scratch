@@ -1,29 +1,150 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="620" viewBox="0 0 1100 620">
-<rect width="1100" height="620" fill="#f5f7fb"/>
-<g font-family="DejaVu Sans" fill="#172336">
-<text x="32" y="43" font-size="25" font-weight="bold" fill="#172336">History becomes an actor token</text>
-<text x="33" y="74" font-size="14" font-weight="normal" fill="#172336">Full: eight numeric inputs -&gt; two LSTM layers -&gt; D256, plus a type embedding.</text>
-<rect x="32" y="128" width="336" height="362" rx="12" fill="#e7eefb" stroke="#2c518c" stroke-width="1.5"/>
-<text x="49" y="164" font-size="17" font-weight="bold" fill="#2c518c">Toy one-channel memory</text>
-<text x="49" y="207" font-size="15" font-weight="normal" fill="#172336">Previous cell c = 1.0</text>
-<text x="49" y="244" font-size="15" font-weight="normal" fill="#172336">Forget gate f = 0.8</text>
-<text x="49" y="281" font-size="15" font-weight="normal" fill="#172336">Input gate i = 0.5</text>
-<text x="49" y="318" font-size="15" font-weight="normal" fill="#172336">Candidate g = 0.4</text>
-<rect x="397" y="128" width="336" height="362" rx="12" fill="#fff0d8" stroke="#805100" stroke-width="1.5"/>
-<text x="414" y="164" font-size="17" font-weight="bold" fill="#805100">LSTM gate arithmetic</text>
-<text x="414" y="207" font-size="15" font-weight="normal" fill="#172336">c_new = f*c + i*g</text>
-<text x="414" y="244" font-size="15" font-weight="normal" fill="#172336">c_new = 0.8 + 0.2 = 1.0</text>
-<text x="414" y="281" font-size="15" font-weight="normal" fill="#172336">Output gate o = 0.5</text>
-<text x="414" y="318" font-size="15" font-weight="normal" fill="#172336">h = o*tanh(c_new)</text>
-<rect x="762" y="128" width="336" height="362" rx="12" fill="#e1f4e9" stroke="#24633e" stroke-width="1.5"/>
-<text x="779" y="164" font-size="17" font-weight="bold" fill="#24633e">Current token</text>
-<text x="779" y="207" font-size="15" font-weight="normal" fill="#172336">h = 0.3808</text>
-<text x="779" y="244" font-size="15" font-weight="normal" fill="#172336">Toy type embedding = 0.1</text>
-<text x="779" y="281" font-size="15" font-weight="normal" fill="#172336">h + type = 0.4808</text>
-<text x="779" y="318" font-size="15" font-weight="normal" fill="#172336">Focal/background LSTMs differ</text>
-<path d="M371 310 H388 M381 304 L389 310 L381 316" stroke="#536783" stroke-width="2.5" fill="none"/>
-<path d="M736 310 H753 M746 304 L754 310 L746 316" stroke="#536783" stroke-width="2.5" fill="none"/>
-<text x="33" y="528" font-size="14" font-weight="normal" fill="#172336">Blue: inputs   |   Amber: operation   |   Green: result / interpretation</text>
-<text x="33" y="558" font-size="14" font-weight="normal" fill="#172336">Worked toy values explain the computation; they are not trained-model measurements.</text>
-<text x="33" y="588" font-size="12" font-weight="normal" fill="#172336">Source: gameformer/model.py  |  Figure: agent-history</text>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="760" viewBox="0 0 1200 760">
+<rect width="1200" height="760" fill="#f8fafc"/>
+<g font-family="DejaVu Sans">
+<text x="43" y="49" font-size="29" font-weight="bold" text-anchor="start" fill="#172b45">History becomes an actor token</text>
+<text x="44" y="82" font-size="16" font-weight="normal" text-anchor="start" fill="#586b80">Full: eight numeric inputs -&gt; two LSTM layers -&gt; D256, plus a type embedding.</text>
+<polyline points="44,103 1155,103" fill="none" stroke="#d4dee8" stroke-width="1" stroke-linejoin="round"/>
+<ellipse cx="56" cy="136" rx="13" ry="13" fill="#2976c9" stroke="#2976c9" stroke-width="2"/>
+<text x="56" y="142" font-size="15" font-weight="bold" text-anchor="middle" fill="#ffffff">1</text>
+<text x="79" y="143" font-size="20" font-weight="bold" text-anchor="start" fill="#172b45">Unroll observed motion through time</text>
+<rect x="100" y="193" width="110" height="44" rx="10" fill="#ffffff" stroke="#2976c9" stroke-width="1.5"/>
+<text x="155" y="221.12" font-size="18" font-weight="bold" text-anchor="middle" fill="#2976c9">LSTM 1</text>
+<rect x="100" y="270" width="110" height="44" rx="10" fill="#ffffff" stroke="#008b87" stroke-width="1.5"/>
+<text x="155" y="298.12" font-size="18" font-weight="bold" text-anchor="middle" fill="#008b87">LSTM 2</text>
+<polyline points="155,237 155,270" fill="none" stroke="#2976c9" stroke-width="2.3" stroke-linejoin="round"/>
+<polygon points="155,270 150.65,260.996 159.35,260.996" fill="#2976c9" stroke="#2976c9" stroke-width="1.5"/>
+<text x="155" y="359" font-size="18" font-weight="normal" text-anchor="middle" fill="#586b80">t = −10</text>
+<polyline points="155,175 155,193" fill="none" stroke="#586b80" stroke-width="2.3" stroke-linejoin="round"/>
+<polygon points="155,193 150.65,183.996 159.35,183.996" fill="#586b80" stroke="#586b80" stroke-width="1.5"/>
+<text x="155" y="166" font-size="16" font-weight="normal" text-anchor="middle" fill="#586b80">x_t</text>
+<rect x="280" y="193" width="110" height="44" rx="10" fill="#ffffff" stroke="#2976c9" stroke-width="1.5"/>
+<text x="335" y="221.12" font-size="18" font-weight="bold" text-anchor="middle" fill="#2976c9">LSTM 1</text>
+<rect x="280" y="270" width="110" height="44" rx="10" fill="#ffffff" stroke="#008b87" stroke-width="1.5"/>
+<text x="335" y="298.12" font-size="18" font-weight="bold" text-anchor="middle" fill="#008b87">LSTM 2</text>
+<polyline points="335,237 335,270" fill="none" stroke="#2976c9" stroke-width="2.3" stroke-linejoin="round"/>
+<polygon points="335,270 330.65,260.996 339.35,260.996" fill="#2976c9" stroke="#2976c9" stroke-width="1.5"/>
+<text x="335" y="359" font-size="18" font-weight="normal" text-anchor="middle" fill="#586b80">t = −9</text>
+<polyline points="335,175 335,193" fill="none" stroke="#586b80" stroke-width="2.3" stroke-linejoin="round"/>
+<polygon points="335,193 330.65,183.996 339.35,183.996" fill="#586b80" stroke="#586b80" stroke-width="1.5"/>
+<text x="335" y="166" font-size="16" font-weight="normal" text-anchor="middle" fill="#586b80">x_t</text>
+<polyline points="210,215 280,215" fill="none" stroke="#2976c9" stroke-width="2.3" stroke-linejoin="round"/>
+<polygon points="280,215 270.996,219.35 270.996,210.65" fill="#2976c9" stroke="#2976c9" stroke-width="1.5"/>
+<polyline points="210,292 280,292" fill="none" stroke="#008b87" stroke-width="2.3" stroke-linejoin="round"/>
+<polygon points="280,292 270.996,296.35 270.996,287.65" fill="#008b87" stroke="#008b87" stroke-width="1.5"/>
+<rect x="460" y="193" width="110" height="44" rx="10" fill="#ffffff" stroke="#2976c9" stroke-width="1.5"/>
+<text x="515" y="221.12" font-size="18" font-weight="bold" text-anchor="middle" fill="#2976c9">LSTM 1</text>
+<rect x="460" y="270" width="110" height="44" rx="10" fill="#ffffff" stroke="#008b87" stroke-width="1.5"/>
+<text x="515" y="298.12" font-size="18" font-weight="bold" text-anchor="middle" fill="#008b87">LSTM 2</text>
+<polyline points="515,237 515,270" fill="none" stroke="#2976c9" stroke-width="2.3" stroke-linejoin="round"/>
+<polygon points="515,270 510.65,260.996 519.35,260.996" fill="#2976c9" stroke="#2976c9" stroke-width="1.5"/>
+<text x="515" y="359" font-size="18" font-weight="normal" text-anchor="middle" fill="#586b80">…</text>
+<polyline points="515,175 515,193" fill="none" stroke="#586b80" stroke-width="2.3" stroke-linejoin="round"/>
+<polygon points="515,193 510.65,183.996 519.35,183.996" fill="#586b80" stroke="#586b80" stroke-width="1.5"/>
+<text x="515" y="166" font-size="16" font-weight="normal" text-anchor="middle" fill="#586b80">x_t</text>
+<polyline points="390,215 460,215" fill="none" stroke="#2976c9" stroke-width="2.3" stroke-linejoin="round"/>
+<polygon points="460,215 450.996,219.35 450.996,210.65" fill="#2976c9" stroke="#2976c9" stroke-width="1.5"/>
+<polyline points="390,292 460,292" fill="none" stroke="#008b87" stroke-width="2.3" stroke-linejoin="round"/>
+<polygon points="460,292 450.996,296.35 450.996,287.65" fill="#008b87" stroke="#008b87" stroke-width="1.5"/>
+<rect x="640" y="193" width="110" height="44" rx="10" fill="#ffffff" stroke="#2976c9" stroke-width="1.5"/>
+<text x="695" y="221.12" font-size="18" font-weight="bold" text-anchor="middle" fill="#2976c9">LSTM 1</text>
+<rect x="640" y="270" width="110" height="44" rx="10" fill="#ffffff" stroke="#008b87" stroke-width="1.5"/>
+<text x="695" y="298.12" font-size="18" font-weight="bold" text-anchor="middle" fill="#008b87">LSTM 2</text>
+<polyline points="695,237 695,270" fill="none" stroke="#2976c9" stroke-width="2.3" stroke-linejoin="round"/>
+<polygon points="695,270 690.65,260.996 699.35,260.996" fill="#2976c9" stroke="#2976c9" stroke-width="1.5"/>
+<text x="695" y="359" font-size="18" font-weight="normal" text-anchor="middle" fill="#586b80">t = 0</text>
+<polyline points="695,175 695,193" fill="none" stroke="#586b80" stroke-width="2.3" stroke-linejoin="round"/>
+<polygon points="695,193 690.65,183.996 699.35,183.996" fill="#586b80" stroke="#586b80" stroke-width="1.5"/>
+<text x="695" y="166" font-size="16" font-weight="normal" text-anchor="middle" fill="#586b80">x_t</text>
+<polyline points="570,215 640,215" fill="none" stroke="#2976c9" stroke-width="2.3" stroke-linejoin="round"/>
+<polygon points="640,215 630.996,219.35 630.996,210.65" fill="#2976c9" stroke="#2976c9" stroke-width="1.5"/>
+<polyline points="570,292 640,292" fill="none" stroke="#008b87" stroke-width="2.3" stroke-linejoin="round"/>
+<polygon points="640,292 630.996,296.35 630.996,287.65" fill="#008b87" stroke="#008b87" stroke-width="1.5"/>
+<polyline points="750,292 813,292" fill="none" stroke="#008b87" stroke-width="2.3" stroke-linejoin="round"/>
+<polygon points="813,292 803.996,296.35 803.996,287.65" fill="#008b87" stroke="#008b87" stroke-width="1.5"/>
+<ellipse cx="839" cy="292" rx="17" ry="17" fill="#ffffff" stroke="#8057ad" stroke-width="2"/>
+<text x="839" y="298" font-size="20" font-weight="bold" text-anchor="middle" fill="#8057ad">+</text>
+<rect x="774" y="181" width="132" height="54" rx="10" fill="#ffffff" stroke="#8057ad" stroke-width="1.5"/>
+<text x="840" y="213.44" font-size="16" font-weight="bold" text-anchor="middle" fill="#8057ad">Type lookup</text>
+<polyline points="839,235 839,274" fill="none" stroke="#8057ad" stroke-width="2.3" stroke-linejoin="round"/>
+<polygon points="839,274 834.65,264.996 843.35,264.996" fill="#8057ad" stroke="#8057ad" stroke-width="1.5"/>
+<polyline points="857,292 930,292" fill="none" stroke="#8057ad" stroke-width="2.3" stroke-linejoin="round"/>
+<polygon points="930,292 920.996,296.35 920.996,287.65" fill="#8057ad" stroke="#8057ad" stroke-width="1.5"/>
+<rect x="965" y="261" width="70" height="32" rx="3" fill="#ffffff" stroke="#8057ad" stroke-width="1.5"/>
+<polyline points="975,270 975,284" fill="none" stroke="#8057ad" stroke-width="2" stroke-linejoin="round"/>
+<polyline points="985,270 985,284" fill="none" stroke="#8057ad" stroke-width="2" stroke-linejoin="round"/>
+<polyline points="995,270 995,284" fill="none" stroke="#8057ad" stroke-width="2" stroke-linejoin="round"/>
+<polyline points="1005,270 1005,284" fill="none" stroke="#8057ad" stroke-width="2" stroke-linejoin="round"/>
+<polyline points="1015,270 1015,284" fill="none" stroke="#8057ad" stroke-width="2" stroke-linejoin="round"/>
+<rect x="960" y="266" width="70" height="32" rx="3" fill="#ffffff" stroke="#8057ad" stroke-width="1.5"/>
+<polyline points="970,275 970,289" fill="none" stroke="#8057ad" stroke-width="2" stroke-linejoin="round"/>
+<polyline points="980,275 980,289" fill="none" stroke="#8057ad" stroke-width="2" stroke-linejoin="round"/>
+<polyline points="990,275 990,289" fill="none" stroke="#8057ad" stroke-width="2" stroke-linejoin="round"/>
+<polyline points="1000,275 1000,289" fill="none" stroke="#8057ad" stroke-width="2" stroke-linejoin="round"/>
+<polyline points="1010,275 1010,289" fill="none" stroke="#8057ad" stroke-width="2" stroke-linejoin="round"/>
+<rect x="955" y="271" width="70" height="32" rx="3" fill="#ffffff" stroke="#8057ad" stroke-width="1.5"/>
+<polyline points="965,280 965,294" fill="none" stroke="#8057ad" stroke-width="2" stroke-linejoin="round"/>
+<polyline points="975,280 975,294" fill="none" stroke="#8057ad" stroke-width="2" stroke-linejoin="round"/>
+<polyline points="985,280 985,294" fill="none" stroke="#8057ad" stroke-width="2" stroke-linejoin="round"/>
+<polyline points="995,280 995,294" fill="none" stroke="#8057ad" stroke-width="2" stroke-linejoin="round"/>
+<polyline points="1005,280 1005,294" fill="none" stroke="#8057ad" stroke-width="2" stroke-linejoin="round"/>
+<rect x="950" y="276" width="70" height="32" rx="3" fill="#ffffff" stroke="#8057ad" stroke-width="1.5"/>
+<polyline points="960,285 960,299" fill="none" stroke="#8057ad" stroke-width="2" stroke-linejoin="round"/>
+<polyline points="970,285 970,299" fill="none" stroke="#8057ad" stroke-width="2" stroke-linejoin="round"/>
+<polyline points="980,285 980,299" fill="none" stroke="#8057ad" stroke-width="2" stroke-linejoin="round"/>
+<polyline points="990,285 990,299" fill="none" stroke="#8057ad" stroke-width="2" stroke-linejoin="round"/>
+<polyline points="1000,285 1000,299" fill="none" stroke="#8057ad" stroke-width="2" stroke-linejoin="round"/>
+<text x="992" y="358" font-size="18" font-weight="bold" text-anchor="middle" fill="#8057ad">Actor token · D = 256</text>
+<polyline points="45,391 1154,391" fill="none" stroke="#d4dee8" stroke-width="1" stroke-linejoin="round"/>
+<ellipse cx="56" cy="425" rx="13" ry="13" fill="#2976c9" stroke="#2976c9" stroke-width="2"/>
+<text x="56" y="431" font-size="15" font-weight="bold" text-anchor="middle" fill="#ffffff">2</text>
+<text x="79" y="432" font-size="20" font-weight="bold" text-anchor="start" fill="#172b45">Inside one scalar LSTM memory cell</text>
+<text x="65" y="494" font-size="19" font-weight="bold" text-anchor="start" fill="#2976c9">c_prev = 1.0</text>
+<polyline points="206,487 295,487" fill="none" stroke="#2976c9" stroke-width="2.3" stroke-linejoin="round"/>
+<polygon points="295,487 285.996,491.35 285.996,482.65" fill="#2976c9" stroke="#2976c9" stroke-width="1.5"/>
+<ellipse cx="319" cy="487" rx="17" ry="17" fill="#ffffff" stroke="#2976c9" stroke-width="2"/>
+<text x="319" y="493" font-size="20" font-weight="bold" text-anchor="middle" fill="#2976c9">×</text>
+<rect x="259" y="538" width="120" height="42" rx="10" fill="#ffffff" stroke="#2976c9" stroke-width="1.5"/>
+<text x="319" y="565.12" font-size="18" font-weight="bold" text-anchor="middle" fill="#2976c9">f = 0.8</text>
+<polyline points="319,538 319,505" fill="none" stroke="#2976c9" stroke-width="2.3" stroke-linejoin="round"/>
+<polygon points="319,505 323.35,514.004 314.65,514.004" fill="#2976c9" stroke="#2976c9" stroke-width="1.5"/>
+<polyline points="337,487 442,487" fill="none" stroke="#2976c9" stroke-width="2.3" stroke-linejoin="round"/>
+<polygon points="442,487 432.996,491.35 432.996,482.65" fill="#2976c9" stroke="#2976c9" stroke-width="1.5"/>
+<text x="387" y="470" font-size="17" font-weight="normal" text-anchor="start" fill="#2976c9">0.8</text>
+<ellipse cx="460" cy="487" rx="17" ry="17" fill="#ffffff" stroke="#172b45" stroke-width="2"/>
+<text x="460" y="493" font-size="20" font-weight="bold" text-anchor="middle" fill="#172b45">+</text>
+<rect x="389" y="611" width="130" height="40" rx="10" fill="#ffffff" stroke="#008b87" stroke-width="1.5"/>
+<text x="454" y="637.12" font-size="18" font-weight="bold" text-anchor="middle" fill="#008b87">i = 0.5</text>
+<rect x="568" y="611" width="130" height="40" rx="10" fill="#ffffff" stroke="#d98524" stroke-width="1.5"/>
+<text x="633" y="637.12" font-size="18" font-weight="bold" text-anchor="middle" fill="#d98524">g = 0.4</text>
+<ellipse cx="543" cy="558" rx="17" ry="17" fill="#ffffff" stroke="#008b87" stroke-width="2"/>
+<text x="543" y="564" font-size="20" font-weight="bold" text-anchor="middle" fill="#008b87">×</text>
+<polyline points="454,611 454,558 525,558" fill="none" stroke="#008b87" stroke-width="2.3" stroke-linejoin="round"/>
+<polygon points="525,558 515.996,562.35 515.996,553.65" fill="#008b87" stroke="#008b87" stroke-width="1.5"/>
+<polyline points="633,611 633,558 561,558" fill="none" stroke="#d98524" stroke-width="2.3" stroke-linejoin="round"/>
+<polygon points="561,558 570.004,553.65 570.004,562.35" fill="#d98524" stroke="#d98524" stroke-width="1.5"/>
+<polyline points="543,540 543,521 460,521 460,505" fill="none" stroke="#008b87" stroke-width="2.3" stroke-linejoin="round"/>
+<polygon points="460,505 464.35,514.004 455.65,514.004" fill="#008b87" stroke="#008b87" stroke-width="1.5"/>
+<text x="572" y="538" font-size="17" font-weight="normal" text-anchor="start" fill="#008b87">0.2</text>
+<polyline points="478,487 674,487" fill="none" stroke="#172b45" stroke-width="2.3" stroke-linejoin="round"/>
+<polygon points="674,487 664.996,491.35 664.996,482.65" fill="#172b45" stroke="#172b45" stroke-width="1.5"/>
+<text x="570" y="470" font-size="19" font-weight="bold" text-anchor="middle" fill="#172b45">c_new = 1.0</text>
+<rect x="674" y="465" width="108" height="44" rx="10" fill="#ffffff" stroke="#8057ad" stroke-width="1.5"/>
+<text x="728" y="493.12" font-size="18" font-weight="bold" text-anchor="middle" fill="#8057ad">tanh</text>
+<polyline points="782,487 860,487" fill="none" stroke="#8057ad" stroke-width="2.3" stroke-linejoin="round"/>
+<polygon points="860,487 850.996,491.35 850.996,482.65" fill="#8057ad" stroke="#8057ad" stroke-width="1.5"/>
+<ellipse cx="878" cy="487" rx="17" ry="17" fill="#ffffff" stroke="#8057ad" stroke-width="2"/>
+<text x="878" y="493" font-size="20" font-weight="bold" text-anchor="middle" fill="#8057ad">×</text>
+<rect x="818" y="551" width="120" height="42" rx="10" fill="#ffffff" stroke="#8057ad" stroke-width="1.5"/>
+<text x="878" y="578.12" font-size="18" font-weight="bold" text-anchor="middle" fill="#8057ad">o = 0.5</text>
+<polyline points="878,551 878,505" fill="none" stroke="#8057ad" stroke-width="2.3" stroke-linejoin="round"/>
+<polygon points="878,505 882.35,514.004 873.65,514.004" fill="#8057ad" stroke="#8057ad" stroke-width="1.5"/>
+<polyline points="896,487 964,487" fill="none" stroke="#8057ad" stroke-width="2.3" stroke-linejoin="round"/>
+<polygon points="964,487 954.996,491.35 954.996,482.65" fill="#8057ad" stroke="#8057ad" stroke-width="1.5"/>
+<text x="975" y="494" font-size="20" font-weight="bold" text-anchor="start" fill="#8057ad">h = 0.3808</text>
+<text x="981" y="547" font-size="18" font-weight="normal" text-anchor="start" fill="#586b80">+ type 0.1</text>
+<text x="981" y="580" font-size="20" font-weight="bold" text-anchor="start" fill="#8057ad">= 0.4808</text>
+<text x="67" y="686" font-size="17" font-weight="normal" text-anchor="start" fill="#586b80">Toy arithmetic uses one channel. Focal and background actors have separate two-layer LSTMs.</text>
+<polyline points="44,720 1155,720" fill="none" stroke="#d4dee8" stroke-width="1" stroke-linejoin="round"/>
+<text x="44" y="743" font-size="13" font-weight="normal" text-anchor="start" fill="#586b80">Illustrative values · untrained</text>
+<text x="1154" y="743" font-size="13" font-weight="normal" text-anchor="end" fill="#586b80">Local source: model.py   ·   agent-history</text>
 </g></svg>
